@@ -1,13 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>All Plants</title>
-</head>
+{% block content %}
 
-<body>
 	{% for plant in all_plants %}
         {{ plant.plant_name }}<br>
         {{ plant.best_environment }}<br>
@@ -17,6 +11,5 @@
         {{ plant.maintenance_level }}<br>
         {{ plant.posted_by }}<br>
     {% endfor %}
-</body>
 
-</html>
+{% endblock %}

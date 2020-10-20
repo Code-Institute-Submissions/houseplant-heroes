@@ -3,7 +3,7 @@
 
 <div class="form-container valign-wrapper center-align">
   <div class="row">
-    <form class="col s12" method="POST" action="{{ url_for('join') }}">
+    <form class="col s12" method="POST" action="{{ url_for('login') }}">
       <div class="row">
         <!-- username -->
         <div class="input-field col">
@@ -25,17 +25,6 @@
           />
           <label for="password" class="white-text text-shadow">Password</label>
         </div>
-        <div class="input-field col">
-          <input
-            id="confirm_password"
-            name="confirm_password"
-            type="password"
-            class="validate white-text text-shadow"
-          />
-          <label for="confirm_password" class="white-text text-shadow"
-            >Confirm Password</label
-          >
-        </div>
       </div>
       <!-- submit -->
 
@@ -44,12 +33,14 @@
           type="submit"
           class="col s2 btn offset-m5 grey white-text text-shadow"
         >
-          Join
+          Login
         </button>
       </div>
     </form>
     <div class="row">
-    <p class="white-text text-shadow">Already have an account? Login <a href="{{ url_for('login') }}" class="">here</a></p>
+      <p class="white-text text-shadow">
+        New? Join <a href="{{ url_for('join') }}" class="">here</a>
+      </p>
     </div>
   </div>
 </div>

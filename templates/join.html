@@ -1,36 +1,52 @@
 {% extends "base.html" %} {% block hero_img %}
 <h1 class="white-text text-shadow">Join</h1>
-<div class="row">
-  <form class="col s12">
-    <div class="row">
-      <div class="input-field col s6">
-        <input
-          placeholder="Placeholder"
-          id="first_name"
-          type="text"
-          class="validate"
-        />
-        <label for="first_name">Username</label>
-      </div>
-      <div class="input-field col s6">
-        <input id="last_name" type="text" class="validate" />
-        <label for="last_name">Last Name</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="password" type="password" class="validate" />
-        <label for="password">Password</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="email" type="email" class="validate" />
-        <label for="email">Email</label>
-      </div>
-    </div>
-  </form>
-</div>
-{% endblock %} {% block content %}
 
-{% endblock %}
+<div class="form-container valign-wrapper center-align">
+  <div class="row">
+    <form
+      class="col s12"
+      method="POST"
+      action="{{ url_for('join') }}"
+    >
+      <div class="row">
+        <!-- username -->
+        <div class="input-field col">
+          <input id="username" name="username" type="text" class="validate" />
+          <label for="username" class="white-text text-shadow">Username</label>
+        </div>
+        <!-- passwords -->
+        <div class="input-field col">
+          <input
+            id="password"
+            name="password"
+            type="password"
+            class="validate"
+          />
+          <label for="password" class="white-text text-shadow">Password</label>
+        </div>
+        <div class="input-field col">
+          <input
+            id="confirm-password"
+            name="confirm-password"
+            type="password"
+            class="validate"
+          />
+          <label for="confirm-password" class="white-text text-shadow"
+            >Confirm Password</label
+          >
+        </div>
+      </div>
+      <!-- submit -->
+
+      <div class="row">
+        <button
+          type="submit"
+          class="col s2 btn offset-m5 grey white-text text-shadow"
+        >
+          Join
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %} {% block content %} {% endblock %}

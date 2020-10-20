@@ -19,7 +19,9 @@ a.brand-logo.black-text.left {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
 }
+
 /*-------- text --------*/
 .text-shadow {
   text-shadow: 1px 1px 1px rgb(66, 66, 66, 0.5);
@@ -28,4 +30,12 @@ a.brand-logo.black-text.left {
 body > div.background-container > h1 {
   margin: 0;
   padding-top: 10px;
+}
+
+.join-text {
+  font-size: large;
+}
+
+.form-container {
+  height: 50vh;
 }

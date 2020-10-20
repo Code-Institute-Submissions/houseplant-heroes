@@ -44,7 +44,7 @@
                 >Plants</a
               >
             </li>
-            <li><a href="#" class="black-text">Login</a></li>
+            <li><a href="{{ url_for('login') }}" class="black-text">Login</a></li>
             <li><a href="{{ url_for('join') }}" class="black-text">Join</a></li>
           </ul>
         </div>
@@ -59,8 +59,8 @@
         <li>
           <a href="{{ url_for('all_plants') }}" class="black-text">Plants</a>
         </li>
-        <li><a href="{{ url_for('join') }}" class="black-text">Login</a></li>
-        <li><a href="#" class="black-text">Join</a></li>
+        <li><a href="{{ url_for('login') }}" class="black-text">Login</a></li>
+        <li><a href="{{ url_for('join') }}" class="black-text">Join</a></li>
       </ul>
     </header>
 

@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block hero_img %}
-<h1 class="white-text text-shadow">Join</h1>
+<h1 class="white-text text-shadow">Login</h1>
 
 <div class="form-container valign-wrapper center-align">
   <div class="row">
@@ -39,7 +39,10 @@
     </form>
     <div class="row">
       <p class="white-text text-shadow">
-        New? Join <a href="{{ url_for('join') }}" class="">here</a>
+        New? Join
+        <a href="{{ url_for('join') }}" class="white-text text-shadow"
+          ><i>here</i></a
+        >
       </p>
     </div>
   </div>

@@ -39,12 +39,12 @@
           <ul class="right hide-on-med-and-down black-text">
             <li><a href="{{ url_for('home') }}" class="black-text">Home</a></li>
             <li>
-              <a href="{{ url_for('get_all_plants') }}" class="black-text"
+              <a href="{{ url_for('all_plants') }}" class="black-text"
                 >Plants</a
               >
             </li>
             <li><a href="#" class="black-text">Login</a></li>
-            <li><a href="#" class="black-text">Join</a></li>
+            <li><a href="{{ url_for('join') }}" class="black-text">Join</a></li>
           </ul>
         </div>
       </nav>
@@ -56,24 +56,17 @@
         </li>
         <li><a href="{{ url_for('home') }}" class="black-text">Home</a></li>
         <li>
-          <a href="{{ url_for('get_all_plants') }}" class="black-text"
-            >Plants</a
-          >
+          <a href="{{ url_for('all_plants') }}" class="black-text">Plants</a>
         </li>
-        <li><a href="#" class="black-text">Login</a></li>
+        <li><a href="{{ url_for('join') }}" class="black-text">Login</a></li>
         <li><a href="#" class="black-text">Join</a></li>
       </ul>
     </header>
 
-    <!-- parallax hero-image -->
-    <div class="parallax-container center-align">
-      <div class="parallax">
-        <img src="{{ url_for('static', filename='images/hero-img.png') }}" />
-        <div class="parallax-div">
-          {% block hero_img %} {% endblock %}
-        </div>
-      </div>
-    </div>
+    <!-- hero-image -->
+
+    <div class="background-container center-align">{% block hero_img %}{% endblock %}</div>
+
     {% block content %} {% endblock %}
 
     <script

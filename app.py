@@ -23,10 +23,15 @@ def home():
     return render_template("home.html")
 
 
-@app.route("/get_all_plants")
-def get_all_plants():
+@app.route("/all_plants")
+def all_plants():
     all_plants = mongo.db.all_plants.find()
     return render_template("all_plants.html", all_plants=all_plants)
+
+
+@app.route("/join")
+def join():
+    return render_template("join.html")
 
 
 if __name__ == "__main__":

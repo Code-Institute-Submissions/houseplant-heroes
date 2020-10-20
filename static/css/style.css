@@ -11,16 +11,21 @@ a.brand-logo.black-text.left {
   padding-left: 20px;
 }
 
-/*-------- parralax hero image --------*/
-.parallax-container {
-  width: 100%;
+/*-------- hero image --------*/
+.background-container {
+  background-image: url("../../static/images/hero-img.png");
+  height: 80vh;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-
-.parallax-div {
-  position: relative;
-}
-
 /*-------- text --------*/
 .text-shadow {
   text-shadow: 1px 1px 1px rgb(66, 66, 66, 0.5);
+}
+
+body > div.background-container > h1 {
+  margin: 0;
+  padding-top: 10px;
 }

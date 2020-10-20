@@ -6,6 +6,21 @@ body {
   letter-spacing: 2;
 }
 
+/*-------- navbars --------*/
 a.brand-logo.black-text.left {
-    padding-left: 20px;
+  padding-left: 20px;
+}
+
+/*-------- parralax hero image --------*/
+.parallax-container {
+  width: 100%;
+}
+
+.parallax-div {
+  position: relative;
+}
+
+/*-------- text --------*/
+.text-shadow {
+  text-shadow: 1px 1px 1px rgb(66, 66, 66, 0.5);
 }

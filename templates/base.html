@@ -26,11 +26,12 @@
 
   <body>
     <header>
-    
       <!-- top navbar -->
       <nav class="nav-extended white">
         <div class="nav-wrapper">
-          <a href="{{ url_for('home') }}" class="brand-logo black-text left">Houseplant Heroes</a>
+          <a href="{{ url_for('home') }}" class="brand-logo black-text left"
+            >Houseplant Heroes</a
+          >
           <a
             href="{{ url_for('home') }}"
             data-target="mobile-demo"
@@ -44,7 +45,9 @@
                 >Plants</a
               >
             </li>
-            <li><a href="{{ url_for('login') }}" class="black-text">Login</a></li>
+            <li>
+              <a href="{{ url_for('login') }}" class="black-text">Login</a>
+            </li>
             <li><a href="{{ url_for('join') }}" class="black-text">Join</a></li>
           </ul>
         </div>
@@ -64,21 +67,23 @@
       </ul>
     </header>
 
-<section>
-        <!-- flash messages -->
-        {% with messages = get_flashed_messages() %}
-            {% if messages %}
-                {% for message in messages %}
-                    <div class="row flashes">
-                        <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
+    <section>
+      <!-- flash messages -->
+      {% with messages = get_flashed_messages() %} {% if messages %} {% for
+      message in messages %}
+      <div class="row flashes">
+        <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
+      </div>
+      {% endfor %} {% endif %} {% endwith %}
     </section>
-    <!-- hero-image -->
 
-    <div class="background-container center-align">{% block hero_img %}{% endblock %}</div>
+    <!-- hero-image -->
+    <div class="background-container center-align">
+      <h2 class="white-text text-shadow page-heading">
+        {% block heading %}{% endblock %}
+      </h2>
+      {% block hero_img_content %}{% endblock %}
+    </div>
 
     {% block content %} {% endblock %}
 

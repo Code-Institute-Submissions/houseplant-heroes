@@ -1,5 +1,5 @@
-{% extends "base.html" %} {% block hero_img %}
-<h1 class="white-text text-shadow">Join</h1>
+{% extends "base.html" %}{% block heading %}Join{% endblock %} {% block hero_img_content
+%}
 
 <div class="form-container valign-wrapper center-align">
   <div class="row">
@@ -13,7 +13,12 @@
             type="text"
             class="validate white-text text-shadow"
           />
-          <label for="username" class="white-text text-shadow">Username</label>
+          <label
+            for="username"
+            id="username_label"
+            class="white-text text-shadow"
+            >Username</label
+          >
         </div>
         <!-- passwords -->
         <div class="input-field col">
@@ -23,7 +28,12 @@
             type="password"
             class="validate white-text text-shadow"
           />
-          <label for="password" class="white-text text-shadow">Password</label>
+          <label
+            for="password"
+            id="password_label"
+            class="white-text text-shadow"
+            >Password</label
+          >
         </div>
         <div class="input-field col">
           <input
@@ -32,7 +42,10 @@
             type="password"
             class="validate white-text text-shadow"
           />
-          <label for="confirm_password" class="white-text text-shadow"
+          <label
+            for="confirm_password"
+            id="confirm_password_label"
+            class="white-text text-shadow"
             >Confirm Password</label
           >
         </div>

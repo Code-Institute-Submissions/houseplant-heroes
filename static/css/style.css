@@ -32,10 +32,19 @@ body > div.background-container > h1 {
   padding-top: 10px;
 }
 
-.join-text {
-  font-size: large;
-}
-
 .form-container {
   height: 50vh;
+}
+
+#username,
+#password,
+#confirm_password {
+  font-size: large;
+  border-bottom: 2px solid white;
+}
+
+#username_label,
+#password_label,
+#confirm_password_label {
+  font-size: large;
 }

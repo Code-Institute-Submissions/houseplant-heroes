@@ -1,17 +1,10 @@
-{% extends "base.html" %}
-{% block hero_img %}
-<h1 class="white-text text-shadow">Plants</h1>
-{% endblock %}
-{% block content %}
-
-	{% for plant in all_plants %}
-        {{ plant.plant_name }}<br>
-        {{ plant.best_environment }}<br>
-        {{ plant.temperature }}<br>
-        {{ plant.water }}<br>
-        {{ plant.feeding }}<br>
-        {{ plant.maintenance_level }}<br>
-        {{ plant.posted_by }}<br>
-    {% endfor %}
-
-{% endblock %}
+{% extends "base.html" %}{% block heading %}Plants{% endblock %} {% block
+hero_img_content %} {% endblock %} {% block content %} {% for plant in all_plants %} {{
+plant.plant_name }}<br />
+{{ plant.best_environment }}<br />
+{{ plant.temperature }}<br />
+{{ plant.water }}<br />
+{{ plant.feeding }}<br />
+{{ plant.maintenance_level }}<br />
+{{ plant.posted_by }}<br />
+{% endfor %} {% endblock %}

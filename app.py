@@ -125,6 +125,31 @@ def add_plant():
         "add_plant.html", maintenance_level=maintenance_level)
 
 
+@app.route("/edit_plant/<plant_post_id>", methods=["GET", "POST"])
+def edit_plant(plant_post_id):
+    if request.method == "POST":
+        submit = {
+            "plant_name": request.form.get("plant_name"),
+            "plant_description": request.form.get("plant_description"),
+            "plant_image_url": request.form.get("plant_image_url"),
+            "best_environment": request.form.get("best_environment"),
+            "temperature": request.form.get("temperature"),
+            "water": request.form.get("water"),
+            "feeding": request.form.get("feeding"),
+            "maintenance_level": request.form.get("maintenance_level"),
+            "posted_by": session["user"]
+        }
+        mongo.db.plant_posts.update({"_id": ObjectId(plant_post_id)}, submit)
+        flash("post updated")
+
+    plant_post = mongo.db.plant_posts.find_one(
+        {"_id": ObjectId(plant_post_id)})
+    maintenance_level = mongo.db.maintenance_level.find().sort("level_name", 1)
+    return render_template(
+        "edit_plant.html", plant_post=plant_post,
+        maintenance_level=maintenance_level)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

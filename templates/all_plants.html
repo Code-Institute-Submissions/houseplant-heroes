@@ -2,29 +2,33 @@
 hero_img_content %} {% endblock %} {% block content %}
 
 <div class="row">
-  {% for plant in all_plants %}
+  {% for plant_post in all_plants %}
   <div class="col s4">
     <div class="card">
       <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="{{ plant.plant_image_url }}" />
+        <img class="activator" src="{{ plant_post.plant_image_url }}" />
       </div>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4"
-          >{{ plant.plant_name }}
+          >{{ plant_post.plant_name }}
           <i class="fas fa-ellipsis-v right"></i>
         </span>
         <p><a href="#">LINK TO FULL POST</a></p>
-        <a href=""><i class="far fa-edit grey-text small"></i></a>
-        <a href=""><i class="far fa-trash-alt grey-text small"></i></a>
+        <a href="{{ url_for('edit_plant', plant_post_id=plant_post._id) }}"><i class="far fa-edit grey-text small"></i></a>
+        <a href=""
+          ><i class="far fa-trash-alt grey-text small"></i
+        ></a>
       </div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4"
-          >{{ plant.plant_name }}
+          >{{ plant_post.plant_name }}
           <i class="fas fa-times right"></i>
         </span>
-        <p>{{ plant.plant_description }}<br /></p>
-        <p>Maintenance level: <i>{{ plant.maintenance_level }}</i><br /></p>
-        <p>Posted by: <i>{{ plant.posted_by }}</i><br /></p>
+        <p>{{ plant_post.plant_description }}<br /></p>
+        <p>
+          Maintenance level: <i>{{ plant_post.maintenance_level }}</i><br />
+        </p>
+        <p>Posted by: <i>{{ plant_post.posted_by }}</i><br /></p>
       </div>
     </div>
   </div>

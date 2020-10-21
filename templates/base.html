@@ -67,22 +67,21 @@
       </ul>
     </header>
 
-    <section>
-      <!-- flash messages -->
-      {% with messages = get_flashed_messages() %} {% if messages %} {% for
-      message in messages %}
-      <div class="row flashes">
-        <h4 class="light-blue lighten-4 center-align">{{ message }}</h4>
-      </div>
-      {% endfor %} {% endif %} {% endwith %}
-    </section>
-
     <!-- hero-image -->
     <div class="background-container center-align">
-      <h2 class="white-text text-shadow page-heading">
+      <h2 class="white-text text-shadow">
         {% block heading %}{% endblock %}
       </h2>
       {% block hero_img_content %}{% endblock %}
+      <!-- flash messages -->
+      <section>
+        {% with messages = get_flashed_messages() %} {% if messages %} {% for
+        message in messages %}
+        <div class="row flash-messages">
+          <h4 class="white-text text-shadow">{{ message }}</h4>
+        </div>
+        {% endfor %} {% endif %} {% endwith %}
+      </section>
     </div>
 
     {% block content %} {% endblock %}

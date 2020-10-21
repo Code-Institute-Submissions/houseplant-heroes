@@ -3,7 +3,6 @@
 body {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
-  letter-spacing: 2;
 }
 
 /*-------- navbars --------*/
@@ -27,11 +26,10 @@ a.brand-logo.black-text.left {
   text-shadow: 1px 1px 1px rgb(66, 66, 66, 0.5);
 }
 
-.form-container {
-  height: 50vh;
-}
-
 /*-------- forms --------*/
+.form-container {
+  height: 40vh;
+}
 
 #username,
 #password,
@@ -44,4 +42,8 @@ a.brand-logo.black-text.left {
 #password_label,
 #confirm_password_label {
   font-size: large;
+}
+
+.flash-messages {
+  margin: 1rem;
 }

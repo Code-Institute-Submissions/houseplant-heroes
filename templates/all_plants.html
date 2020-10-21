@@ -1,39 +1,33 @@
 {% extends "base.html" %}{% block heading %}Plants{% endblock %} {% block
-hero_img_content %} {% endblock %} {% block content %} {% for plant in
-all_plants %} 
-{{ plant.plant_name }}<br />
-{{ plant.plant_description }}<br />
-{{ plant.plant_image_url }}<br />
-{{ plant.best_environment }}<br />
-{{ plant.temperature }}<br />
-{{ plant.water }}<br />
-{{ plant.feeding }}<br />
-{{ plant.maintenance_level }}<br />
-{{ plant.posted_by }}<br />
-{% endfor %}
+hero_img_content %} {% endblock %} {% block content %}
+
 <div class="row">
+  {% for plant in all_plants %}
   <div class="col s4">
     <div class="card">
       <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="images/office.jpg" />
+        <img class="activator" src="" />
       </div>
       <div class="card-content">
         <span class="card-title activator grey-text text-darken-4"
-          >Card Title<i class="material-icons right">more_vert</i></span
+          >{{ plant.plant_name }}<i class="material-icons right"
+            >more_vert</i
+          ></span
         >
-        <p><a href="#">This is a link</a></p>
+        <p><a href="#">LINK TO FULL POST</a></p>
       </div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4"
-          >Card Title<i class="material-icons right">close</i></span
+          >{{ plant.plant_name }}<i class="material-icons right">close</i></span
         >
         <p>
-          Here is some more information about this product that is only revealed
-          once clicked on.
+          {{ plant.plant_description }}<br />
+          {{ plant.maintenance_level }}<br />
+          Posted by <i>{{ plant.posted_by }}</i><br />
         </p>
       </div>
     </div>
   </div>
+  {% endfor %}
 </div>
-
 {% endblock %}

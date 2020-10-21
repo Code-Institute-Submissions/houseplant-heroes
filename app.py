@@ -25,9 +25,9 @@ def home():
 
 
 @app.route("/all_plants")
-def all_plants():
-    all_plants = mongo.db.all_plants.find()
-    return render_template("all_plants.html", all_plants=all_plants)
+def plant_posts():
+    plant_posts = mongo.db.plant_posts.find()
+    return render_template("all_plants.html", plant_posts=plant_posts)
 
 
 @app.route("/join", methods=["GET", "POST"])
@@ -101,11 +101,6 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
-
-
-@app.route("/add_plant")
-def add_plant():
-    return render_template("add_plant.html")
 
 
 if __name__ == "__main__":

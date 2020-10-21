@@ -13,19 +13,18 @@ hero_img_content %} {% endblock %} {% block content %}
           >{{ plant.plant_name }}
           <i class="fas fa-ellipsis-v right"></i>
         </span>
-
         <p><a href="#">LINK TO FULL POST</a></p>
+        <a href=""><i class="far fa-edit grey-text small"></i></a>
+        <a href=""><i class="far fa-trash-alt grey-text small"></i></a>
       </div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4"
           >{{ plant.plant_name }}
           <i class="fas fa-times right"></i>
         </span>
-        <p>
-          {{ plant.plant_description }}<br />
-          {{ plant.maintenance_level }}<br />
-          Posted by <i>{{ plant.posted_by }}</i><br />
-        </p>
+        <p>{{ plant.plant_description }}<br /></p>
+        <p>Maintenance level: <i>{{ plant.maintenance_level }}</i><br /></p>
+        <p>Posted by: <i>{{ plant.posted_by }}</i><br /></p>
       </div>
     </div>
   </div>

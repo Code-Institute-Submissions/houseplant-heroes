@@ -1,6 +1,7 @@
 {% extends "base.html" %}{% block heading %}Plants{% endblock %} {% block
 hero_img_content %} {% endblock %} {% block content %} {% for plant in
-plant_posts %} {{ plant.plant_name }}<br />
+all_plants %} 
+{{ plant.plant_name }}<br />
 {{ plant.plant_description }}<br />
 {{ plant.plant_image_url }}<br />
 {{ plant.best_environment }}<br />

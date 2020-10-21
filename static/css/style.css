@@ -44,6 +44,13 @@ a.brand-logo.black-text.left {
   font-size: large;
 }
 
+/*-------- add task selector --------*/
+body > div.row > form > div:nth-child(8) > div > div > input {
+  color: #9e9e9e;
+  font-size: 1rem;
+}
+
+/*-------- flash messages --------*/
 .flash-messages {
   margin: 1rem;
 }

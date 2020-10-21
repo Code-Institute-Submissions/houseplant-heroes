@@ -25,9 +25,9 @@ def home():
 
 
 @app.route("/all_plants")
-def plant_posts():
-    plant_posts = mongo.db.plant_posts.find()
-    return render_template("all_plants.html", plant_posts=plant_posts)
+def all_plants():
+    all_plants = mongo.db.plant_posts.find()
+    return render_template("all_plants.html", all_plants=all_plants)
 
 
 @app.route("/join", methods=["GET", "POST"])
@@ -103,8 +103,23 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_plant")
+@app.route("/add_plant", methods=["GET", "POST"])
 def add_plant():
+    if request.method == "POST":
+        plant_post = {
+            "plant_name": request.form.get("plant_name"),
+            "plant_description": request.form.get("plant_description"),
+            "plant_image_url": request.form.get("plant_image_url"),
+            "best_environment": request.form.get("best_environment"),
+            "temperature": request.form.get("temperature"),
+            "water": request.form.get("water"),
+            "feeding": request.form.get("feeding"),
+            "maintenance_level": request.form.get("maintenance_level"),
+            "posted_by": session["user"]
+        }
+        mongo.db.plant_posts.insert_one(plant_post)
+        flash("added")
+        return redirect(url_for("all_plants"))
     maintenance_level = mongo.db.maintenance_level.find().sort("level_name", 1)
     return render_template(
         "add_plant.html", maintenance_level=maintenance_level)

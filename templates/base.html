@@ -41,7 +41,7 @@
           <ul class="right hide-on-med-and-down black-text">
             <li><a href="{{ url_for('home') }}" class="black-text">Home</a></li>
             <li>
-              <a href="{{ url_for('plant_posts') }}" class="black-text"
+              <a href="{{ url_for('all_plants') }}" class="black-text"
                 >Plants</a
               >
             </li>
@@ -75,7 +75,7 @@
         </li>
         <li><a href="{{ url_for('home') }}" class="black-text">Home</a></li>
         <li>
-          <a href="{{ url_for('plant_posts') }}" class="black-text">Plants</a>
+          <a href="{{ url_for('all_plants') }}" class="black-text">Plants</a>
         </li>
         <!-- if user is logged in -->
         {% if session.user %}

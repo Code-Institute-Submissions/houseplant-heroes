@@ -54,7 +54,9 @@
                 >Profile</a
               >
             </li>
-            <li><a href="{{ url_for('logout') }}" class="black-text">Log Out</a></li>
+            <li>
+              <a href="{{ url_for('logout') }}" class="black-text">Log Out</a>
+            </li>
             <!-- if no user is logged in -->
             {% else %}
             <li>
@@ -73,6 +75,11 @@
         </li>
         <li><a href="{{ url_for('home') }}" class="black-text">Home</a></li>
         <li>
+          <a href="{{ url_for('all_plants') }}" class="black-text">Plants</a>
+        </li>
+        <!-- if user is logged in -->
+        {% if session.user %}
+        <li>
           <a
             href="{{ url_for('profile', username=session['user']) }}"
             class="black-text"
@@ -80,10 +87,15 @@
           >
         </li>
         <li>
-          <a href="{{ url_for('all_plants') }}" class="black-text">Plants</a>
+          <a href="{{ url_for('logout') }}" class="black-text">Log Out</a>
         </li>
-        <li><a href="{{ url_for('login') }}" class="black-text">Login</a></li>
+        <!-- if no user is logged in -->
+        {% else %}
+        <li>
+          <a href="{{ url_for('login') }}" class="black-text">Login</a>
+        </li>
         <li><a href="{{ url_for('join') }}" class="black-text">Join</a></li>
+        {% endif %}
       </ul>
     </header>
 

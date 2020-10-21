@@ -1,3 +1,15 @@
 {% extends "base.html" %} {% block heading %}Welcome back {{ username }}{%
-endblock %} {% block hero_img_content %} {% endblock %} {% block content %}{%
-endblock %}
+endblock %} {% block hero_img_content %}
+<h4 class="white-text text-shadow">Add a new plant</h4>
+<a
+  href="{{ url_for('add_plant' )}}"
+  class="btn-floating btn-large waves-effect waves-light grey"
+  ><i class="fas fa-plus white-text"></i
+></a>
+<h4 class="white-text text-shadow">Or view your plants below</h4>
+<a href="#my-plants"><i class="fas fa-chevron-down white-text small"></i></a>
+{% endblock %} {% block content %}
+<section id="my_plants">
+  <h4>My plants</h4>
+</section>
+{%endblock %}

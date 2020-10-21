@@ -105,7 +105,9 @@ def logout():
 
 @app.route("/add_plant")
 def add_plant():
-    return render_template("add_plant.html")
+    maintenance_level = mongo.db.maintenance_level.find().sort("level_name", 1)
+    return render_template(
+        "add_plant.html", maintenance_level=maintenance_level)
 
 
 if __name__ == "__main__":

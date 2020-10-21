@@ -88,7 +88,7 @@ block hero_img_content %} {% endblock %} {% block content %}
       </div>
     </div>
     <!-- maintenance select -->
-    <!-- <div class="row">
+    <div class="row">
       <div class="input-field col s12">
         <select
           id="maintenance_level"
@@ -96,16 +96,16 @@ block hero_img_content %} {% endblock %} {% block content %}
           class="validate"
           required
         >
-          <option value="" disabled selected>Choose Level</option>
+          <option value="" disabled selected>Choose Maintenance Level</option>
           {% for level in maintenance_level %}
-          <option value="{{ level.level_name  }}"
+          <option value="{{ level.level_name }}"
             >{{ level.level_name }}</option
           >
           {% endfor %}
         </select>
-        <label for="maintenance_level">maintenance level</label>
+        <label for="maintenance_level">Maintenance Level</label>
       </div>
-    </div> -->
+    </div>
   </form>
 </div>
 

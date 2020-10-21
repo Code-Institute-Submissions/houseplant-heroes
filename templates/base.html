@@ -41,6 +41,13 @@
           <ul class="right hide-on-med-and-down black-text">
             <li><a href="{{ url_for('home') }}" class="black-text">Home</a></li>
             <li>
+              <a
+                href="{{ url_for('profile', username=session['user']) }}"
+                class="black-text"
+                >Profile</a
+              >
+            </li>
+            <li>
               <a href="{{ url_for('all_plants') }}" class="black-text"
                 >Plants</a
               >
@@ -59,6 +66,13 @@
           <h5 class="black-text">Houseplant Heroes</h5>
         </li>
         <li><a href="{{ url_for('home') }}" class="black-text">Home</a></li>
+        <li>
+          <a
+            href="{{ url_for('profile', username=session['user']) }}"
+            class="black-text"
+            >Profile</a
+          >
+        </li>
         <li>
           <a href="{{ url_for('all_plants') }}" class="black-text">Plants</a>
         </li>

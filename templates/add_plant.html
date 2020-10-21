@@ -1,2 +1,112 @@
-{% extends "base.html" %} {% block heading %}Add new plant{% endblock %} {% block
-hero_img_content %} {% endblock %} {% block content %}{% endblock %}
+{% extends "base.html" %} {% block heading %}Add a new plant{% endblock %} {%
+block hero_img_content %} {% endblock %} {% block content %}
+<div class="row">
+  <form class="col s12" method="POST" action="{{ url_for('add_plant') }}">
+    <!-- plant name -->
+    <div class="row">
+      <div class="input-field col s12">
+        <input
+          id="plant_name"
+          name="plant_name"
+          type="text"
+          class="validate"
+          required
+        />
+        <label for="plant_name">Plant Name</label>
+      </div>
+    </div>
+    <!-- plant description -->
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea
+          id="plant_description"
+          name="plant_description"
+          class="materialize-textarea validate"
+          required
+        ></textarea>
+        <label for="plant_description">Plant Description</label>
+      </div>
+    </div>
+    <!-- image url -->
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea
+          id="plant_image_url"
+          name="plant_image_url"
+          class="materialize-textarea validate"
+          required
+        ></textarea>
+        <label for="plant_image_url">Plant image url</label>
+      </div>
+    </div>
+    <!-- best environment -->
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea
+          id="best_environment"
+          name="best_environment"
+          class="materialize-textarea validate"
+          required
+        ></textarea>
+        <label for="best_environment">Best environment</label>
+      </div>
+    </div>
+    <!-- temperature -->
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea
+          id="temperature"
+          name="temperature"
+          class="materialize-textarea validate"
+          required
+        ></textarea>
+        <label for="temperature">temperature</label>
+      </div>
+    </div>
+    <!-- water -->
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea
+          id="water"
+          name="water"
+          class="materialize-textarea validate"
+          required
+        ></textarea>
+        <label for="water">water</label>
+      </div>
+    </div>
+    <!-- feeding -->
+    <div class="row">
+      <div class="input-field col s12">
+        <textarea
+          id="feeding"
+          name="feeding"
+          class="materialize-textarea validate"
+          required
+        ></textarea>
+        <label for="feeding">feeding</label>
+      </div>
+    </div>
+    <!-- maintenance select -->
+    <div class="row">
+      <div class="input-field col s12">
+        <select
+          id="maintenance_level"
+          name="maintenance_level"
+          class="validate"
+          required
+        >
+          <option value="" disabled selected>Choose Level</option>
+          {% for level in maintenance_level %}
+          <option value="{{ level.level_name  }}"
+            >{{ level.level_name }}</option
+          >
+          {% endfor %}
+        </select>
+        <label for="maintenance_level">maintenance level</label>
+      </div>
+    </div>
+  </form>
+</div>
+
+{% endblock %}

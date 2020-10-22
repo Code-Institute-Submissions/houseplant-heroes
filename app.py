@@ -150,6 +150,7 @@ def edit_plant(plant_post_id):
             "posted_by": session["user"]
         }
         mongo.db.plant_posts.update({"_id": ObjectId(plant_post_id)}, submit)
+        return redirect(url_for("all_plants"))
         flash("post updated")
 
     plant_post = mongo.db.plant_posts.find_one(

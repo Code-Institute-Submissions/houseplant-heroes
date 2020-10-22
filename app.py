@@ -166,6 +166,17 @@ def delete_plant(plant_post_id):
     return redirect(url_for("all_plants"))
 
 
+# Plant profile
+@app.route("/plant_profile/<plant_post_id>")
+def plant_profile(plant_post_id):
+    plant_post = mongo.db.plant_posts.find_one(
+        {"_id": ObjectId(plant_post_id)})
+    maintenance_level = mongo.db.maintenance_level.find().sort("level_name", 1)
+    return render_template(
+        "plant_profile.html", plant_post=plant_post,
+        maintenance_level=maintenance_level)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

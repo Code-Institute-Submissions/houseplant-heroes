@@ -68,7 +68,7 @@ block hero_img_content %} {% endblock %} {% block content %}
           class="materialize-textarea validate"
           required
         ></textarea>
-        <label for="best_environment">Best environment</label>
+        <label for="best_environment">Where should the plant be kept?</label>
       </div>
     </div>
     <!-- temperature -->
@@ -80,7 +80,9 @@ block hero_img_content %} {% endblock %} {% block content %}
           class="materialize-textarea validate"
           required
         ></textarea>
-        <label for="temperature">temperature</label>
+        <label for="temperature"
+          >What temperature does the plant thrive in?</label
+        >
       </div>
     </div>
     <!-- water -->
@@ -92,7 +94,7 @@ block hero_img_content %} {% endblock %} {% block content %}
           class="materialize-textarea validate"
           required
         ></textarea>
-        <label for="water">water</label>
+        <label for="water">Home much water does the plant need?</label>
       </div>
     </div>
     <!-- feeding -->
@@ -104,7 +106,7 @@ block hero_img_content %} {% endblock %} {% block content %}
           class="materialize-textarea validate"
           required
         ></textarea>
-        <label for="feeding">feeding</label>
+        <label for="feeding">How often should the plant be fed?</label>
       </div>
     </div>
     <!-- maintenance select -->
@@ -121,7 +123,9 @@ block hero_img_content %} {% endblock %} {% block content %}
           <option value="{{ level.level_name }}">{{ level.level_name }}</option>
           {% endfor %}
         </select>
-        <label for="maintenance_level">Maintenance Level</label>
+        <label for="maintenance_level"
+          >How much effort is required to care for the plant?</label
+        >
       </div>
     </div>
     <div class="row">

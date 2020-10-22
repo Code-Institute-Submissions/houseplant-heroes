@@ -1,6 +1,6 @@
 {% extends "base.html" %} {% block heading %}{{ plant_post.plant_botanical_name
 }}{% endblock %} {% block hero_img_content %}
-<div class="container">
+<div class="container center-align">
   <h5 class="white-text text-shadow">{{ plant_post.plant_nickname }}</h5>
   <p class="white-text text-shadow">{{ plant_post.plant_description }}</p>
 </div>
@@ -23,28 +23,28 @@
   <div class="col m8 s12 center-align">
     <div class="divider"></div>
     <div class="section">
-      <h5>Section 1</h5>
-      <p>Stuff</p>
+      <h5><i class="fas fa-home"></i> Environment</h5>
+      <p>{{ plant_post.best_environment }}</p>
     </div>
     <div class="divider"></div>
     <div class="section">
-      <h5>Section 2</h5>
-      <p>Stuff</p>
+      <h5><i class="fas fa-thermometer-half"></i> Temperature</h5>
+      <p>{{ plant_post.temperature }}</p>
     </div>
     <div class="divider"></div>
     <div class="section">
-      <h5>Section 3</h5>
-      <p>Stuff</p>
+      <h5><i class="fas fa-tint"></i> Water</h5>
+      <p>{{ plant_post.water }}</p>
     </div>
     <div class="divider"></div>
     <div class="section">
-      <h5>Section 3</h5>
-      <p>Stuff</p>
+      <h5><i class="fas fa-seedling"></i> Feeding</h5>
+      <p>{{ plant_post.feeding }}</p>
     </div>
     <div class="divider"></div>
     <div class="section">
-      <h5>Section 3</h5>
-      <p>Stuff</p>
+      <h5><i class="fas fa-hand-holding-heart"></i> Maintenance Level</h5>
+      <p>{{ plant_post.maintenance_level }}</p>
     </div>
   </div>
 </div>

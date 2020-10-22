@@ -13,15 +13,36 @@ hero_img_content %} {% endblock %} {% block content %}
           >{{ plant_post.plant_name }}
           <i class="fas fa-ellipsis-v right"></i>
         </span>
-        <p><a href="{{ url_for('plant_profile', plant_post_id=plant_post._id) }}">LINK TO FULL POST</a></p>
+        <p>
+          <a href="{{ url_for('plant_profile', plant_post_id=plant_post._id) }}"
+            >LINK TO FULL POST</a
+          >
+        </p>
         <!-- edit plant post -->
         <a href="{{ url_for('edit_plant', plant_post_id=plant_post._id) }}"
           ><i class="far fa-edit grey-text small"></i
         ></a>
         <!-- delete plant post -->
-        <a href="{{ url_for('delete_plant', plant_post_id=plant_post._id) }}"
+        <a href="#delete-modal" class="modal-trigger"
           ><i class="far fa-trash-alt grey-text small"></i
         ></a>
+
+        <!-- Modal Structure -->
+        <div id="delete-modal" class="modal">
+          <div class="modal-content">
+            <h4>Are you sure want to delete {{ plant_post.plant_name }}?</h4>
+          </div>
+          <div class="modal-footer">
+            <a
+              href="{{ url_for('delete_plant', plant_post_id=plant_post._id) }}"
+              class="modal-close waves-effect waves-green btn-flat"
+              >Yes, delete</a
+            >
+            <button class="modal-close waves-effect waves-green btn-flat">
+              No, keep
+            </button>
+          </div>
+        </div>
       </div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4"

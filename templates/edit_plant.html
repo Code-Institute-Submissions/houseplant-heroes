@@ -1,5 +1,5 @@
-{% extends "base.html" %} {% block heading %}Edit plant{% endblock %} {%
-block hero_img_content %} {% endblock %} {% block content %}
+{% extends "base.html" %} {% block heading %}Edit plant{% endblock %} {% block
+hero_img_content %} {% endblock %} {% block content %}
 <div class="row">
   <form
     class="col s12"
@@ -14,6 +14,7 @@ block hero_img_content %} {% endblock %} {% block content %}
           name="plant_name"
           type="text"
           class="validate"
+          value="{{ plant_post.plant_name }}"
           required
         />
         <label for="plant_name">Plant Name</label>
@@ -27,7 +28,10 @@ block hero_img_content %} {% endblock %} {% block content %}
           name="plant_description"
           class="materialize-textarea validate"
           required
-        ></textarea>
+        >
+{{- plant_post.plant_description -}}
+</textarea
+        >
         <label for="plant_description">Plant Description</label>
       </div>
     </div>
@@ -39,7 +43,10 @@ block hero_img_content %} {% endblock %} {% block content %}
           name="plant_image_url"
           class="materialize-textarea validate"
           required
-        ></textarea>
+        >
+{{- plant_post.plant_image_url -}}
+</textarea
+        >
         <label for="plant_image_url"
           >Image URL
           <i
@@ -58,7 +65,10 @@ block hero_img_content %} {% endblock %} {% block content %}
           name="best_environment"
           class="materialize-textarea validate"
           required
-        ></textarea>
+        >
+{{- plant_post.best_environment -}}
+</textarea
+        >
         <label for="best_environment">Best environment</label>
       </div>
     </div>
@@ -70,7 +80,10 @@ block hero_img_content %} {% endblock %} {% block content %}
           name="temperature"
           class="materialize-textarea validate"
           required
-        ></textarea>
+        >
+{{- plant_post.temperature -}}
+</textarea
+        >
         <label for="temperature">temperature</label>
       </div>
     </div>
@@ -82,7 +95,10 @@ block hero_img_content %} {% endblock %} {% block content %}
           name="water"
           class="materialize-textarea validate"
           required
-        ></textarea>
+        >
+        {{- plant_post.water -}}
+</textarea
+        >
         <label for="water">water</label>
       </div>
     </div>
@@ -94,7 +110,9 @@ block hero_img_content %} {% endblock %} {% block content %}
           name="feeding"
           class="materialize-textarea validate"
           required
-        ></textarea>
+        >
+{{- plant_post.feeding -}}</textarea
+        >
         <label for="feeding">feeding</label>
       </div>
     </div>
@@ -107,7 +125,7 @@ block hero_img_content %} {% endblock %} {% block content %}
           class="validate"
           required
         >
-          <option value="" disabled selected>Choose Maintenance Level</option>
+          <option value="" disabled>Choose Maintenance Level</option>
           {% for level in maintenance_level %}
           <option value="{{ level.level_name }}">{{ level.level_name }}</option>
           {% endfor %}

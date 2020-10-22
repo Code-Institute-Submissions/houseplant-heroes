@@ -20,6 +20,20 @@ hero_img_content %} {% endblock %} {% block content %}
         <label for="plant_botanical_name">Plant Botanical Name</label>
       </div>
     </div>
+    <!-- Plant botanical name -->
+    <div class="row">
+      <div class="input-field col s12">
+        <input
+          id="plant_nickname"
+          name="plant_nickname"
+          type="text"
+          class="validate"
+          value="{{ plant_post.plant_nickname }}"
+          required
+        />
+        <label for="plant_nickname">Plant Nickame</label>
+      </div>
+    </div>
     <!-- plant description -->
     <div class="row">
       <div class="input-field col s12">

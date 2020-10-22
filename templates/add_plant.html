@@ -15,6 +15,19 @@ block hero_img_content %} {% endblock %} {% block content %}
         <label for="plant_botanical_name">Plant Botanical Name</label>
       </div>
     </div>
+    <!-- plant nickname -->
+    <div class="row">
+      <div class="input-field col s12">
+        <input
+          id="plant_nickname"
+          name="plant_nickname"
+          type="text"
+          class="validate"
+          required
+        />
+        <label for="plant_nickname">Plant Nickame</label>
+      </div>
+    </div>
     <!-- plant description -->
     <div class="row">
       <div class="input-field col s12">
@@ -36,7 +49,14 @@ block hero_img_content %} {% endblock %} {% block content %}
           class="materialize-textarea validate"
           required
         ></textarea>
-        <label for="plant_image_url">Image URL <i class="fas fa-info-circle tooltipped" data-position="bottom" data-tooltip="Right click on any online image (e.g. google images), select 'Copy Image Address' and paste here"></i></label>
+        <label for="plant_image_url"
+          >Image URL
+          <i
+            class="fas fa-info-circle tooltipped"
+            data-position="bottom"
+            data-tooltip="Right click on any online image (e.g. google images), select 'Copy Image Address' and paste here"
+          ></i
+        ></label>
       </div>
     </div>
     <!-- best environment -->

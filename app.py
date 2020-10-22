@@ -158,6 +158,14 @@ def edit_plant(plant_post_id):
         maintenance_level=maintenance_level)
 
 
+# Delete plant post
+@app.route("/delete_plant/<plant_post_id>")
+def delete_plant(plant_post_id):
+    mongo.db.plant_posts.remove({"_id": ObjectId(plant_post_id)})
+    flash("Post deleted")
+    return redirect(url_for("all_plants"))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

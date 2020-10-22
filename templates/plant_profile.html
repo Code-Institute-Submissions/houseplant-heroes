@@ -1,5 +1,5 @@
-{% extends "base.html" %} {% block heading %}{{ plant_post.plant_name }}{%
-endblock %} {% block hero_img_content %}
+{% extends "base.html" %} {% block heading %}{{ plant_post.plant_botanical_name
+}}{% endblock %} {% block hero_img_content %}
 <p class="white-text text-shadow">{{ plant_post.plant_description }}</p>
 {% endblock %} {% block content %}
 
@@ -9,10 +9,12 @@ endblock %} {% block hero_img_content %}
       <img
         class="responsive-img left-align"
         src="{{ plant_post.plant_image_url }}"
-        alt="Image for {{ plant_post.plant_name }}"
+        alt="Image for {{ plant_post.plant_botanical_name }}"
       />
     </div>
-    <div class="row"><p>Posted by: <i>{{ plant_post.posted_by }}</i></p></div>
+    <div class="row">
+      <p>Posted by: <i>{{ plant_post.posted_by }}</i></p>
+    </div>
   </div>
 
   <div class="col m8 s12 center-align">

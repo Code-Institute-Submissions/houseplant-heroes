@@ -2,17 +2,17 @@
 block hero_img_content %} {% endblock %} {% block content %}
 <div class="row">
   <form class="col s12" method="POST" action="{{ url_for('add_plant') }}">
-    <!-- plant name -->
+    <!-- plant botanical name -->
     <div class="row">
       <div class="input-field col s12">
         <input
-          id="plant_name"
-          name="plant_name"
+          id="plant_botanical_name"
+          name="plant_botanical_name"
           type="text"
           class="validate"
           required
         />
-        <label for="plant_name">Plant Name</label>
+        <label for="plant_botanical_name">Plant Botanical Name</label>
       </div>
     </div>
     <!-- plant description -->

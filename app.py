@@ -114,7 +114,8 @@ def logout():
 def add_plant():
     if request.method == "POST":
         plant_post = {
-            "plant_name": request.form.get("plant_name"),
+            "plant_botanical_name": request.form.get("plant_botanical_name"),
+            "plant_nickname": request.form.get("plant_nickname"),
             "plant_description": request.form.get("plant_description"),
             "plant_image_url": request.form.get("plant_image_url"),
             "best_environment": request.form.get("best_environment"),
@@ -137,7 +138,8 @@ def add_plant():
 def edit_plant(plant_post_id):
     if request.method == "POST":
         submit = {
-            "plant_name": request.form.get("plant_name"),
+            "plant_botanical_name": request.form.get("plant_botanical_name"),
+            "plant_nickname": request.form.get("plant_nickname"),
             "plant_description": request.form.get("plant_description"),
             "plant_image_url": request.form.get("plant_image_url"),
             "best_environment": request.form.get("best_environment"),

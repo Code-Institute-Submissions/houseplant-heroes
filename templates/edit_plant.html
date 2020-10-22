@@ -1,5 +1,7 @@
 {% extends "base.html" %}{% block back_navigation %}
-<a href="{{ url_for('all_plants') }}" class="white-text"><i class="fas fa-long-arrow-alt-left"></i> Back to Plants</a>
+<a href="{{ url_for('all_plants') }}" class="white-text"
+  ><i class="fas fa-long-arrow-alt-left"></i> Back to Plants</a
+>
 {% endblock %} {% block heading %}Edit plant{% endblock %} {% block
 hero_img_content %} {% endblock %} {% block content %}
 <div class="row">
@@ -151,12 +153,20 @@ hero_img_content %} {% endblock %} {% block content %}
     </div>
     <div class="row">
       <div class="col s12 center-align">
+        <!-- submit button -->
         <button
           type="submit"
           class="btn-floating btn-large waves-effect waves-light grey"
         >
           <i class="far fa-edit white-text small"></i>
         </button>
+        <!-- cancel button -->
+        <a
+          href="{{ url_for('all_plants') }}"
+          class="btn-floating btn-large waves-effect waves-light grey"
+        >
+          <i class="fas fa-times white-text small"></i>
+        </a>
       </div>
     </div>
   </form>

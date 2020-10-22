@@ -1,5 +1,9 @@
 {% extends "base.html" %} {% block heading %}Edit plant{% endblock %} {% block
-hero_img_content %} {% endblock %} {% block content %}
+hero_img_content %}
+<a href="{{ url_for('all_plants') }}" class="white-text text-shadow align-left"
+  >Back to Plants</a
+>
+{% endblock %} {% block content %}
 <div class="row">
   <form
     class="col s12"

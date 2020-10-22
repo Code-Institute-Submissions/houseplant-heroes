@@ -101,7 +101,12 @@
 
     <!-- hero-image -->
     <div class="background-container">
-      {% block back_navigation %}{% endblock %}
+      <!-- back navigation -->
+      <div class="white-text text-shadow align-left back">
+        <i class="fas fa-long-arrow-alt-left"></i>{% block back_navigation %}{%
+        endblock %}
+      </div>
+      <!-- heading -->
       <h2 class="white-text text-shadow center-align">
         {% block heading %}{% endblock %}
       </h2>

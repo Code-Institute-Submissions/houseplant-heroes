@@ -54,3 +54,7 @@ body > div.row > form > div:nth-child(8) > div > div > input {
 .flash-messages {
   margin: 1rem;
 }
+
+.back {
+    padding: 5px;
+}

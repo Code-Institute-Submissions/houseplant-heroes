@@ -24,12 +24,14 @@ def home():
     return render_template("home.html")
 
 
+# Read and display all posts in all_plants.html
 @app.route("/all_plants")
 def all_plants():
     all_plants = mongo.db.plant_posts.find()
     return render_template("all_plants.html", all_plants=all_plants)
 
 
+# Register username and password in join.html
 @app.route("/join", methods=["GET", "POST"])
 def join():
     if request.method == "POST":
@@ -41,6 +43,7 @@ def join():
             flash("Username already in user, please try another")
             return redirect(url_for("join"))
 
+        # check that the first password matched the "confirm password"
         confirm_password = request.form.get("confirm_password")
         password = request.form.get("password")
 
@@ -51,7 +54,7 @@ def join():
                     request.form.get("password"))
             }
             mongo.db.users.insert_one(join)
-            # put the new user into 'session' cookie
+            # put the new user into session cookie
             session["user"] = request.form.get("username").lower()
             flash("success")
             return redirect(url_for("profile", username=session["user"]))
@@ -61,6 +64,7 @@ def join():
     return render_template("join.html")
 
 
+# Login page
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
@@ -69,7 +73,7 @@ def login():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            # check that hashed password matches input
+            # check that hashed password matches user inputted password
             if check_password_hash(
                existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
@@ -83,6 +87,7 @@ def login():
     return render_template("login.html")
 
 
+# User profile page
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # get session user's username from database
@@ -95,6 +100,7 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+# Logout function
 @app.route("/logout")
 def logout():
     # remove user from session cookie
@@ -103,6 +109,7 @@ def logout():
     return redirect(url_for("login"))
 
 
+# Create a new plant post
 @app.route("/add_plant", methods=["GET", "POST"])
 def add_plant():
     if request.method == "POST":
@@ -125,6 +132,7 @@ def add_plant():
         "add_plant.html", maintenance_level=maintenance_level)
 
 
+# Update existing plant post
 @app.route("/edit_plant/<plant_post_id>", methods=["GET", "POST"])
 def edit_plant(plant_post_id):
     if request.method == "POST":

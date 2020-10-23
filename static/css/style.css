@@ -65,6 +65,10 @@ body > div.row > form > div:nth-child(8) > div > div > input {
   padding: 5px;
 }
 
-.fa-search{
-    padding: 2px;
+.fa-search {
+  padding: 2px;
+}
+
+#plant-profile-left, #plant-profile-right {
+  padding: 30px;
 }

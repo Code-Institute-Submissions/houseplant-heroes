@@ -27,76 +27,83 @@
   <body>
     <header>
       <!-- top navbar -->
-      <nav class="nav-extended white">
-        <div class="nav-wrapper">
-          <a href="{{ url_for('home') }}" class="brand-logo black-text left"
-            >Houseplant Heroes</a
-          >
-          <a
-            href="{{ url_for('home') }}"
-            data-target="mobile-demo"
-            class="sidenav-trigger right black-text"
-            ><i class="fas fa-bars"></i
-          ></a>
-          <ul class="right hide-on-med-and-down black-text">
-            <li><a href="{{ url_for('home') }}" class="black-text">Home</a></li>
-            <li>
-              <a href="{{ url_for('all_plants') }}" class="black-text"
-                >Plants</a
-              >
-            </li>
-            <!-- if user is logged in -->
-            {% if session.user %}
-            <li>
-              <a
-                href="{{ url_for('profile', username=session['user']) }}"
-                class="black-text"
-                >Profile</a
-              >
-            </li>
-            <li>
-              <a href="{{ url_for('logout') }}" class="black-text">Log Out</a>
-            </li>
-            <!-- if no user is logged in -->
-            {% else %}
-            <li>
-              <a href="{{ url_for('login') }}" class="black-text">Login</a>
-            </li>
-            <li><a href="{{ url_for('join') }}" class="black-text">Join</a></li>
-            {% endif %}
-          </ul>
-        </div>
-      </nav>
-
+      <div class="navbar-fixed">
+        <nav class="nav-extended white">
+          <div class="nav-wrapper">
+            <a href="{{ url_for('home') }}" class="brand-logo black-text left"
+              >Houseplant Heroes</a
+            >
+            <a
+              href="{{ url_for('home') }}"
+              data-target="mobile-demo"
+              class="sidenav-trigger right black-text"
+              ><i class="fas fa-bars"></i
+            ></a>
+            <ul class="right hide-on-med-and-down black-text">
+              <li>
+                <a href="{{ url_for('home') }}" class="black-text">Home</a>
+              </li>
+              <li>
+                <a href="{{ url_for('all_plants') }}" class="black-text"
+                  >Plants</a
+                >
+              </li>
+              <!-- if user is logged in -->
+              {% if session.user %}
+              <li>
+                <a
+                  href="{{ url_for('profile', username=session['user']) }}"
+                  class="black-text"
+                  >Profile</a
+                >
+              </li>
+              <li>
+                <a href="{{ url_for('logout') }}" class="black-text">Log Out</a>
+              </li>
+              <!-- if no user is logged in -->
+              {% else %}
+              <li>
+                <a href="{{ url_for('login') }}" class="black-text">Login</a>
+              </li>
+              <li>
+                <a href="{{ url_for('join') }}" class="black-text">Join</a>
+              </li>
+              {% endif %}
+            </ul>
+          </div>
+        </nav>
+      </div>
       <!-- mobile collapsible navbar -->
-      <ul class="sidenav" id="mobile-demo">
-        <li>
-          <h5 class="black-text">Houseplant Heroes</h5>
-        </li>
-        <li><a href="{{ url_for('home') }}" class="black-text">Home</a></li>
-        <li>
-          <a href="{{ url_for('all_plants') }}" class="black-text">Plants</a>
-        </li>
-        <!-- if user is logged in -->
-        {% if session.user %}
-        <li>
-          <a
-            href="{{ url_for('profile', username=session['user']) }}"
-            class="black-text"
-            >Profile</a
-          >
-        </li>
-        <li>
-          <a href="{{ url_for('logout') }}" class="black-text">Log Out</a>
-        </li>
-        <!-- if no user is logged in -->
-        {% else %}
-        <li>
-          <a href="{{ url_for('login') }}" class="black-text">Login</a>
-        </li>
-        <li><a href="{{ url_for('join') }}" class="black-text">Join</a></li>
-        {% endif %}
-      </ul>
+      <div class="navbar-fixed">
+        <ul class="sidenav" id="mobile-demo">
+          <li>
+            <h5 class="black-text">Houseplant Heroes</h5>
+          </li>
+          <li><a href="{{ url_for('home') }}" class="black-text">Home</a></li>
+          <li>
+            <a href="{{ url_for('all_plants') }}" class="black-text">Plants</a>
+          </li>
+          <!-- if user is logged in -->
+          {% if session.user %}
+          <li>
+            <a
+              href="{{ url_for('profile', username=session['user']) }}"
+              class="black-text"
+              >Profile</a
+            >
+          </li>
+          <li>
+            <a href="{{ url_for('logout') }}" class="black-text">Log Out</a>
+          </li>
+          <!-- if no user is logged in -->
+          {% else %}
+          <li>
+            <a href="{{ url_for('login') }}" class="black-text">Login</a>
+          </li>
+          <li><a href="{{ url_for('join') }}" class="black-text">Join</a></li>
+          {% endif %}
+        </ul>
+      </div>
     </header>
 
     <!-- hero-image -->

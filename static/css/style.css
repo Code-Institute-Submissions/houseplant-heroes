@@ -69,6 +69,6 @@ body > div.row > form > div:nth-child(8) > div > div > input {
   padding: 2px;
 }
 
-#plant-profile-left, #plant-profile-right {
+#plant-profile-left, #plant-profile-right, #profile-section {
   padding: 30px;
 }

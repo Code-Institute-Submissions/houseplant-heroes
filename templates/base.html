@@ -114,8 +114,8 @@
       <section>
         {% with messages = get_flashed_messages() %} {% if messages %} {% for
         message in messages %}
-        <div class="row flash-messages">
-          <h4 class="white-text text-shadow">{{ message }}</h4>
+        <div class="row center-align">
+          <h5 class="white-text text-shadow flash-messages">{{ message }}</h5>
         </div>
         {% endfor %} {% endif %} {% endwith %}
       </section>

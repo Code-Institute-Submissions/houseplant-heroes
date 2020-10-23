@@ -36,14 +36,16 @@ a.brand-logo.black-text.left {
 
 #username,
 #password,
-#confirm_password {
+#confirm_password,
+#search {
   font-size: large;
   border-bottom: 2px solid white;
 }
 
 #username_label,
 #password_label,
-#confirm_password_label {
+#confirm_password_label,
+#search_label {
   font-size: large;
 }
 

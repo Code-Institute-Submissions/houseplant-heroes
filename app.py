@@ -31,6 +31,7 @@ def all_plants():
     return render_template("all_plants.html", all_plants=all_plants)
 
 
+# Search all plants
 @app.route("/search_all_plants", methods=["GET", "POST"])
 def search_all_plants():
     search = request.form.get("search")

@@ -1,14 +1,28 @@
-{% extends "base.html" %} {% block heading %}Home{% endblock %} {% block
-hero_img_content %}
-<div class="row">
+{% extends "base.html" %} {% block heading %}A Community Created Guide to
+Houseplant Care {% endblock %} {% block hero_img_content %}
+
+<!-- search -->
+<div class="container">
   <form action="{{ url_for('search_all_plants') }}" method="POST">
     <div class="row center-align">
-      <div class="input-field col s12 m8">
-        <input type="text" name="search" id="search" class="validate" />
-        <label for="search">Search all plants</label>
-      </div>
-      <div class="col s12 m4">
-      <button type="submit" class="btn">search</button>
+      <div class="input-field">
+        <input
+          type="text"
+          name="search"
+          id="search"
+          class="validate white-text text-shadow"
+        />
+        <label id="search_label" for="search" class="white-text text-shadow">
+          <i
+            class="fas fa-info-circle tooltipped"
+            data-position="bottom"
+            data-tooltip="Search plants by name or maintenance level: easy, medium or hard"
+          ></i>
+          Start Searching...
+          <button type="submit" class="white-text text-shadow right hoverable">
+            <i class="fas fa-search"></i>
+          </button>
+        </label>
       </div>
     </div>
   </form>

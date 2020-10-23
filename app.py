@@ -95,7 +95,9 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        my_plants = mongo.db.plant_posts.find()
+        return render_template(
+            "profile.html", username=username, my_plants=my_plants)
 
     return redirect(url_for("login"))
 

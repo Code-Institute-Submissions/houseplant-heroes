@@ -31,6 +31,14 @@ def all_plants():
     return render_template("all_plants.html", all_plants=all_plants)
 
 
+@app.route("/search_all_plants", methods=["GET", "POST"])
+def search_all_plants():
+    search = request.form.get("search")
+    all_plants = list(mongo.db.plant_posts.find(
+        {"$text": {"$search": search}}))
+    return render_template("all_plants.html", all_plants=all_plants)
+
+
 # Register username and password in join.html
 @app.route("/join", methods=["GET", "POST"])
 def join():

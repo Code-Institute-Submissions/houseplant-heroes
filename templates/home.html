@@ -1,11 +1,11 @@
 {% extends "base.html" %} {% block heading %}Home{% endblock %} {% block
 hero_img_content %}
 <div class="row">
-  <form action="" method="POST">
+  <form action="{{ url_for('search_all_plants') }}" method="POST">
     <div class="row center-align">
       <div class="input-field col s12 m8">
-        <input type="text" name="search_all" id="search_all" class="validate" />
-        <label for="search_all">Search all plants</label>
+        <input type="text" name="search" id="search" class="validate" />
+        <label for="search">Search all plants</label>
       </div>
       <div class="col s12 m4">
       <button type="submit" class="btn">search</button>
@@ -14,7 +14,4 @@ hero_img_content %}
   </form>
 </div>
 
-{% endblock %} {% block content %}
-
-
-{% endblock %}
+{% endblock %} {% block content %}{% endblock %}

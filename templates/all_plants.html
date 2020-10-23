@@ -16,19 +16,21 @@ hero_img_content %} {% endblock %} {% block content %}
         <p>{{ plant_post.plant_nickname }}</p>
         <p>
           <a href="{{ url_for('plant_profile', plant_post_id=plant_post._id) }}"
-            >LINK TO FULL POST</a
-          >
+            >Full instructions <i class="fas fa-long-arrow-alt-right"></i
+          ></a>
         </p>
         {% if session.user|lower == plant_post.posted_by|lower or
         session.user|lower == "admin"|lower %}
-        <!-- edit plant post -->
-        <a href="{{ url_for('edit_plant', plant_post_id=plant_post._id) }}"
-          ><i class="far fa-edit grey-text small"></i
-        ></a>
-        <!-- delete plant post -->
-        <a href="#delete-modal" class="modal-trigger"
-          ><i class="far fa-trash-alt grey-text small"></i
-        ></a>
+        <div class="right-align">
+          <!-- edit plant post -->
+          <a href="{{ url_for('edit_plant', plant_post_id=plant_post._id) }}"
+            ><i class="far fa-edit grey-text small"></i
+          ></a>
+          <!-- delete plant post -->
+          <a href="#delete-modal" class="modal-trigger"
+            ><i class="far fa-trash-alt grey-text small"></i
+          ></a>
+        </div>
         {% endif %}
         <!-- delete modal Structure -->
         <div id="delete-modal" class="modal">
@@ -55,13 +57,16 @@ hero_img_content %} {% endblock %} {% block content %}
           <i class="fas fa-times right"></i>
         </span>
         <p>{{ plant_post.plant_description }}<br /></p>
-        {% if plant_post.is_air_purifying == "on" %}
-        <p>is air air purfying</p>
-        {% endif %}
         <p>
           Maintenance level: <i>{{ plant_post.maintenance_level }}</i><br />
         </p>
         <p>Posted by: <i>{{ plant_post.posted_by }}</i><br /></p>
+        {% if plant_post.is_air_purifying == "on" %}
+        <p><i class="fas fa-leaf"></i> This plant is air purfying</p>
+        {% endif %}
+        <a href="{{ url_for('plant_profile', plant_post_id=plant_post._id) }}"
+          >Full instructions <i class="fas fa-long-arrow-alt-right"></i
+        ></a>
       </div>
     </div>
   </div>

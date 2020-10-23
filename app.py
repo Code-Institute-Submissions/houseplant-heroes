@@ -114,6 +114,7 @@ def logout():
 # Create a new plant post
 @app.route("/add_plant", methods=["GET", "POST"])
 def add_plant():
+    is_air_purifying = "on" if request.form.get("is_air_purifying") else "off"
     if request.method == "POST":
         plant_post = {
             "plant_botanical_name": request.form.get("plant_botanical_name"),
@@ -124,6 +125,7 @@ def add_plant():
             "temperature": request.form.get("temperature"),
             "water": request.form.get("water"),
             "feeding": request.form.get("feeding"),
+            "is_air_purifying": is_air_purifying,
             "maintenance_level": request.form.get("maintenance_level"),
             "posted_by": session["user"]
         }
@@ -139,6 +141,8 @@ def add_plant():
 @app.route("/edit_plant/<plant_post_id>", methods=["GET", "POST"])
 def edit_plant(plant_post_id):
     if request.method == "POST":
+        is_air_purifying = "on" if request.form.get(
+            "is_air_purifying") else "off"
         submit = {
             "plant_botanical_name": request.form.get("plant_botanical_name"),
             "plant_nickname": request.form.get("plant_nickname"),
@@ -148,6 +152,7 @@ def edit_plant(plant_post_id):
             "temperature": request.form.get("temperature"),
             "water": request.form.get("water"),
             "feeding": request.form.get("feeding"),
+            "is_air_purifying": is_air_purifying,
             "maintenance_level": request.form.get("maintenance_level"),
             "posted_by": session["user"]
         }

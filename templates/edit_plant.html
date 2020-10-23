@@ -102,7 +102,9 @@ hero_img_content %} {% endblock %} {% block content %}
 {{- plant_post.temperature -}}
 </textarea
         >
-        <label for="temperature">What temperature does the plant thrive in?</label>
+        <label for="temperature"
+          >What temperature does the plant thrive in?</label
+        >
       </div>
     </div>
     <!-- water -->
@@ -134,6 +136,30 @@ hero_img_content %} {% endblock %} {% block content %}
         <label for="feeding">How often should the plant be fed?</label>
       </div>
     </div>
+    <!-- Is air purfiying switch -->
+    <div class="input-field">
+      <div class="switch">
+        <label for="is_air_purifying">
+          Is this plant air purifying? {% if plant_post.is_air_purifying == "on"
+          %}
+          <input
+            type="checkbox"
+            id="is_air_purifying"
+            name="is_air_purifying"
+            checked
+          />
+          {% else %}
+          <input
+            type="checkbox"
+            id="is_air_purifying"
+            name="is_air_purifying"
+          />
+          {% endif %}
+          <span class="lever"></span>
+          Yes
+        </label>
+      </div>
+    </div>
     <!-- maintenance select -->
     <div class="row">
       <div class="input-field col s9">
@@ -148,7 +174,9 @@ hero_img_content %} {% endblock %} {% block content %}
           <option value="{{ level.level_name }}">{{ level.level_name }}</option>
           {% endfor %}
         </select>
-        <label for="maintenance_level">How much effort is required to care for the plant?</label>
+        <label for="maintenance_level"
+          >How much effort is required to care for the plant?</label
+        >
       </div>
     </div>
     <div class="row">

@@ -110,6 +110,7 @@
         {% block heading %}{% endblock %}
       </h2>
       {% block hero_img_content %}{% endblock %}
+
       <!-- flash messages -->
       <section>
         {% with messages = get_flashed_messages() %} {% if messages %} {% for
@@ -119,6 +120,10 @@
         </div>
         {% endfor %} {% endif %} {% endwith %}
       </section>
+      <!-- chevron navigation -->
+      <div class="white-text text-shadow center-align row back">
+        {% block chevron_navigation %}{% endblock %}
+      </div>
     </div>
 
     {% block content %} {% endblock %}

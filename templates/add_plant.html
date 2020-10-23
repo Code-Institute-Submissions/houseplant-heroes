@@ -1,159 +1,163 @@
 {% extends "base.html" %} {% block heading %}Add a new plant{% endblock %} {%
 block hero_img_content %} {% endblock %} {% block content %}
-<div class="row">
-  <form class="col s12" method="POST" action="{{ url_for('add_plant') }}">
-    <!-- plant botanical name -->
-    <div class="row">
-      <div class="input-field col s12">
-        <input
-          id="plant_botanical_name"
-          name="plant_botanical_name"
-          type="text"
-          class="validate"
-          required
-        />
-        <label for="plant_botanical_name">Plant Botanical Name</label>
-      </div>
-    </div>
-    <!-- plant nickname -->
-    <div class="row">
-      <div class="input-field col s12">
-        <input
-          id="plant_nickname"
-          name="plant_nickname"
-          type="text"
-          class="validate"
-          required
-        />
-        <label for="plant_nickname">Plant Nickame</label>
-      </div>
-    </div>
-    <!-- plant description -->
-    <div class="row">
-      <div class="input-field col s12">
-        <textarea
-          id="plant_description"
-          name="plant_description"
-          class="materialize-textarea validate"
-          required
-        ></textarea>
-        <label for="plant_description">Plant Description</label>
-      </div>
-    </div>
-    <!-- image url -->
-    <div class="row">
-      <div class="input-field col s12">
-        <textarea
-          id="plant_image_url"
-          name="plant_image_url"
-          class="materialize-textarea validate"
-          required
-        ></textarea>
-        <label for="plant_image_url"
-          >Image URL
-          <i
-            class="fas fa-info-circle tooltipped"
-            data-position="bottom"
-            data-tooltip="Right click on any online image (e.g. google images), select 'Copy Image Address' and paste here"
-          ></i
-        ></label>
-      </div>
-    </div>
-    <!-- best environment -->
-    <div class="row">
-      <div class="input-field col s12">
-        <textarea
-          id="best_environment"
-          name="best_environment"
-          class="materialize-textarea validate"
-          required
-        ></textarea>
-        <label for="best_environment">Where should the plant be kept?</label>
-      </div>
-    </div>
-    <!-- temperature -->
-    <div class="row">
-      <div class="input-field col s12">
-        <textarea
-          id="temperature"
-          name="temperature"
-          class="materialize-textarea validate"
-          required
-        ></textarea>
-        <label for="temperature"
-          >What temperature does the plant thrive in?</label
-        >
-      </div>
-    </div>
-    <!-- water -->
-    <div class="row">
-      <div class="input-field col s12">
-        <textarea
-          id="water"
-          name="water"
-          class="materialize-textarea validate"
-          required
-        ></textarea>
-        <label for="water">Home much water does the plant need?</label>
-      </div>
-    </div>
-    <!-- feeding -->
-    <div class="row">
-      <div class="input-field col s12">
-        <textarea
-          id="feeding"
-          name="feeding"
-          class="materialize-textarea validate"
-          required
-        ></textarea>
-        <label for="feeding">How often should the plant be fed?</label>
-      </div>
-    </div>
-    <!-- Is air purfiying switch -->
-    <div class="input-field">
-      <div class="switch">
-        <label for="is_air_purifying">
-          Is this plant air purifying?
+<div class="container">
+  <div class="row">
+    <form class="col s12" method="POST" action="{{ url_for('add_plant') }}">
+      <!-- plant botanical name -->
+      <div class="row">
+        <div class="input-field col s12">
           <input
-            type="checkbox"
-            id="is_air_purifying"
-            name="is_air_purifying"
+            id="plant_botanical_name"
+            name="plant_botanical_name"
+            type="text"
+            class="validate"
+            required
           />
-          <span class="lever"></span>
-          Yes
-        </label>
+          <label for="plant_botanical_name">Plant Botanical Name</label>
+        </div>
       </div>
-    </div>
-    <!-- maintenance select -->
-    <div class="row">
-      <div class="input-field col s9">
-        <select
-          id="maintenance_level"
-          name="maintenance_level"
-          class="validate"
-          required
-        >
-          <option value="" disabled selected>Choose Maintenance Level</option>
-          {% for level in maintenance_level %}
-          <option value="{{ level.level_name }}">{{ level.level_name }}</option>
-          {% endfor %}
-        </select>
-        <label for="maintenance_level"
-          >How much effort is required to care for the plant?</label
-        >
+      <!-- plant nickname -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            id="plant_nickname"
+            name="plant_nickname"
+            type="text"
+            class="validate"
+            required
+          />
+          <label for="plant_nickname">Plant Nickame</label>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col s12 center-align">
-        <button
-          type="submit"
-          class="btn-floating btn-large waves-effect waves-light grey"
-        >
-          <i class="fas fa-plus white-text"></i>
-        </button>
+      <!-- plant description -->
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea
+            id="plant_description"
+            name="plant_description"
+            class="materialize-textarea validate"
+            required
+          ></textarea>
+          <label for="plant_description">Plant Description</label>
+        </div>
       </div>
-    </div>
-  </form>
+      <!-- image url -->
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea
+            id="plant_image_url"
+            name="plant_image_url"
+            class="materialize-textarea validate"
+            required
+          ></textarea>
+          <label for="plant_image_url"
+            >Image URL
+            <i
+              class="fas fa-info-circle tooltipped"
+              data-position="bottom"
+              data-tooltip="Right click on any online image (e.g. google images), select 'Copy Image Address' and paste here"
+            ></i
+          ></label>
+        </div>
+      </div>
+      <!-- best environment -->
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea
+            id="best_environment"
+            name="best_environment"
+            class="materialize-textarea validate"
+            required
+          ></textarea>
+          <label for="best_environment">Where should the plant be kept?</label>
+        </div>
+      </div>
+      <!-- temperature -->
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea
+            id="temperature"
+            name="temperature"
+            class="materialize-textarea validate"
+            required
+          ></textarea>
+          <label for="temperature"
+            >What temperature does the plant thrive in?</label
+          >
+        </div>
+      </div>
+      <!-- water -->
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea
+            id="water"
+            name="water"
+            class="materialize-textarea validate"
+            required
+          ></textarea>
+          <label for="water">Home much water does the plant need?</label>
+        </div>
+      </div>
+      <!-- feeding -->
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea
+            id="feeding"
+            name="feeding"
+            class="materialize-textarea validate"
+            required
+          ></textarea>
+          <label for="feeding">How often should the plant be fed?</label>
+        </div>
+      </div>
+      <!-- Is air purfiying switch -->
+      <div class="input-field">
+        <div class="switch">
+          <label for="is_air_purifying">
+            Is this plant air purifying?
+            <input
+              type="checkbox"
+              id="is_air_purifying"
+              name="is_air_purifying"
+            />
+            <span class="lever"></span>
+            Yes
+          </label>
+        </div>
+      </div>
+      <!-- maintenance select -->
+      <div class="row">
+        <div class="input-field col s9">
+          <select
+            id="maintenance_level"
+            name="maintenance_level"
+            class="validate"
+            required
+          >
+            <option value="" disabled selected>Choose Maintenance Level</option>
+            {% for level in maintenance_level %}
+            <option value="{{ level.level_name }}"
+              >{{ level.level_name }}</option
+            >
+            {% endfor %}
+          </select>
+          <label for="maintenance_level"
+            >How much effort is required to care for the plant?</label
+          >
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12 center-align">
+          <button
+            type="submit"
+            class="btn-floating btn-large waves-effect waves-light grey"
+          >
+            <i class="fas fa-plus white-text"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
 
 {% endblock %}

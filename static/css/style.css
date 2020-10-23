@@ -13,7 +13,7 @@ a.brand-logo.black-text.left {
 /*-------- hero image --------*/
 .background-container {
   background-image: url("../../static/images/hero-img.png");
-  height: 80vh;
+  height: 65vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;

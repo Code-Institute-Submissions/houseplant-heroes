@@ -19,7 +19,10 @@ hero_img_content %}
           ></i>
           Start Searching...
         </label>
-        <button type="submit" class="white-text text-shadow right hoverable grey darken-1">
+        <button
+          type="submit"
+          class="white-text text-shadow right hoverable grey darken-1 btn"
+        >
           <i class="fas fa-search"></i>
         </button>
       </div>
@@ -27,7 +30,13 @@ hero_img_content %}
   </form>
 </div>
 {% endblock %} {% block content %}
-
+<div class="row padding-30">
+  <a
+    href="{{ url_for( 'all_plants' ) }}"
+    class="white-text text-shadow hoverable grey darken-1 btn"
+    >Reset Search Results</a
+  >
+</div>
 <div class="row">
   {% for plant_post in all_plants %}
   <div class="col s12 m4">

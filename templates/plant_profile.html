@@ -116,5 +116,6 @@ endblock %} {% block hero_img_content %}
     <i class="fas fa-plus white-text small"></i>
   </button>
 </form>
-
-{% endblock %}
+{% for comment in comments %}
+<p>{{ comment.comment_body }}</p>
+{% endfor %} {% endblock %}

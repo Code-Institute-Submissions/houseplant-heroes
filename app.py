@@ -216,6 +216,14 @@ def insert_comment(plant_post_id):
             "plant_profile", plant_post_id=plant_post_id))
 
 
+# Delete comment
+@app.route("/<plant_post_id>/delete_comment/<comment_id>")
+def delete_comment(comment_id, plant_post_id):
+    mongo.db.comments.remove({"_id": ObjectId(comment_id)})
+    flash("Comment deleted")
+    return redirect(url_for("plant_profile", plant_post_id=plant_post_id))
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

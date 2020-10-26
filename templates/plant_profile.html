@@ -119,16 +119,22 @@ endblock %} {% block hero_img_content %}
             <i class="fas fa-plus white-text small"></i>
           </button>
         </div>
-      </form>
-    </div>
-    <div class="col s12">
-      {% for comment in comments %}
-      <p>{{ comment.comment_body }}</p>
-      <p class="right-align">Posted by: <i>{{ comment.posted_by }}</i></p>
-      <p class="right-align">At: <i>{{ comment.posted_at }}</i></p>
-      <div class="divider"></div>
+        <div class="col s12">
+          {% for comment in comments %}
+          <p>{{ comment.comment_body }}</p>
+          <p class="right-align">Posted by: <i>{{ comment.posted_by }}</i></p>
+          <p class="right-align">At: <i>{{ comment.posted_at }}</i></p>
+          <div class="divider"></div>
+          <!-- delete comment -->
+          <a
+            href="{{ url_for('delete_comment', comment_id=comment._id, plant_post_id=plant_post._id) }}"
+            class="modal-close waves-effect waves-green btn-flat"
+            >Yes, delete</a
+          >
 
-      {% endfor %}
+          {% endfor %}
+        </div>
+      </form>
     </div>
   </div>
 </section>

@@ -2,6 +2,7 @@ import os
 from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
+from datetime import datetime
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -60,7 +61,7 @@ def join():
             join = {
                 "username": request.form.get("username").lower(),
                 "password": generate_password_hash(
-                    request.form.get("password"))
+                    request.form.get("password")),
             }
             mongo.db.users.insert_one(join)
             # put the new user into session cookie
@@ -194,6 +195,20 @@ def plant_profile(plant_post_id):
     return render_template(
         "plant_profile.html", plant_post=plant_post,
         maintenance_level=maintenance_level)
+
+
+@app.route(
+    "/plant_profile/<plant_post_id>/comment/insert", methods=["GET", "POST"])
+def insert_comment(plant_post_id):
+    submit = {
+        "plant_post_id": request.form.get("plant_post_id"),
+        "posted_at": datetime.utcnow(),
+        "posted_by": session["user"],
+        "comment_body": request.form.get("comment_body"),
+    }
+    mongo.db.comments.insert_one(submit)
+    flash("inserted")
+    return redirect(url_for("plant_profile", plant_post_id=plant_post_id))
 
 
 if __name__ == "__main__":

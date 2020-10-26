@@ -86,4 +86,35 @@ endblock %} {% block hero_img_content %}
     </div>
   </div>
 </div>
-{%endblock %}
+
+<form
+  method="POST"
+  action="{{ url_for('insert_comment', plant_post_id=plant_post._id) }}"
+>
+  <input
+    id="plant_post_id"
+    name="plant_post_id"
+    type="hidden"
+    value="{{ plant_post._id }}"
+    class="validate"
+  />
+  <div class="input-field col s12">
+    <textarea
+      id="comment_body"
+      name="comment_body"
+      class="materialize-textarea validate"
+      required
+    ></textarea>
+    <label for="comment_body">Add comment</label>
+  </div>
+
+  <!-- submit button -->
+  <button
+    type="submit"
+    class="btn-floating btn-large waves-effect waves-light grey"
+  >
+    <i class="fas fa-plus white-text small"></i>
+  </button>
+</form>
+
+{% endblock %}

@@ -208,7 +208,7 @@ def insert_comment(plant_post_id):
             "plant_post_id": request.form.get("plant_post_id"),
             "posted_at": datetime.utcnow(),
             "posted_by": session["user"],
-            "comment_body": request.form.get("comment_body"),
+            "comment_body": request.form.get("comment_body")
         }
         mongo.db.comments.insert_one(submit)
         flash("inserted")

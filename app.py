@@ -30,7 +30,7 @@ def home():
 # Read and display all posts in all_plants.html
 @app.route("/all_plants")
 def all_plants():
-    all_plants = mongo.db.plant_posts.find()
+    all_plants = mongo.db.plant_posts.find().sort("plant_botanical_name", 1)
     return render_template("all_plants.html", all_plants=all_plants)
 
 

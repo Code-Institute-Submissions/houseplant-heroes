@@ -194,7 +194,8 @@ def plant_profile(plant_post_id):
     plant_post = mongo.db.plant_posts.find_one(
         {"_id": ObjectId(plant_post_id)})
     # Find comments for plant post
-    comments = list((mongo.db.comments.find({"plant_post_id": plant_post_id})))
+    comments = list((mongo.db.comments.find(
+        {"plant_post_id": plant_post_id}).sort("posted_at", -1)))
     maintenance_level = mongo.db.maintenance_level.find().sort("level_name", 1)
     return render_template(
         "plant_profile.html", plant_post=plant_post,
@@ -210,7 +211,7 @@ def insert_comment(plant_post_id):
             "plant_post_id": request.form.get("plant_post_id"),
             "posted_at": datetime.utcnow(),
             "posted_by": session["user"],
-            "comment_body": request.form.get("comment_body")
+            "comment_body": request.form.get("comment_body"),
         }
         mongo.db.comments.insert_one(submit)
         flash("inserted")
@@ -227,7 +228,7 @@ def edit_comment(comment_id, plant_post_id):
             "plant_post_id": request.form.get("plant_post_id"),
             "posted_at": datetime.utcnow(),
             "posted_by": session["user"],
-            "comment_body": request.form.get("comment_body")
+            "comment_body": request.form.get("comment_body"),
         }
         mongo.db.comments.update({"_id": ObjectId(comment_id)}, submit)
         flash("Comment edited")
@@ -241,7 +242,7 @@ def edit_comment(comment_id, plant_post_id):
 
 
 # Delete comment
-@ app.route("/<plant_post_id>/delete_comment/<comment_id>")
+@app.route("/<plant_post_id>/delete_comment/<comment_id>")
 def delete_comment(comment_id, plant_post_id):
     mongo.db.comments.remove({"_id": ObjectId(comment_id)})
     flash("Comment deleted")

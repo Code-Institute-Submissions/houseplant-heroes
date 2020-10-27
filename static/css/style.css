@@ -79,6 +79,10 @@ body > div.row > form > div:nth-child(8) > div > div > input {
   margin: 0;
 }
 
+.margin-10{
+    margin: 10px;
+}
+
 .heading {
   padding-top: 50px;
 }

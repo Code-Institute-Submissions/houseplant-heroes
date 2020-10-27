@@ -10,6 +10,7 @@ if os.path.exists("env.py"):
     import env
 
 
+# Instance of Flask
 app = Flask(__name__)
 
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
@@ -19,6 +20,7 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# Home
 @app.route("/")
 @app.route("/home")
 def home():
@@ -147,7 +149,7 @@ def add_plant():
         "add_plant.html", maintenance_level=maintenance_level)
 
 
-# Update existing plant post
+# Edit/Update existing plant post
 @app.route("/edit_plant/<plant_post_id>", methods=["GET", "POST"])
 def edit_plant(plant_post_id):
     if request.method == "POST":
@@ -216,7 +218,7 @@ def insert_comment(plant_post_id):
             "plant_profile", plant_post_id=plant_post_id))
 
 
-# Edit comment
+# Edit/Update comment
 @app.route(
     "/<plant_post_id>/edit_comment/<comment_id>", methods=["GET", "POST"])
 def edit_comment(comment_id, plant_post_id):
@@ -234,7 +236,8 @@ def edit_comment(comment_id, plant_post_id):
         {"_id": ObjectId(comment_id)})
     plant_post = mongo.db.plant_posts.find_one(
         {"_id": ObjectId(plant_post_id)})
-    return render_template("edit_comment.html", comment=comment, plant_post=plant_post)
+    return render_template(
+        "edit_comment.html", comment=comment, plant_post=plant_post)
 
 
 # Delete comment

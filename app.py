@@ -129,8 +129,8 @@ def add_plant():
     is_air_purifying = "on" if request.form.get("is_air_purifying") else "off"
     if request.method == "POST":
         plant_post = {
-            "plant_botanical_name": request.form.get("plant_botanical_name"),
             "plant_nickname": request.form.get("plant_nickname"),
+            "plant_botanical_name": request.form.get("plant_botanical_name"),
             "plant_description": request.form.get("plant_description"),
             "plant_image_url": request.form.get("plant_image_url"),
             "best_environment": request.form.get("best_environment"),
@@ -156,8 +156,8 @@ def edit_plant(plant_post_id):
         is_air_purifying = "on" if request.form.get(
             "is_air_purifying") else "off"
         submit = {
-            "plant_botanical_name": request.form.get("plant_botanical_name"),
             "plant_nickname": request.form.get("plant_nickname"),
+            "plant_botanical_name": request.form.get("plant_botanical_name"),
             "plant_description": request.form.get("plant_description"),
             "plant_image_url": request.form.get("plant_image_url"),
             "best_environment": request.form.get("best_environment"),

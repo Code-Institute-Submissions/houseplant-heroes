@@ -11,20 +11,6 @@ hero_img_content %} {% endblock %} {% block content %}
       method="POST"
       action="{{ url_for('edit_plant', plant_post_id=plant_post._id) }}"
     >
-      <!-- Plant botanical name -->
-      <div class="row">
-        <div class="input-field col s12">
-          <input
-            id="plant_botanical_name"
-            name="plant_botanical_name"
-            type="text"
-            class="validate"
-            value="{{ plant_post.plant_botanical_name }}"
-            required
-          />
-          <label for="plant_botanical_name">Plant Botanical Name</label>
-        </div>
-      </div>
       <!-- Plant Nickname -->
       <div class="row">
         <div class="input-field col s12">
@@ -39,6 +25,21 @@ hero_img_content %} {% endblock %} {% block content %}
           <label for="plant_nickname">Plant Nickame</label>
         </div>
       </div>
+      <!-- Plant botanical name -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input
+            id="plant_botanical_name"
+            name="plant_botanical_name"
+            type="text"
+            class="validate"
+            value="{{ plant_post.plant_botanical_name }}"
+            required
+          />
+          <label for="plant_botanical_name">Plant Botanical Name</label>
+        </div>
+      </div>
+
       <!-- plant description -->
       <div class="row">
         <div class="input-field col s12">

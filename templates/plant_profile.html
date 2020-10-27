@@ -2,10 +2,10 @@
 <a href="{{ url_for('all_plants') }}" class="white-text"
   ><i class="fas fa-long-arrow-alt-left"></i> Back to Plants</a
 >
-{% endblock %} {% block heading %}{{ plant_post.plant_botanical_name }}{%
-endblock %} {% block hero_img_content %}
+{% endblock %} {% block heading %}{{ plant_post.plant_nickname }}{% endblock %}
+{% block hero_img_content %}
 <div class="container center-align">
-  <h5 class="white-text text-shadow">{{ plant_post.plant_nickname }}</h5>
+  <h5 class="white-text text-shadow">{{ plant_post.plant_botanical_name }}</h5>
   <p class="white-text text-shadow">{{ plant_post.plant_description }}</p>
 </div>
 {% endblock %} {% block content %}

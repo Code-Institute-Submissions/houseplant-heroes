@@ -142,7 +142,7 @@ def add_plant():
             "posted_by": session["user"]
         }
         mongo.db.plant_posts.insert_one(plant_post)
-        flash("added")
+        flash("You're our hero <3! You're post has been added, thanks!")
         return redirect(url_for("all_plants"))
     maintenance_level = mongo.db.maintenance_level.find().sort("level_name", 1)
     return render_template(

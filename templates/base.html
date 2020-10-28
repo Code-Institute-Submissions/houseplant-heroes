@@ -105,45 +105,45 @@
     </header>
 
     <!-- hero-image -->
-    <div class="background-container responsive-img">
-      <!-- back navigation -->
-      <div class="white-text text-shadow back">
-        {% block back_navigation %}{% endblock %}
-      </div>
-      <!-- heading -->
-      <h2 class="white-text text-shadow center-align heading">
-        {% block heading %}{% endblock %}
-      </h2>
-      <h6 class="white-text text-shadow center-align">
-        {% block subheading %}{% endblock %}
-      </h6>
-      {% block hero_img_content %}{% endblock %}
-
-      <!-- flash messages -->
-      <section>
-        {% with messages = get_flashed_messages() %} {% if messages %} {% for
-        message in messages %}
-        <div class="row center-align">
-          <h5 class="white-text text-shadow flash-messages">{{ message }}</h5>
+    <div class="hero-image">
+        <!-- back navigation -->
+        <div class="white-text text-shadow back">
+          {% block back_navigation %}{% endblock %}
         </div>
-        {% endfor %} {% endif %} {% endwith %}
-      </section>
+        <!-- heading -->
+        <h2 class="white-text text-shadow center-align heading">
+          {% block heading %}{% endblock %}
+        </h2>
+        <h6 class="white-text text-shadow center-align">
+          {% block subheading %}{% endblock %}
+        </h6>
+        {% block hero_img_content %}{% endblock %}
+
+        <!-- flash messages -->
+        <section>
+          {% with messages = get_flashed_messages() %} {% if messages %} {% for
+          message in messages %}
+          <div class="row center-align">
+            <h5 class="white-text text-shadow flash-messages">{{ message }}</h5>
+          </div>
+          {% endfor %} {% endif %} {% endwith %}
+        </section>
     </div>
 
     {% block content %} {% endblock %}
 
     <footer>
-        <div class="row margin-0 grey lighten-2">
-          <div class="col s12 m6">
-            <p class="black-text">
-              "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-            </p>
-            <p class="black-text">© 2014 Copyright Text</p>
-          </div>
-          <div class="col s12 m6 right-align">
-            <a href="#">Social Links</a>
-          </div>
+      <div class="row margin-0 grey lighten-2">
+        <div class="col s12 m6">
+          <p class="black-text">
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+          </p>
+          <p class="black-text">© 2014 Copyright Text</p>
         </div>
+        <div class="col s12 m6 right-align">
+          <a href="#">Social Links</a>
+        </div>
+      </div>
     </footer>
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"

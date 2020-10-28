@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,600;1,700&display=swap");
+body,
 html {
   scroll-behavior: smooth;
-}
-
-body {
   font-family: "Poppins", sans-serif;
   font-weight: 300;
+  height: 100%;
+  letter-spacing: 2px;
 }
 
 /*-------- navbars --------*/
@@ -14,14 +14,13 @@ a.brand-logo.black-text.left {
 }
 
 /*-------- hero image --------*/
-.background-container {
+.hero-image {
   background-image: url("../../static/images/hero-img.png");
-  min-height: -webkit-fill-available;
-  min-height: 100vh;
-  background-attachment: fixed;
+  height: 85%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
   overflow: hidden;
 }
 

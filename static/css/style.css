@@ -15,7 +15,8 @@ a.brand-logo.black-text.left {
 
 /*-------- hero image --------*/
 .hero-image {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../../static/images/hero-img.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("../../static/images/hero-img.png");
   height: 85%;
   background-position: center;
   background-repeat: no-repeat;
@@ -27,6 +28,14 @@ a.brand-logo.black-text.left {
 /*-------- text --------*/
 .text-shadow {
   text-shadow: 1px 1px 1px rgb(66, 66, 66, 0.5);
+}
+
+.text-white {
+  color: white;
+}
+
+.heading {
+  padding-top: 50px;
 }
 
 /*-------- forms --------*/
@@ -61,14 +70,7 @@ body > div.row > form > div:nth-child(8) > div > div > input {
   margin-top: 0;
 }
 
-.back {
-  padding: 5px;
-}
-
-.fa-search {
-  padding: 2px;
-}
-
+/*-------- spacing --------*/
 .padding-30,
 #plant-profile-right,
 #plant-profile-left {
@@ -83,6 +85,15 @@ body > div.row > form > div:nth-child(8) > div > div > input {
   margin: 10px;
 }
 
-.heading {
-  padding-top: 50px;
+.back {
+  padding: 5px;
+}
+
+.fa-search {
+  padding: 2px;
+}
+
+/*-------- hover --------*/
+.hover-col:hover {
+  color: grey;
 }

@@ -1,9 +1,26 @@
-{% extends "base.html" %}{% block heading %}Plants{% endblock %} {% block
-hero_img_content %}
+{% extends "base.html" %}
+
+<!-- block heading -->
+
+{% block heading %} Plants {% endblock %}
+
+<!-- block subheading -->
+
+{% block subheading%} Search plants by name or maintenance level:
+<i>easy, medium or hard</i> or browse all plants below
+<a href="#plants" class="hover-col text-white"
+  ><i class="fas fa-chevron-down"></i
+></a> {% endblock %}
+
+<!-- block hero image content -->
+
+{% block hero_img_content %}
+
 <!-- search -->
+
 <div class="container">
   <form action="{{ url_for('search_all_plants') }}" method="POST">
-    <div class="row center-align">
+    <div class="row center-align padding-30">
       <div class="input-field">
         <input
           type="text"
@@ -12,11 +29,6 @@ hero_img_content %}
           class="validate white-text text-shadow"
         />
         <label id="search_label" for="search" class="white-text text-shadow">
-          <i
-            class="fas fa-info-circle tooltipped"
-            data-position="bottom"
-            data-tooltip="Search plants by name or maintenance level: easy, medium or hard"
-          ></i>
           Start Searching...
         </label>
         <button
@@ -30,83 +42,90 @@ hero_img_content %}
   </form>
 </div>
 {% endblock %} {% block content %}
-<div class="row padding-30 margin-0">
-  <a
-    href="{{ url_for( 'all_plants' ) }}"
-    class="white-text text-shadow grey darken-1 btn"
-    >Reset Search Results</a
-  >
-</div>
-<div class="row">
-  {% for plant_post in all_plants %}
-  <div class="col s12 m4">
-    <div class="card">
-      <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="{{ plant_post.plant_image_url }}" />
-      </div>
-      <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4"
-          >{{ plant_post.plant_nickname }}
-          <i class="fas fa-ellipsis-v right"></i>
-        </span>
-        <p>{{ plant_post.plant_botanical_name }}</p>
-        <p>
+
+<!-- plants -->
+
+<section id="plants">
+  <div class="row padding-30 margin-0">
+    <a
+      href="{{ url_for( 'all_plants' ) }}"
+      class="white-text text-shadow grey darken-1 btn"
+      >Reset Search Results</a
+    >
+  </div>
+  <div class="row">
+    {% for plant_post in all_plants %}
+    <div class="col s12 m4">
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="{{ plant_post.plant_image_url }}" />
+        </div>
+        <div class="card-content">
+          <span class="card-title activator grey-text text-darken-4"
+            >{{ plant_post.plant_nickname }}
+            <i class="fas fa-ellipsis-v right"></i>
+          </span>
+          <p>{{ plant_post.plant_botanical_name }}</p>
+          <p>
+            <a
+              href="{{ url_for('plant_profile', plant_post_id=plant_post._id) }}"
+              >Full instructions <i class="fas fa-long-arrow-alt-right"></i
+            ></a>
+          </p>
+          {% if session.user|lower == plant_post.posted_by|lower or
+          session.user|lower == "admin"|lower %}
+          <div class="right-align">
+            <!-- edit plant post -->
+            <a href="{{ url_for('edit_plant', plant_post_id=plant_post._id) }}"
+              ><i class="far fa-edit grey-text small"></i
+            ></a>
+            <!-- delete plant post -->
+            <a href="#delete-modal" class="modal-trigger"
+              ><i class="far fa-trash-alt grey-text small"></i
+            ></a>
+          </div>
+          {% endif %}
+          <!-- delete modal Structure -->
+          <div id="delete-modal" class="modal">
+            <div class="modal-content">
+              <h4>
+                Are you sure want to delete {{ plant_post.plant_botanical_name
+                }}?
+              </h4>
+            </div>
+            <div class="modal-footer">
+              <a
+                href="{{ url_for('delete_plant', plant_post_id=plant_post._id) }}"
+                class="modal-close waves-effect waves-green btn-flat"
+                >Yes, delete</a
+              >
+              <button class="modal-close waves-effect waves-green btn-flat">
+                No, keep
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"
+            >{{ plant_post.plant_botanical_name }}
+            <i class="fas fa-times right"></i>
+          </span>
+          <p>{{ plant_post.plant_description }}<br /></p>
+          <p>
+            Maintenance level: <i>{{ plant_post.maintenance_level }}</i><br />
+          </p>
+          <p>Posted by: <i>{{ plant_post.posted_by }}</i><br /></p>
+          {% if plant_post.is_air_purifying == "on" %}
+          <p><i class="fas fa-leaf"></i> This plant is air purfying</p>
+          {% endif %}
           <a href="{{ url_for('plant_profile', plant_post_id=plant_post._id) }}"
             >Full instructions <i class="fas fa-long-arrow-alt-right"></i
           ></a>
-        </p>
-        {% if session.user|lower == plant_post.posted_by|lower or
-        session.user|lower == "admin"|lower %}
-        <div class="right-align">
-          <!-- edit plant post -->
-          <a href="{{ url_for('edit_plant', plant_post_id=plant_post._id) }}"
-            ><i class="far fa-edit grey-text small"></i
-          ></a>
-          <!-- delete plant post -->
-          <a href="#delete-modal" class="modal-trigger"
-            ><i class="far fa-trash-alt grey-text small"></i
-          ></a>
         </div>
-        {% endif %}
-        <!-- delete modal Structure -->
-        <div id="delete-modal" class="modal">
-          <div class="modal-content">
-            <h4>
-              Are you sure want to delete {{ plant_post.plant_botanical_name }}?
-            </h4>
-          </div>
-          <div class="modal-footer">
-            <a
-              href="{{ url_for('delete_plant', plant_post_id=plant_post._id) }}"
-              class="modal-close waves-effect waves-green btn-flat"
-              >Yes, delete</a
-            >
-            <button class="modal-close waves-effect waves-green btn-flat">
-              No, keep
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4"
-          >{{ plant_post.plant_botanical_name }}
-          <i class="fas fa-times right"></i>
-        </span>
-        <p>{{ plant_post.plant_description }}<br /></p>
-        <p>
-          Maintenance level: <i>{{ plant_post.maintenance_level }}</i><br />
-        </p>
-        <p>Posted by: <i>{{ plant_post.posted_by }}</i><br /></p>
-        {% if plant_post.is_air_purifying == "on" %}
-        <p><i class="fas fa-leaf"></i> This plant is air purfying</p>
-        {% endif %}
-        <a href="{{ url_for('plant_profile', plant_post_id=plant_post._id) }}"
-          >Full instructions <i class="fas fa-long-arrow-alt-right"></i
-        ></a>
       </div>
     </div>
+    {% endfor %}
   </div>
-  {% endfor %}
-</div>
+</section>
 
 {% endblock %}

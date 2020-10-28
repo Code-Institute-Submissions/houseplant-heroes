@@ -26,7 +26,7 @@ endblock %} {% block hero_img_content %}
   <h4>My plants</h4>
 
   <div class="row">
-    {% for plant_post in my_plants if session.user|lower ==
+    {% for plant_post in all_plants %} {% if session.user|lower ==
     plant_post.posted_by|lower or session.user|lower == "admin"|lower %}
     <div class="col s12 m4">
       <div class="card">
@@ -94,7 +94,8 @@ endblock %} {% block hero_img_content %}
         </div>
       </div>
     </div>
-    {% endfor %}
+
+    {% endif %} {% endfor %}
   </div>
 </section>
 {% endblock %}

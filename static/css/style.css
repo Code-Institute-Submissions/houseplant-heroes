@@ -15,7 +15,7 @@ a.brand-logo.black-text.left {
 
 /*-------- hero image --------*/
 .hero-image {
-  background-image: url("../../static/images/hero-img.png");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("../../static/images/hero-img.png");
   height: 85%;
   background-position: center;
   background-repeat: no-repeat;

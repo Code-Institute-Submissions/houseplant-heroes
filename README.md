@@ -147,4 +147,5 @@ Description
 
 ### Media
 
-- https://compresspng.com/
+- https://tinypng.com/
+- background img w3schools https://www.w3schools.com/howto/howto_css_hero_image.asp

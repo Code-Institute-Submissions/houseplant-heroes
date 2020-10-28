@@ -75,6 +75,11 @@
                 >
               </li>
               <li>
+                <a href="{{ url_for('add_plant') }}" class="black-text"
+                  >Add Plant</a
+                >
+              </li>
+              <li>
                 <a href="{{ url_for('logout') }}" class="black-text">Log Out</a>
               </li>
               <!-- if no user is logged in -->
@@ -107,6 +112,9 @@
             class="black-text"
             >Profile</a
           >
+        </li>
+        <li>
+          <a href="{{ url_for('add_plant') }}" class="black-text">Add Plant</a>
         </li>
         <li>
           <a href="{{ url_for('logout') }}" class="black-text">Log Out</a>

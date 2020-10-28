@@ -16,7 +16,8 @@ a.brand-logo.black-text.left {
 /*-------- hero image --------*/
 .background-container {
   background-image: url("../../static/images/hero-img.png");
-  height: 75vh;
+  min-height: -webkit-fill-available;
+  min-height: 75vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
@@ -79,12 +80,10 @@ body > div.row > form > div:nth-child(8) > div > div > input {
   margin: 0;
 }
 
-.margin-10{
-    margin: 10px;
+.margin-10 {
+  margin: 10px;
 }
 
 .heading {
   padding-top: 50px;
-  
 }
-

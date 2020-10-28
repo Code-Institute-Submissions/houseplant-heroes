@@ -43,11 +43,11 @@ def search_all_plants():
             {"$text": {"$search": search}}))
         # check for search result matches
         if all_plants:
-            flash("results for...")
+            flash("Results for...")
             return render_template("all_plants.html", all_plants=all_plants)
         else:
-            flash("no results found")
-            return render_template("all_plants.html", all_plants=all_plants)
+            flash("No results found, try again or browse all plants below")
+            return redirect(url_for("all_plants"))
 
 
 # Register username and password in join.html

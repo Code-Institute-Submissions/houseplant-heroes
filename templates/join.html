@@ -1,6 +1,12 @@
-{% extends "base.html" %}{% block heading %}Join{% endblock %} {% block hero_img_content
-%}
+{% extends "base.html" %}
 
+<!-- heading -->
+{% block heading %} Join {% endblock %}
+
+<!-- hero image content -->
+{% block hero_img_content %}
+
+<!-- form -->
 <div class="form-container valign-wrapper center-align">
   <div class="row">
     <form class="col s12" method="POST" action="{{ url_for('join') }}">
@@ -51,16 +57,16 @@
         </div>
       </div>
       <!-- submit -->
-
       <div class="row">
         <button
           type="submit"
-          class="col s2 btn offset-m5 grey darken-1 white-text text-shadow "
+          class="col s2 btn offset-m5 grey darken-1 white-text text-shadow"
         >
           Join
         </button>
       </div>
     </form>
+    <!-- redirect to login -->
     <div class="row">
       <p class="white-text text-shadow">
         Already have an account? Login
@@ -71,4 +77,6 @@
     </div>
   </div>
 </div>
-{% endblock %} {% block content %} {% endblock %}
+{% endblock %} 
+
+{% block content %} {% endblock %}

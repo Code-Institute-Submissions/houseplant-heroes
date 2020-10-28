@@ -1,85 +1,90 @@
 {% extends "base.html" %}
-<div class="">
-  {% block heading %}Houseplant Heroes{% endblock %}{% block subheading %}A
-  community created guide to houseplant care.{% endblock %} {% block
-  hero_img_content %}
 
-  <!-- search -->
-  <div class="container">
-    <form action="{{ url_for('search_all_plants') }}" method="POST">
-      <div class="row center-align padding-30">
-        <div class="input-field">
-          <input
-            type="text"
-            name="search"
-            id="search"
-            class="validate white-text text-shadow"
-          />
-          <label id="search_label" for="search" class="white-text text-shadow">
-            <i
-              class="fas fa-info-circle tooltipped"
-              data-position="bottom"
-              data-tooltip="Search plants by name or maintenance level: easy, medium or hard"
-            ></i>
-            Start Searching...
-          </label>
-          <button
-            type="submit"
-            class="white-text text-shadow right grey darken-1 btn"
-          >
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <!-- redirect buttons -->
-  <div class="center-align">
-    <a
-      href="{{ url_for('join') }}"
-      class="col s2 btn-large offset-m5 grey darken-1 white-text text-shadow margin-10"
-    >
-      <b>Join</b>
-    </a>
-    <a
-      href="{{ url_for('login') }}"
-      class="col s2 btn-large offset-m5 grey darken-1 white-text text-shadow margin-10"
-    >
-      <b>Login</b>
-    </a>
-  </div>
+<!-- heading -->
+{% block heading %} Houseplant Heroes {% endblock %}
 
-  {% endblock %} {% block content %}
-  <div class="container padding-30">
-    <div class="row">
-      <div class="col s12 m4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-        laoreet imperdiet ligula nec mollis. Nunc porttitor dolor id diam
-        vulputate cursus. Suspendisse suscipit, nulla at fringilla venenatis, ex
-        ligula maximus dui, ac porttitor neque magna sit amet neque. Nulla ac
-        elit sapien. Aliquam tellus quam, convallis a faucibus vitae, bibendum
-        vitae tortor. Integer nunc nibh, eleifend ac placerat sed, bibendum non
-        lectus.
-      </div>
-      <div class="col s12 m4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-        laoreet imperdiet ligula nec mollis. Nunc porttitor dolor id diam
-        vulputate cursus. Suspendisse suscipit, nulla at fringilla venenatis, ex
-        ligula maximus dui, ac porttitor neque magna sit amet neque. Nulla ac
-        elit sapien. Aliquam tellus quam, convallis a faucibus vitae, bibendum
-        vitae tortor. Integer nunc nibh, eleifend ac placerat sed, bibendum non
-        lectus.
-      </div>
-      <div class="col s12 m4">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
-        laoreet imperdiet ligula nec mollis. Nunc porttitor dolor id diam
-        vulputate cursus. Suspendisse suscipit, nulla at fringilla venenatis, ex
-        ligula maximus dui, ac porttitor neque magna sit amet neque. Nulla ac
-        elit sapien. Aliquam tellus quam, convallis a faucibus vitae, bibendum
-        vitae tortor. Integer nunc nibh, eleifend ac placerat sed, bibendum non
-        lectus.
+<!-- subheading -->
+{% block subheading %} A community created guide to houseplant care.{% endblock
+%} {% block hero_img_content %}
+
+<!-- search -->
+<div class="container">
+  <form action="{{ url_for('search_all_plants') }}" method="POST">
+    <div class="row center-align padding-30">
+      <div class="input-field">
+        <input
+          type="text"
+          name="search"
+          id="search"
+          class="validate white-text text-shadow"
+        />
+        <label id="search_label" for="search" class="white-text text-shadow">
+          <i
+            class="fas fa-info-circle tooltipped"
+            data-position="bottom"
+            data-tooltip="Search plants by name or maintenance level: easy, medium or hard"
+          ></i>
+          Start Searching...
+        </label>
+        <!-- submit -->
+        <button
+          type="submit"
+          class="white-text text-shadow right grey darken-1 btn"
+        >
+          <i class="fas fa-search"></i>
+        </button>
       </div>
     </div>
-  </div>
-  {% endblock %}
+  </form>
 </div>
+<!-- redirect buttons -->
+<div class="center-align">
+  <a
+    href="{{ url_for('join') }}"
+    class="col s2 btn-large offset-m5 grey darken-1 white-text text-shadow margin-10"
+  >
+    <b>Join</b>
+  </a>
+  <a
+    href="{{ url_for('login') }}"
+    class="col s2 btn-large offset-m5 grey darken-1 white-text text-shadow margin-10"
+  >
+    <b>Login</b>
+  </a>
+</div>
+
+{% endblock %}
+
+<!-- content -->
+{% block content %}
+
+<!-- promo -->
+<div class="container padding-30">
+  <div class="row">
+    <div class="col s12 m4">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas laoreet
+      imperdiet ligula nec mollis. Nunc porttitor dolor id diam vulputate
+      cursus. Suspendisse suscipit, nulla at fringilla venenatis, ex ligula
+      maximus dui, ac porttitor neque magna sit amet neque. Nulla ac elit
+      sapien. Aliquam tellus quam, convallis a faucibus vitae, bibendum vitae
+      tortor. Integer nunc nibh, eleifend ac placerat sed, bibendum non lectus.
+    </div>
+    <div class="col s12 m4">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas laoreet
+      imperdiet ligula nec mollis. Nunc porttitor dolor id diam vulputate
+      cursus. Suspendisse suscipit, nulla at fringilla venenatis, ex ligula
+      maximus dui, ac porttitor neque magna sit amet neque. Nulla ac elit
+      sapien. Aliquam tellus quam, convallis a faucibus vitae, bibendum vitae
+      tortor. Integer nunc nibh, eleifend ac placerat sed, bibendum non lectus.
+    </div>
+    <div class="col s12 m4">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas laoreet
+      imperdiet ligula nec mollis. Nunc porttitor dolor id diam vulputate
+      cursus. Suspendisse suscipit, nulla at fringilla venenatis, ex ligula
+      maximus dui, ac porttitor neque magna sit amet neque. Nulla ac elit
+      sapien. Aliquam tellus quam, convallis a faucibus vitae, bibendum vitae
+      tortor. Integer nunc nibh, eleifend ac placerat sed, bibendum non lectus.
+    </div>
+  </div>
+</div>
+{% endblock %}

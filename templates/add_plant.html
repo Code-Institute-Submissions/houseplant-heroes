@@ -1,7 +1,19 @@
-{% extends "base.html" %} {% block heading %}Add Plant{% endblock %}{% block
-subheading %}Become one of our houseplant heroes by adding a plant below! The
-post can be edited or deleted later.{% endblock %} {% block hero_img_content %}
-{% endblock %} {% block content %}
+{% extends "base.html" %}
+
+<!-- heading -->
+{% block heading %} Add Plant {% endblock %}
+
+<!-- subheading -->
+{% block subheading %} Become one of our houseplant heroes by adding a plant
+below! The post can be edited or deleted later. {% endblock %}
+
+<!-- hero image content -->
+{% block hero_img_content %} {% endblock %}
+
+<!-- content -->
+{% block content %}
+
+<!-- form -->
 <div class="container">
   <div class="row">
     <form class="col s12" method="POST" action="{{ url_for('add_plant') }}">

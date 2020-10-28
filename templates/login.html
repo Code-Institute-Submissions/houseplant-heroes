@@ -1,57 +1,68 @@
-{% extends "base.html" %} {% block heading %}Login{% endblock %}{% block
-hero_img_content %}
+{% extends "base.html" %}
 
+<!-- heading -->
+{% block heading %} Login {% endblock %}
+
+<!-- hero image content -->
+{% block hero_img_content %}
+
+<!-- form -->
 <div class="form-container valign-wrapper center-align">
-	<div class="row">
-		<form class="col s12" method="POST" action="{{ url_for('login') }}">
-			<div class="row">
-				<!-- username -->
-				<div class="input-field col">
-					<input
+  <div class="row">
+    <form class="col s12" method="POST" action="{{ url_for('login') }}">
+      <div class="row">
+        <!-- username -->
+        <div class="input-field col">
+          <input
             id="username"
             name="username"
             type="text"
             class="validate white-text text-shadow"
           />
-					<label
+          <label
             for="username"
             id="username_label"
             class="white-text text-shadow"
-            ><b>Username</b></label>
-				</div>
-				<!-- passwords -->
-				<div class="input-field col">
-					<input
+            ><b>Username</b></label
+          >
+        </div>
+        <!-- passwords -->
+        <div class="input-field col">
+          <input
             id="password"
             name="password"
             type="password"
             class="validate white-text text-shadow"
           />
-					<label
+          <label
             for="password"
             id="password_label"
             class="white-text text-shadow"
-            ><b>Password</b></label>
-				</div>
-			</div>
-
-			<!-- submit -->
-
-			<div class="row">
-				<button
+            ><b>Password</b></label
+          >
+        </div>
+      </div>
+      <!-- submit -->
+      <div class="row">
+        <button
           type="submit"
           class="col s2 btn offset-m5 grey darken-1 white-text text-shadow"
         >
           Login
         </button>
-			</div>
-		</form>
-		<div class="row">
-			<p class="white-text text-shadow">
-				New? Join
-				<a href="{{ url_for('join') }}" class="white-text text-shadow"><i>here</i></a>
-			</p>
-		</div>
-	</div>
+      </div>
+    </form>
+    <!-- redirect to join -->
+    <div class="row">
+      <p class="white-text text-shadow">
+        New? Join
+        <a href="{{ url_for('join') }}" class="white-text text-shadow"
+          ><i>here</i></a
+        >
+      </p>
+    </div>
+  </div>
 </div>
-{% endblock %} {% block content %} {% endblock %}
+{% endblock %} 
+
+{% block content %} {% endblock %}

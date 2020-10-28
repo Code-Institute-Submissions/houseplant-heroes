@@ -1,15 +1,24 @@
-{% extends "base.html" %}{% block back_navigation %}
-<a href="{{ url_for('all_plants') }}" class="white-text"
-  ><i class="fas fa-long-arrow-alt-left"></i> Back to Plants</a
->
-{% endblock %} {% block heading %}{{ plant_post.plant_nickname }}{% endblock %}
+{% extends "base.html" %}
+
+<!-- heading -->
+{% block heading %}{{ plant_post.plant_nickname }}{% endblock %}
+
+<!-- hero image content -->
 {% block hero_img_content %}
+
+<!-- names & description -->
 <div class="container center-align">
   <h5 class="white-text text-shadow">{{ plant_post.plant_botanical_name }}</h5>
   <p class="white-text text-shadow">{{ plant_post.plant_description }}</p>
 </div>
-{% endblock %} {% block content %}
+
+{% endblock %}
+
+<!-- block content -->
+{% block content %}
+
 <div class="row">
+  <!-- Plant Image -->
   <div id="plant-profile-left" class="col m4 s12 center-align">
     <div class="row">
       <img
@@ -18,15 +27,18 @@
         alt="Image for {{ plant_post.plant_botanical_name }}"
       />
     </div>
+    <!-- posted by -->
     <div class="row">
       <p>Posted by: <i>{{ plant_post.posted_by }}</i></p>
     </div>
+    <!-- is air purifying? -->
     {% if plant_post.is_air_purifying == "on" %}
     <div class="row">
       <p><i class="fas fa-leaf"></i> This plant is air purfying</p>
     </div>
     {% endif %}
     <div class="row">
+      <!-- ensure only poster or admin can delete/edit posts -->
       {% if session.user|lower == plant_post.posted_by|lower or
       session.user|lower == "admin"|lower%}
       <!-- edit plant post -->
@@ -87,6 +99,7 @@
     </div>
   </div>
 </div>
+
 <!-- comments -->
 <section>
   <div class="container">

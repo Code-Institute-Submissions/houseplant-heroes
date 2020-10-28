@@ -112,11 +112,12 @@ def profile(username):
     # get session user's username from database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    # find plant posted by sesssion user
+    my_plants = mongo.db.plant_posts.find({"posted_by": session["user"]})
 
     if session["user"]:
-        all_plants = mongo.db.plant_posts.find()
         return render_template(
-            "profile.html", username=username, all_plants=all_plants)
+            "profile.html", username=username, my_plants=my_plants)
 
     return redirect(url_for("login"))
 

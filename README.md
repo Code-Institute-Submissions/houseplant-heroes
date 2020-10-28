@@ -147,4 +147,4 @@ Description
 
 ### Media
 
-- https://tinypng.com/
+- https://compresspng.com/

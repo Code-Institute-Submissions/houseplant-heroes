@@ -17,7 +17,7 @@ a.brand-logo.black-text.left {
 .background-container {
   background-image: url("../../static/images/hero-img.png");
   min-height: -webkit-fill-available;
-  min-height: 75vh;
+  min-height: 100vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;

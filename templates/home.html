@@ -39,16 +39,22 @@
   <!-- redirect buttons -->
   <div class="center-align">
     <a
-      href="{{ url_for('join') }}"
-      class="col s2 btn-large offset-m5 grey darken-1 white-text text-shadow margin-10"
+      href="{{ url_for('all_plants') }}"
+      class="btn-large grey darken-1 white-text text-shadow margin-10"
     >
-      <b>Join</b>
+      <b>All Plants</b>
     </a>
     <a
       href="{{ url_for('login') }}"
-      class="col s2 btn-large offset-m5 grey darken-1 white-text text-shadow margin-10"
+      class="btn-large grey darken-1 white-text text-shadow margin-10"
     >
       <b>Login</b>
+    </a>
+    <a
+      href="{{ url_for('join') }}"
+      class="btn-large grey darken-1 white-text text-shadow margin-10"
+    >
+      <b>Join</b>
     </a>
   </div>
 </div>

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 <!-- heading -->
-{% block heading %} Plants {% endblock %}
+{% block heading %} All Plants {% endblock %}
 
 <!-- subheading -->
 {% block subheading%} Search plants by name or maintenance level:
@@ -15,7 +15,7 @@
 {% block hero_img_content %}
 
 <!-- search -->
-<div class="container">
+<div class="container hero-img-content-container-35">
   <form action="{{ url_for('search_all_plants') }}" method="POST">
     <div class="row center-align padding-30">
       <div class="input-field">

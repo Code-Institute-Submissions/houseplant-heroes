@@ -24,9 +24,12 @@ a.brand-logo.black-text.left {
   overflow: hidden;
 }
 
-.hero-img-content-container {
-  padding-top: 1%;
+.hero-img-content-container-52 {
   height: 52vh;
+}
+
+.hero-img-content-container-35 {
+  height: 37vh;
 }
 /*-------- text --------*/
 .text-shadow {
@@ -77,7 +80,8 @@ a.brand-logo.black-text.left {
 }
 
 /*-------- overwrites materialize select-wrapper  --------*/
-.form-text, body > div.container.plant-form > form > div:nth-child(10) > div > div > input,
+.form-text,
+body > div.container.plant-form > form > div:nth-child(10) > div > div > input,
 body
   > div.container.plant-form
   > div
@@ -125,6 +129,9 @@ body
   padding: 2px;
 }
 
+.padding-top-1 {
+  padding-top: 1%;
+}
 /*-------- hover --------*/
 .hover-col:hover {
   color: grey;

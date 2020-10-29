@@ -140,9 +140,9 @@
       <h6 class="white-text text-shadow center-align subheading">
         {% block subheading %}{% endblock %}
       </h6>
-      
-      {% block hero_img_content %}{% endblock %}
-
+      <div class="padding-top-1">
+        {% block hero_img_content %}{% endblock %}
+      </div>
       <!-- flash messages -->
       <section>
         {% with messages = get_flashed_messages() %} {% if messages %} {% for

@@ -68,7 +68,10 @@ Description
 
 ### Features Left to Implement
 
--
+- Pagination 
+- autofill search 
+- favourite
+- water
 
 ## Technologies Used
 

@@ -1,42 +1,41 @@
 {% extends "base.html" %}
-<section id="home-container">
-  <!-- heading -->
-  {% block heading %} Houseplant Heroes {% endblock %}
+<!-- heading -->
+{% block heading %} Houseplant Heroes {% endblock %}
 
-  <!-- subheading -->
-  {% block subheading %} A community created guide to houseplant care.{%
-  endblock %} {% block hero_img_content %}
+<!-- subheading -->
+{% block subheading %} A community created guide to houseplant care.{% endblock
+%} {% block hero_img_content %}
 
+<div class="container" id="home-container">
   <!-- search -->
-  <div class="container">
-    <form action="{{ url_for('search_all_plants') }}" method="POST">
-      <div class="row center-align padding-30">
-        <div class="input-field">
-          <input
-            type="text"
-            name="search"
-            id="search"
-            class="validate white-text text-shadow"
-          />
-          <label id="search_label" for="search" class="white-text text-shadow">
-            <i
-              class="fas fa-info-circle tooltipped"
-              data-position="bottom"
-              data-tooltip="Search plants by name or maintenance level: easy, medium or hard"
-            ></i>
-            Start Searching...
-          </label>
-          <!-- submit -->
-          <button
-            type="submit"
-            class="white-text text-shadow right grey darken-1 btn"
-          >
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
+  <form action="{{ url_for('search_all_plants') }}" method="POST">
+    <div class="row center-align padding-30">
+      <div class="input-field">
+        <input
+          type="text"
+          name="search"
+          id="search"
+          class="validate white-text text-shadow"
+        />
+        <label id="search_label" for="search" class="white-text text-shadow">
+          <i
+            class="fas fa-info-circle tooltipped"
+            data-position="bottom"
+            data-tooltip="Search plants by name or maintenance level: easy, medium or hard"
+          ></i>
+          Start Searching...
+        </label>
+        <!-- submit -->
+        <button
+          type="submit"
+          class="white-text text-shadow right grey darken-1 btn"
+        >
+          <i class="fas fa-search"></i>
+        </button>
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
+
   <!-- redirect buttons -->
   <div class="center-align">
     <a
@@ -52,9 +51,9 @@
       <b>Login</b>
     </a>
   </div>
+</div>
 
-  {% endblock %}
-</section>
+{% endblock %}
 
 <!-- content -->
 {% block content %}

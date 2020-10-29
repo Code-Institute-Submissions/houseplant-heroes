@@ -17,7 +17,6 @@ a.brand-logo.black-text.left {
 .hero-image {
   background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
     url("../../static/images/hero-img.png");
-  height: 85%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -25,6 +24,9 @@ a.brand-logo.black-text.left {
   overflow: hidden;
 }
 
+#home-container{
+    margin: 20px;
+}
 /*-------- text --------*/
 .text-shadow {
   text-shadow: 1px 1px 1px rgb(66, 66, 66, 0.5);

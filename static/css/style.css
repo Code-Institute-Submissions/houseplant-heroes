@@ -41,6 +41,9 @@ a.brand-logo.black-text.left {
   padding-top: 5%;
 }
 
+.subheading {
+    margin-bottom: 10%;
+}
 /*-------- forms --------*/
 .form-container {
   height: 40vh;

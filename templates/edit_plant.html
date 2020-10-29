@@ -1,12 +1,14 @@
 {% extends "base.html" %}
 
 <!-- heading -->
-{% block heading %}<div class="margin-bottom-10 "> Edit your Plant</div> {% endblock %}
+{% block heading %}
+<div class="margin-bottom-10">Edit your Plant</div>
+{% endblock %}
 <!-- content -->
 {% block content %}
 
 <!-- form -->
-<div class="container">
+<div class="container plant-form">
   <div class="row">
     <form
       class="col s12"
@@ -20,7 +22,7 @@
             id="plant_nickname"
             name="plant_nickname"
             type="text"
-            class="validate"
+            class="validate form-text"
             value="{{ plant_post.plant_nickname }}"
             required
           />
@@ -34,7 +36,7 @@
             id="plant_botanical_name"
             name="plant_botanical_name"
             type="text"
-            class="validate"
+            class="validate form-text"
             value="{{ plant_post.plant_botanical_name }}"
             required
           />
@@ -47,7 +49,7 @@
           <textarea
             id="plant_description"
             name="plant_description"
-            class="materialize-textarea validate"
+            class="materialize-textarea validate form-text"
             required
           >
 {{- plant_post.plant_description -}}
@@ -62,7 +64,7 @@
           <textarea
             id="plant_image_url"
             name="plant_image_url"
-            class="materialize-textarea validate"
+            class="materialize-textarea validate form-text"
             required
           >
 {{- plant_post.plant_image_url -}}
@@ -80,11 +82,11 @@
       </div>
       <!-- best environment -->
       <div class="row">
-        <div class="input-field col s12">
+        <div class="input-field col s12 form-text">
           <textarea
             id="best_environment"
             name="best_environment"
-            class="materialize-textarea validate"
+            class="materialize-textarea validate form-text"
             required
           >
 {{- plant_post.best_environment -}}
@@ -99,7 +101,7 @@
           <textarea
             id="temperature"
             name="temperature"
-            class="materialize-textarea validate"
+            class="materialize-textarea validate form-text"
             required
           >
 {{- plant_post.temperature -}}
@@ -116,7 +118,7 @@
           <textarea
             id="water"
             name="water"
-            class="materialize-textarea validate"
+            class="materialize-textarea validate form-text"
             required
           >
         {{- plant_post.water -}}
@@ -131,7 +133,7 @@
           <textarea
             id="feeding"
             name="feeding"
-            class="materialize-textarea validate"
+            class="materialize-textarea validate form-text"
             required
           >
 {{- plant_post.feeding -}}</textarea
@@ -140,51 +142,54 @@
         </div>
       </div>
       <!-- Is air purfiying switch -->
-      <div class="input-field">
-        <div class="switch">
-          <label for="is_air_purifying">
-            Is this plant air purifying? {% if plant_post.is_air_purifying ==
-            "on" %}
-            <input
-              type="checkbox"
-              id="is_air_purifying"
-              name="is_air_purifying"
-              checked
-            />
-            {% else %}
-            <input
-              type="checkbox"
-              id="is_air_purifying"
-              name="is_air_purifying"
-            />
-            {% endif %}
-            <span class="lever"></span>
-            Yes
-          </label>
+      <div class="row">
+        <div class="input-field col s12">
+          <div class="switch">
+            <label for="is_air_purifying" class="font-1rem">
+              Is this plant air purifying? {% if plant_post.is_air_purifying ==
+              "on" %}
+              <input
+                type="checkbox"
+                id="is_air_purifying"
+                name="is_air_purifying"
+                class="validate"
+                checked
+              />
+              {% else %}
+              <input
+                type="checkbox"
+                id="is_air_purifying"
+                name="is_air_purifying"
+                class="validate"
+              />
+              {% endif %}
+              <span class="lever"></span>
+              Yes
+            </label>
+          </div>
         </div>
       </div>
       <!-- maintenance select -->
       <div class="row">
-        <div class="input-field col s9">
+        <div class="input-field col s12">
           <select
             id="maintenance_level"
             name="maintenance_level"
             class="validate"
             required
           >
-            <option value="" disabled>Choose Maintenance Level</option>
+            <option value="" class="font-1rem grey-text" disabled selected
+              >How easy is it to take care of the plant</option
+            >
             {% for level in maintenance_level %}
             <option value="{{ level.level_name }}"
               >{{ level.level_name }}</option
             >
             {% endfor %}
           </select>
-          <label for="maintenance_level"
-            >How much effort is required to care for the plant?</label
-          >
         </div>
       </div>
-      <div class="row">
+      <div class="row padding-30">
         <div class="col s12 center-align">
           <!-- submit button -->
           <button

@@ -41,8 +41,12 @@ a.brand-logo.black-text.left {
   padding-top: 5%;
 }
 
-.subheading {
+#add-plant-subheading {
     margin-bottom: 10%;
+}
+
+.subheading {
+     line-height: 2rem;
 }
 /*-------- forms --------*/
 .form-container {

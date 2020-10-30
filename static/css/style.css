@@ -23,14 +23,10 @@ a.brand-logo.black-text.left {
   position: relative;
   overflow: hidden;
 }
-
-.hero-img-content-container-52 {
-  height: 52vh;
+.height-85 {
+  height: 85%;
 }
 
-.hero-img-content-container-35 {
-  height: 37vh;
-}
 /*-------- text --------*/
 .text-shadow {
   text-shadow: 1px 1px 1px rgb(66, 66, 66, 0.5);

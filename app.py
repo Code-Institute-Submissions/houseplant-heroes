@@ -24,6 +24,7 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
+    flash("test")
     return render_template("home.html")
 
 

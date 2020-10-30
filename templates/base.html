@@ -130,33 +130,30 @@
       </ul>
     </header>
 
-    <section>
-      {% block hero_image %}{% endblock %}
+    {% block hero_image_begin %}{% endblock %}
+    <h2 class="white-text text-shadow center-align heading">
+      {% block heading %}{% endblock %}
+    </h2>
+    <h6 class="white-text text-shadow center-align subheading">
+      {% block subheading %}{% endblock %}
+    </h6>
 
-      <h2 class="white-text text-shadow center-align heading">
-        {% block heading %}{% endblock %}
-      </h2>
-      <h6 class="white-text text-shadow center-align subheading">
-        {% block subheading %}{% endblock %}
-      </h6>
-
-      {% block hero_image_content %} {% endblock %}
-      <!-- flash messages -->
-      <div>
-        {% with messages = get_flashed_messages() %} {% if messages %} {% for
-        message in messages %}
-        <div class="row center-align">
-          <h5 class="white-text text-shadow flash-messages">{{ message }}</h5>
-        </div>
-        {% endfor %} {% endif %} {% endwith %}
+    {% block hero_image_content %} {% endblock %}
+    <!-- flash messages -->
+    <div>
+      {% with messages = get_flashed_messages() %} {% if messages %} {% for
+      message in messages %}
+      <div class="row center-align">
+        <h5 class="white-text text-shadow flash-messages">{{ message }}</h5>
       </div>
-    </section>
+      {% endfor %} {% endif %} {% endwith %}
+    </div>
+    {% block hero_image_end %}{% endblock %}
 
     <!-- block content -->
     <section>
       {% block content %} {% endblock %}
     </section>
-
     <!-- footer -->
     <footer>
       <div class="row margin-0 grey lighten-2">

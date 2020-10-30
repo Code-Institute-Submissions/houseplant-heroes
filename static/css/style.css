@@ -27,6 +27,9 @@ a.brand-logo.black-text.left {
   height: 85%;
 }
 
+.hero-image-section {
+  padding-top: 7%;
+}
 /*-------- text --------*/
 .text-shadow {
   text-shadow: 1px 1px 1px rgb(66, 66, 66, 0.5);
@@ -40,15 +43,11 @@ a.brand-logo.black-text.left {
   font-size: 1rem;
 }
 
-.heading {
-  padding-top: 5%;
-}
-
 .margin-bottom-10 {
   margin-bottom: 10%;
 }
 
-.subheading {
+.line-height {
   line-height: 2rem;
 }
 /*-------- forms --------*/
@@ -95,7 +94,7 @@ body
 /*-------- flash messages --------*/
 
 .flash-messages {
-  margin-top: 0;
+  padding: 40px;
 }
 
 /*-------- spacing --------*/
@@ -125,9 +124,6 @@ body
   padding: 2px;
 }
 
-.padding-top-1 {
-  padding-top: 1%;
-}
 /*-------- hover --------*/
 .hover-col:hover {
   color: grey;

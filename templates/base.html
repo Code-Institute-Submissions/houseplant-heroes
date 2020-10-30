@@ -130,24 +130,31 @@
       </ul>
     </header>
 
+    <!-- hero image -->
     {% block hero_image_begin %}{% endblock %}
-    <h2 class="white-text text-shadow center-align heading">
-      {% block heading %}{% endblock %}
-    </h2>
-    <h6 class="white-text text-shadow center-align subheading">
-      {% block subheading %}{% endblock %}
-    </h6>
-
-    {% block hero_image_content %} {% endblock %}
-    <!-- flash messages -->
-    <div>
-      {% with messages = get_flashed_messages() %} {% if messages %} {% for
-      message in messages %}
-      <div class="row center-align">
-        <h5 class="white-text text-shadow flash-messages">{{ message }}</h5>
+    <section class="hero-image-section">
+      <!-- heading -->
+      <h2 class="white-text text-shadow center-align">
+        {% block heading %}{% endblock %}
+      </h2>
+      <!-- subheading -->
+      <h6 class="white-text text-shadow center-align line-height">
+        {% block subheading %}{% endblock %}
+      </h6>
+      <!-- hero image content -->
+      <div class="padding-30">
+        {% block hero_image_content %} {% endblock %}
       </div>
-      {% endfor %} {% endif %} {% endwith %}
-    </div>
+      <!-- flash messages -->
+      <div>
+        {% with messages = get_flashed_messages() %} {% if messages %} {% for
+        message in messages %}
+        <div class="row center-align">
+          <h5 class="white-text text-shadow flash-messages">{{ message }}</h5>
+        </div>
+        {% endfor %} {% endif %} {% endwith %}
+      </div>
+    </section>
     {% block hero_image_end %}{% endblock %}
 
     <!-- block content -->

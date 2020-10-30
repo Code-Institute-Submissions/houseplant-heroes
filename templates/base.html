@@ -130,31 +130,32 @@
       </ul>
     </header>
 
-    <!-- hero image -->
-    <div class="hero-image">
-      <!-- heading -->
+    <section>
+      {% block hero_image %}{% endblock %}
+
       <h2 class="white-text text-shadow center-align heading">
         {% block heading %}{% endblock %}
       </h2>
-      <!-- subheading -->
       <h6 class="white-text text-shadow center-align subheading">
         {% block subheading %}{% endblock %}
       </h6>
-      <div class="padding-top-1">
-        {% block hero_img_content %}{% endblock %}
-      </div>
+
+      {% block hero_image_content %} {% endblock %}
       <!-- flash messages -->
-      <section>
+      <div>
         {% with messages = get_flashed_messages() %} {% if messages %} {% for
         message in messages %}
         <div class="row center-align">
           <h5 class="white-text text-shadow flash-messages">{{ message }}</h5>
         </div>
         {% endfor %} {% endif %} {% endwith %}
-      </section>
-    </div>
+      </div>
+    </section>
 
-    {% block content %} {% endblock %}
+    <!-- block content -->
+    <section>
+      {% block content %} {% endblock %}
+    </section>
 
     <!-- footer -->
     <footer>

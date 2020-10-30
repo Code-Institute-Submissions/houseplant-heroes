@@ -1,45 +1,52 @@
 {% extends "base.html" %}
+<!-- hero image opening div -->
+{% block hero_image_begin %}
+<div class="hero-image height-85">
+  {% endblock %}
 
-<!-- heading -->
-{% block heading %} All Plants {% endblock %}
+  <!-- heading -->
+  {% block heading %} All Plants {% endblock %}
 
-<!-- subheading -->
-{% block subheading%} Search plants by name or maintenance level:
-<i>easy, medium or hard</i> or browse all plants below
-<a href="#plants" class="hover-col text-white"
-  ><i class="fas fa-chevron-down"></i
-></a>
-{% endblock %}
+  <!-- subheading -->
+  {% block subheading%} Search plants by name or maintenance level:
+  <i>easy, medium or hard</i> or browse all plants below
+  <a href="#plants" class="hover-col text-white"
+    ><i class="fas fa-chevron-down"></i
+  ></a>
+  {% endblock %}
 
-<!-- hero image content -->
-{% block hero_img_content %}
+  <!-- hero image content -->
+  {% block hero_image_content %}
 
-<!-- search -->
-<div class="container hero-img-content-container-35">
-  <form action="{{ url_for('search_all_plants') }}" method="POST">
-    <div class="row center-align padding-30">
-      <div class="input-field">
-        <input
-          type="text"
-          name="search"
-          id="search"
-          class="validate white-text text-shadow"
-        />
-        <label id="search_label" for="search" class="white-text text-shadow">
-          Start Searching...
-        </label>
-        <button
-          type="submit"
-          class="white-text text-shadow right grey darken-1 btn"
-        >
-          <i class="fas fa-search"></i>
-        </button>
+  <!-- search -->
+  <div class="container hero-img-content-container-35">
+    <form action="{{ url_for('search_all_plants') }}" method="POST">
+      <div class="row center-align padding-30">
+        <div class="input-field">
+          <input
+            type="text"
+            name="search"
+            id="search"
+            class="validate white-text text-shadow"
+          />
+          <label id="search_label" for="search" class="white-text text-shadow">
+            Start Searching...
+          </label>
+          <button
+            type="submit"
+            class="white-text text-shadow right grey darken-1 btn"
+          >
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
       </div>
-    </div>
-  </form>
+    </form>
+  </div>
+  {% endblock %}
+  <!-- hero image closing div -->
+  {% block hero_image_end %}
 </div>
 {% endblock %} {% block content %}
-
 <!-- plants -->
 <section id="plants">
   <div class="row padding-30 margin-0">

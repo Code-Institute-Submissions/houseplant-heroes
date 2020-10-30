@@ -1,19 +1,22 @@
 {% extends "base.html" %}
 
-<!-- heading -->
-{% block heading %} Add a Plant {% endblock %}
+<!-- hero image opening div -->
+{% block hero_image_begin %}
+<div class="hero-image height-85">
+  {% endblock %}
 
-<!-- subheading -->
+  <!-- heading -->
+  {% block heading %} Add a Plant {% endblock %}
 
-{% block subheading %}
-<div class="margin-bottom-10">
-  Become one of our houseplant heroes by adding a plant below! The post can be
-  edited or deleted later.
+  <!-- subheading -->
+  {% block subheading %} Become one of our houseplant heroes by adding a plant
+  below! The post can be edited or deleted later. {% endblock %} 
+  
+  <!-- hero image closing div -->
+  {% block
+  hero_image_end %}
 </div>
 {% endblock %}
-
-<!-- hero image content -->
-{% block hero_img_content %} {% endblock %}
 
 <!-- content -->
 {% block content %}

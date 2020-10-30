@@ -1,9 +1,10 @@
 {% extends "base.html" %}
 
-<!-- hero image  -->
+<!-- hero image opening div -->
 {% block hero_image_begin %}
 <div class="hero-image height-85">
   {% endblock %}
+
   <!-- heading -->
   {% block heading %} Houseplant Heroes {% endblock %}
 
@@ -66,9 +67,13 @@
       </a>
     </div>
   </div>
-  {% endblock %} {% block hero_image_end %}
+  {% endblock %}
+
+  <!-- hero image closing div -->
+  {% block hero_image_end %}
 </div>
 {% endblock %}
+
 <!-- content -->
 {% block content %}
 <!-- promo -->

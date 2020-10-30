@@ -99,12 +99,6 @@ body
   letter-spacing: 2px;
 }
 
-/*-------- flash messages --------*/
-
-.flash-messages {
-  padding: 40px;
-}
-
 /*-------- spacing --------*/
 .padding-30,
 #plant-profile-right,

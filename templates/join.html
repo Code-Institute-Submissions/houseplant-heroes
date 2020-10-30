@@ -1,81 +1,89 @@
 {% extends "base.html" %}
 
-<!-- heading -->
-{% block heading %} Join {% endblock %}
+<!-- hero image opening div -->
+{% block hero_image_begin %}
+<div class="hero-image height-90">
+  {% endblock %}
 
-<!-- hero image content -->
-{% block hero_img_content %}
+  <!-- heading -->
+  {% block heading %} Join {% endblock %}
 
-<!-- form -->
-<div class="form-container valign-wrapper center-align">
-  <div class="row">
-    <form class="col s12" method="POST" action="{{ url_for('join') }}">
-      <div class="row">
-        <!-- username -->
-        <div class="input-field col">
-          <input
-            id="username"
-            name="username"
-            type="text"
-            class="validate white-text text-shadow"
-          />
-          <label
-            for="username"
-            id="username_label"
-            class="white-text text-shadow"
-            ><b>Username</b></label
-          >
-        </div>
-        <!-- passwords -->
-        <div class="input-field col">
-          <input
-            id="password"
-            name="password"
-            type="password"
-            class="validate white-text text-shadow"
-          />
-          <label
-            for="password"
-            id="password_label"
-            class="white-text text-shadow"
-            ><b>Password</b></label
-          >
-        </div>
-        <div class="input-field col">
-          <input
-            id="confirm_password"
-            name="confirm_password"
-            type="password"
-            class="validate white-text text-shadow"
-          />
-          <label
-            for="confirm_password"
-            id="confirm_password_label"
-            class="white-text text-shadow"
-            ><b>Confirm Password</b></label
-          >
-        </div>
-      </div>
-      <!-- submit -->
-      <div class="row">
-        <button
-          type="submit"
-          class="col s2 btn offset-m5 grey darken-1 white-text text-shadow"
-        >
-          Join
-        </button>
-      </div>
-    </form>
-    <!-- redirect to login -->
+  <!-- hero image content -->
+  {% block hero_image_content %}
+
+  <!-- form -->
+  <div class="valign-wrapper center-align">
     <div class="row">
-      <p class="white-text text-shadow">
-        Already have an account? Login
-        <a href="{{ url_for('login') }}" class="white-text text-shadow"
-          ><i>here</i></a
-        >
-      </p>
+      <form class="col s12" method="POST" action="{{ url_for('join') }}">
+        <div class="row">
+          <!-- username -->
+          <div class="input-field col">
+            <input
+              id="username"
+              name="username"
+              type="text"
+              class="validate white-text text-shadow"
+            />
+            <label
+              for="username"
+              id="username_label"
+              class="white-text text-shadow"
+              ><b>Username</b></label
+            >
+          </div>
+          <!-- passwords -->
+          <div class="input-field col">
+            <input
+              id="password"
+              name="password"
+              type="password"
+              class="validate white-text text-shadow"
+            />
+            <label
+              for="password"
+              id="password_label"
+              class="white-text text-shadow"
+              ><b>Password</b></label
+            >
+          </div>
+          <div class="input-field col">
+            <input
+              id="confirm_password"
+              name="confirm_password"
+              type="password"
+              class="validate white-text text-shadow"
+            />
+            <label
+              for="confirm_password"
+              id="confirm_password_label"
+              class="white-text text-shadow"
+              ><b>Confirm Password</b></label
+            >
+          </div>
+        </div>
+        <!-- submit -->
+        <div class="row">
+          <button
+            type="submit"
+            class="col s2 btn offset-m5 grey darken-1 white-text text-shadow"
+          >
+            Join
+          </button>
+        </div>
+      </form>
+      <!-- redirect to login -->
+      <div class="row">
+        <p class="white-text text-shadow">
+          Already have an account? Login
+          <a href="{{ url_for('login') }}" class="white-text text-shadow"
+            ><i>here</i></a
+          >
+        </p>
+      </div>
     </div>
   </div>
+  {% endblock %}
+  <!-- hero image closing div -->
+  {% block hero_image_end %}
 </div>
-{% endblock %} 
-
+{% endblock %}

@@ -23,6 +23,11 @@ a.brand-logo.black-text.left {
   position: relative;
   overflow: hidden;
 }
+
+.height-90 {
+  height: 90%;
+}
+
 .height-85 {
   height: 85%;
 }
@@ -63,9 +68,6 @@ a.brand-logo.black-text.left {
   line-height: 2rem;
 }
 /*-------- forms --------*/
-.form-container {
-  height: 40vh;
-}
 
 #username,
 #password,

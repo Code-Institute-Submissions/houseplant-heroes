@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 
+<!-- hero image opening div -->
+{% block hero_image_begin %}
+<div class="hero-image height-80">
+  {% endblock %}
+
 <!-- block heading -->
 {% block heading %} Welcome {{ username }} {% endblock %}
 
@@ -8,7 +13,7 @@
 started. {% endblock %}
 
 <!-- block hero image content -->
-{% block hero_img_content %}
+{% block hero_image_content %}
 <div class="container">
     <div class="row center-align padding-30">
       <div class="col s12 m4 offset-m2">
@@ -40,6 +45,11 @@ started. {% endblock %}
     </div>
 </div>
   {% endblock %} 
+
+  <!-- hero image closing div -->
+  {% block hero_image_end %}
+</div>
+{% endblock %}
   
   {% block content %}
   <section id="my-plants">

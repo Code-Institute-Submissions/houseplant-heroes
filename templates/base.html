@@ -138,7 +138,7 @@
         {% block heading %}{% endblock %}
       </h2>
       <!-- subheading -->
-      <h6 class="white-text text-shadow center-align line-height subheading ">
+      <h6 class="white-text text-shadow center-align line-height subheading">
         {% block subheading %}{% endblock %}
       </h6>
       <!-- hero image content -->
@@ -150,7 +150,7 @@
         {% with messages = get_flashed_messages() %} {% if messages %} {% for
         message in messages %}
         <div class="row center-align">
-          <h5 class="white-text text-shadow flash-messages">{{ message }}</h5>
+          <h6 class="white-text text-shadow">{{ message }}</h6>
         </div>
         {% endfor %} {% endif %} {% endwith %}
       </div>

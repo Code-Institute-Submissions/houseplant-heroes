@@ -30,6 +30,10 @@ a.brand-logo.black-text.left {
 .hero-image-section {
   padding-top: 7%;
 }
+
+.subheading {
+    margin: 0 10%;
+}
 /*-------- text --------*/
 .text-shadow {
   text-shadow: 1px 1px 1px rgb(66, 66, 66, 0.5);

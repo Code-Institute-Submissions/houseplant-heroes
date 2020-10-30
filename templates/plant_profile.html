@@ -1,17 +1,27 @@
 {% extends "base.html" %}
 
-<!-- heading -->
-{% block heading %}{{ plant_post.plant_nickname }}{% endblock %}
+<!-- hero image opening div -->
+{% block hero_image_begin %}
+<div class="hero-image height-70">
+  {% endblock %}
 
-<!-- hero image content -->
-{% block hero_img_content %}
+  <!-- heading -->
+  {% block heading %} {{ plant_post.plant_nickname }} {% endblock %}
 
-<!-- names & description -->
-<div class="container center-align">
-  <h5 class="white-text text-shadow">{{ plant_post.plant_botanical_name }}</h5>
-  <p class="white-text text-shadow">{{ plant_post.plant_description }}</p>
+  <!-- subheading -->
+  {% block subheading %} {{ plant_post.plant_botanical_name }} {% endblock %}
+
+  <!-- hero image content -->
+  {% block hero_image_content %}
+  <!-- description -->
+  <div class="container center-align line-height">
+    <p class="white-text text-shadow margin-0 ">{{ plant_post.plant_description }}</p>
+  </div>
+  {% endblock %}
+
+  <!-- hero image closing div -->
+  {% block hero_image_end %}
 </div>
-
 {% endblock %}
 
 <!-- block content -->

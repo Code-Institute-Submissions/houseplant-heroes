@@ -150,7 +150,7 @@ def add_plant():
             "posted_by": session["user"]
         }
         mongo.db.plant_posts.insert_one(plant_post)
-        flash("You're our hero <3! You're post has been added, thanks!")
+        flash("You're our hero <3. You're post has been added, thank you!")
         return redirect(url_for("all_plants"))
     maintenance_level = mongo.db.maintenance_level.find().sort("level_name", 1)
     return render_template(
@@ -160,6 +160,8 @@ def add_plant():
 # Edit/Update existing plant post
 @app.route("/edit_plant/<plant_post_id>", methods=["GET", "POST"])
 def edit_plant(plant_post_id):
+    plant_post = mongo.db.plant_posts.find_one(
+        {"_id": ObjectId(plant_post_id)})
     if request.method == "POST":
         is_air_purifying = "on" if request.form.get(
             "is_air_purifying") else "off"
@@ -177,11 +179,9 @@ def edit_plant(plant_post_id):
             "posted_by": session["user"]
         }
         mongo.db.plant_posts.update({"_id": ObjectId(plant_post_id)}, submit)
-        return redirect(url_for("all_plants"))
+        return redirect(url_for('plant_profile', plant_post_id=plant_post_id))
         flash("post updated")
 
-    plant_post = mongo.db.plant_posts.find_one(
-        {"_id": ObjectId(plant_post_id)})
     maintenance_level = mongo.db.maintenance_level.find().sort("level_name", 1)
     return render_template(
         "edit_plant.html", plant_post=plant_post,
@@ -189,7 +189,7 @@ def edit_plant(plant_post_id):
 
 
 # Delete plant post
-@app.route("/delete_plant/<plant_post_id>")
+@ app.route("/delete_plant/<plant_post_id>")
 def delete_plant(plant_post_id):
     mongo.db.plant_posts.remove({"_id": ObjectId(plant_post_id)})
     flash("Post deleted")
@@ -197,7 +197,7 @@ def delete_plant(plant_post_id):
 
 
 # Plant profile
-@app.route("/plant_profile/<plant_post_id>")
+@ app.route("/plant_profile/<plant_post_id>")
 def plant_profile(plant_post_id):
     plant_post = mongo.db.plant_posts.find_one(
         {"_id": ObjectId(plant_post_id)})
@@ -211,11 +211,11 @@ def plant_profile(plant_post_id):
 
 
 # Insert comment
-@app.route(
+@ app.route(
     "/plant_profile/<plant_post_id>/comments", methods=["GET", "POST"])
 def insert_comment(plant_post_id):
     if request.method == "POST":
-        submit = {
+        submit={
             "plant_post_id": request.form.get("plant_post_id"),
             "posted_at": datetime.utcnow(),
             "posted_by": session["user"],
@@ -228,11 +228,11 @@ def insert_comment(plant_post_id):
 
 
 # Edit/Update comment
-@app.route(
+@ app.route(
     "/<plant_post_id>/edit_comment/<comment_id>", methods=["GET", "POST"])
 def edit_comment(comment_id, plant_post_id):
     if request.method == "POST":
-        submit = {
+        submit={
             "plant_post_id": request.form.get("plant_post_id"),
             "posted_at": datetime.utcnow(),
             "posted_by": session["user"],
@@ -241,16 +241,16 @@ def edit_comment(comment_id, plant_post_id):
         mongo.db.comments.update({"_id": ObjectId(comment_id)}, submit)
         flash("Comment edited")
         return redirect(url_for("plant_profile", plant_post_id=plant_post_id))
-    comment = mongo.db.comments.find_one(
+    comment=mongo.db.comments.find_one(
         {"_id": ObjectId(comment_id)})
-    plant_post = mongo.db.plant_posts.find_one(
+    plant_post=mongo.db.plant_posts.find_one(
         {"_id": ObjectId(plant_post_id)})
     return render_template(
         "edit_comment.html", comment=comment, plant_post=plant_post)
 
 
 # Delete comment
-@app.route("/<plant_post_id>/delete_comment/<comment_id>")
+@ app.route("/<plant_post_id>/delete_comment/<comment_id>")
 def delete_comment(comment_id, plant_post_id):
     mongo.db.comments.remove({"_id": ObjectId(comment_id)})
     flash("Comment deleted")

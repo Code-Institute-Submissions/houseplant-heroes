@@ -186,11 +186,9 @@
           <select
             id="maintenance_level"
             name="maintenance_level"
-            class="validate"
-            required
           >
             <option value="" class="font-1rem grey-text" disabled selected
-              >How easy is it to take care of the plant</option
+              >How easy is it to take care of the plant?</option
             >
             {% for level in maintenance_level %}
             <option value="{{ level.level_name }}"

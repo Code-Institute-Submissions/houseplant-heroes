@@ -147,7 +147,9 @@ def add_plant():
             "feeding": request.form.get("feeding"),
             "is_air_purifying": is_air_purifying,
             "maintenance_level": request.form.get("maintenance_level"),
-            "posted_by": session["user"]
+            "posted_by": session["user"],
+            "lastest_post_date": datetime.utcnow().strftime(
+                'On: %Y-%m-%d At: %H:%M')
         }
         mongo.db.plant_posts.insert_one(plant_post)
         flash("You're our hero <3. You're post has been added, thank you!")
@@ -176,7 +178,9 @@ def edit_plant(plant_post_id):
             "feeding": request.form.get("feeding"),
             "is_air_purifying": is_air_purifying,
             "maintenance_level": request.form.get("maintenance_level"),
-            "posted_by": session["user"]
+            "posted_by": session["user"],
+            "lastest_post_date": datetime.utcnow().strftime(
+                'On: %Y-%m-%d At: %H:%M')
         }
         mongo.db.plant_posts.update({"_id": ObjectId(plant_post_id)}, submit)
         return redirect(url_for('plant_profile', plant_post_id=plant_post_id))
@@ -215,9 +219,10 @@ def plant_profile(plant_post_id):
     "/plant_profile/<plant_post_id>/comments", methods=["GET", "POST"])
 def insert_comment(plant_post_id):
     if request.method == "POST":
-        submit={
+        submit = {
             "plant_post_id": request.form.get("plant_post_id"),
-            "posted_at": datetime.utcnow(),
+            "posted_at": datetime.utcnow().strftime(
+                'On: %Y-%m-%d At: %H:%M:%S'),
             "posted_by": session["user"],
             "comment_body": request.form.get("comment_body"),
         }

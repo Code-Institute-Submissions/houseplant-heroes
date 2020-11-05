@@ -239,7 +239,7 @@ def delete_comment(plant_post_id, comment_id):
     mongo.db.comments.remove({"_id": ObjectId(comment_id)})
     flash("Comment deleted")
     return redirect(url_for(
-        "plant_profile", plant_post_id=plant_post_id))
+        "plant_profile", plant_post_id=plant_post_id, comment_id=comment_id))
 
 
 if __name__ == "__main__":

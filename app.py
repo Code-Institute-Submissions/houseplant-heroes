@@ -227,28 +227,6 @@ def insert_comment(plant_post_id):
             "plant_profile", plant_post_id=plant_post_id))
 
 
-# Edit/Update comment
-@ app.route(
-    "/<plant_post_id>/edit_comment/<comment_id>", methods=["GET", "POST"])
-def edit_comment(comment_id, plant_post_id):
-    if request.method == "POST":
-        submit={
-            "plant_post_id": request.form.get("plant_post_id"),
-            "posted_at": datetime.utcnow(),
-            "posted_by": session["user"],
-            "comment_body": request.form.get("comment_body"),
-        }
-        mongo.db.comments.update({"_id": ObjectId(comment_id)}, submit)
-        flash("Comment edited")
-        return redirect(url_for("plant_profile", plant_post_id=plant_post_id))
-    comment=mongo.db.comments.find_one(
-        {"_id": ObjectId(comment_id)})
-    plant_post=mongo.db.plant_posts.find_one(
-        {"_id": ObjectId(plant_post_id)})
-    return render_template(
-        "edit_comment.html", comment=comment, plant_post=plant_post)
-
-
 # Delete comment
 @ app.route("/<plant_post_id>/delete_comment/<comment_id>")
 def delete_comment(comment_id, plant_post_id):

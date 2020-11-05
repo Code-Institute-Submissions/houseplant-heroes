@@ -66,12 +66,16 @@ Description
 - Users are able to create, read, update and delete
 - All documents are stored in a [MongoDB]
 
+## Comments
+- the ability to edit a comment was deleted to... 
+
 ### Features Left to Implement
 
 - Pagination 
 - autofill search 
 - favourite
 - water
+- reply to comment 
 
 ## Technologies Used
 

@@ -120,84 +120,88 @@
 <!-- comments -->
 <section>
   <div class="container">
-    <div class="row">
-      <div class="col s12">
-        <h4>Comments</h4>
-      </div>
-    </div>
-    <form
-      method="POST"
-      action="{{ url_for('insert_comment', plant_post_id=plant_post._id) }}"
-    >
+    <div class="card-panel white">
       <div class="row">
-        <!-- redirect user if not logged in -->
-        {% if not session.user|lower %}
-        <a href="{{ url_for('join' ) }}"
-          ><u><b>Join</b></u></a
-        >
-        or
-        <a href="{{ url_for('login' ) }}"
-          ><u><b>Login</b></u></a
-        >
-        to comment {% endif %}
+        <h4 class="card-title">Comments</h4>
       </div>
-      <!-- ensure user is logged in to comment -->
-      {% if session.user|lower %}
-      <div class="row">
-        <input
-          id="plant_post_id"
-          name="plant_post_id"
-          type="hidden"
-          value="{{ plant_post._id }}"
-          class="validate"
-        />
-        <div class="input-field col s12">
-          <textarea
-            id="comment_body"
-            name="comment_body"
-            class="materialize-textarea validate"
-            required
-          ></textarea>
-          <label for="comment_body">Add a comment</label>
-          <!-- submit button -->
-          <button
-            type="submit"
-            class="btn-floating btn waves-effect waves-light grey"
+      <form
+        method="POST"
+        action="{{ url_for('insert_comment', plant_post_id=plant_post._id) }}"
+      >
+        <div class="row">
+          <!-- redirect user if not logged in -->
+          {% if not session.user|lower %}
+          <a href="{{ url_for('login' ) }}"
+            ><u><b>Login</b></u></a
           >
-            <i class="fas fa-plus small"></i>
-          </button>
+          or
+          <a href="{{ url_for('join' ) }}"
+            ><u><b>Join</b></u></a
+          >
+          to comment {% endif %}
         </div>
-      </div>
-      {% endif %}
-    </form>
-    <!-- comment body -->
-    {% for comment in comments %}
-    <div class="row">
-      <div class="col s12">
-        <p class="padding-30">{{ comment.comment_body }}</p>
-      </div>
+        <!-- ensure user is logged in to comment -->
+        {% if session.user|lower %}
+        <div class="row">
+          <input
+            id="plant_post_id"
+            name="plant_post_id"
+            type="hidden"
+            value="{{ plant_post._id }}"
+            class="validate"
+          />
+          <div class="input-field col s12">
+            <textarea
+              id="comment_body"
+              name="comment_body"
+              class="materialize-textarea validate"
+              required
+            ></textarea>
+            <label for="comment_body">Add a comment</label>
+            <!-- submit button -->
+            <button
+              type="submit"
+              class="btn-floating btn waves-effect waves-light grey"
+            >
+              <i class="fas fa-plus small"></i>
+            </button>
+          </div>
+        </div>
+        {% endif %}
+      </form>
+      <!-- comment body -->
+      {% for comment in comments %}
       <!-- comment descriptors -->
       <div class="row">
-        <div class="col s6 offset-s6 m12 grey-text">
-          <p class="right-align">Posted by: <i>{{ comment.posted_by }}</i></p>
-          <p class="right-align">At: <i>{{ comment.posted_at }}</i></p>
-          <!-- ensure only poster or admin can delete comments -->
-          {% if session.user|lower == comment.posted_by|lower or
-          session.user|lower == "admin"|lower %}
-          <p class="right-align">
-            <!-- delete comment -->
-            <a
-              href="{{ url_for('delete_comment', comment_id=comment._id, plant_post_id=plant_post._id) }}"
-              class="modal-trigger"
-              ><i class="far fa-trash-alt grey-text small"></i
-            ></a>
+        <div class="col s6 m12 grey-text">
+          <p>
+            Posted by <i>{{ comment.posted_by }}</i> at
+            <i>{{ comment.posted_at }}</i>
           </p>
-          {% endif %}
         </div>
       </div>
+      <div class="row">
+        <div class="col s12">
+          <p>{{ comment.comment_body }}</p>
+        </div>
+      </div>
+      <!-- ensure only poster or admin can delete comments -->
+      {% if session.user|lower == comment.posted_by|lower or session.user|lower
+      == "admin"|lower %}
+      <!-- delete comment -->
+      <div class="row">
+        <div class="col s12 right-align">
+          <a
+            href="{{ url_for('delete_comment', comment_id=comment._id, plant_post_id=plant_post._id) }}"
+            ><i class="far fa-trash-alt grey-text"></i
+          ></a>
+        </div>
+      </div>
+
+      {% endif %}
+      <div class="divider"></div>
+      {% endfor %}
     </div>
-    <div class="divider"></div>
-    {% endfor %}
   </div>
 </section>
 {% endblock %}

@@ -178,6 +178,7 @@ Description
 
 ### bugs
 - on add plant the page may need a refresh for the new plant to appear
+- defensive programming modal 
 
 
 ## Deployment

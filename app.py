@@ -149,7 +149,7 @@ def add_plant():
             "maintenance_level": request.form.get("maintenance_level"),
             "posted_by": session["user"],
             "lastest_post_date": datetime.utcnow().strftime(
-                'On: %Y-%m-%d At: %H:%M')
+                'on: %Y-%m-%d at: %H:%M')
         }
         mongo.db.plant_posts.insert_one(plant_post)
         flash("You're our hero <3. You're post has been added, thank you!")
@@ -180,7 +180,7 @@ def edit_plant(plant_post_id):
             "maintenance_level": request.form.get("maintenance_level"),
             "posted_by": session["user"],
             "lastest_post_date": datetime.utcnow().strftime(
-                'On: %Y-%m-%d At: %H:%M')
+                'on %Y-%m-%d at %H:%M')
         }
         mongo.db.plant_posts.update({"_id": ObjectId(plant_post_id)}, submit)
         return redirect(url_for('plant_profile', plant_post_id=plant_post_id))
@@ -216,13 +216,13 @@ def plant_profile(plant_post_id):
 
 # Insert comment
 @ app.route(
-    "/plant_profile/<plant_post_id>/comments", methods=["GET", "POST"])
+    "/<plant_post_id>/comments", methods=["GET", "POST"])
 def insert_comment(plant_post_id):
     if request.method == "POST":
         submit = {
             "plant_post_id": request.form.get("plant_post_id"),
             "posted_at": datetime.utcnow().strftime(
-                'On: %Y-%m-%d At: %H:%M:%S'),
+                '%Y-%m-%d, %H:%M:%S'),
             "posted_by": session["user"],
             "comment_body": request.form.get("comment_body"),
         }
@@ -233,11 +233,13 @@ def insert_comment(plant_post_id):
 
 
 # Delete comment
-@ app.route("/<plant_post_id>/delete_comment/<comment_id>")
-def delete_comment(comment_id, plant_post_id):
+@ app.route(
+    "/<plant_post_id>/delete_comment/<comment_id>")
+def delete_comment(plant_post_id, comment_id):
     mongo.db.comments.remove({"_id": ObjectId(comment_id)})
     flash("Comment deleted")
-    return redirect(url_for("plant_profile", plant_post_id=plant_post_id))
+    return redirect(url_for(
+        "plant_profile", plant_post_id=plant_post_id))
 
 
 if __name__ == "__main__":

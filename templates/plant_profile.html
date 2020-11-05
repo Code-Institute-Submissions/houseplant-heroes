@@ -42,7 +42,6 @@
     <!-- posted by -->
     <div class="row">
       <p>Posted by: <i>{{ plant_post.posted_by }}</i></p>
-      <p>Last updated: <i>{{ plant_post.lastest_post_date }}</i></p>
     </div>
     <!-- is air purifying? -->
     {% if plant_post.is_air_purifying == "on" %}
@@ -50,6 +49,11 @@
       <p><i class="fas fa-leaf"></i> This plant is air purfying</p>
     </div>
     {% endif %}
+    <div class="row">
+      <p class="grey-text">
+        Last updated {{ plant_post.lastest_post_date }}
+      </p>
+    </div>
     <div class="row">
       <!-- ensure only poster or admin can delete/edit posts -->
       {% if session.user|lower == plant_post.posted_by|lower or
@@ -165,53 +169,52 @@
         </div>
         {% endif %}
       </div>
-      <!-- comment body -->
-      {% for comment in comments %}
-
+    </form>
+    <!-- comment body -->
+    {% for comment in comments %}
+    <div class="row">
+      <div class="col s12">
+        <p class="padding-30">{{ comment.comment_body }}</p>
+      </div>
+      <!-- comment descriptors -->
       <div class="row">
-        <div class="col s12">
-          <p>{{ comment.comment_body }}</p>
-        </div>
-        <!-- comment descriptors -->
-        <div class="row">
-          <div class="col s6 offset-s6 m12 grey-text">
-            <p class="right-align">Posted by: <i>{{ comment.posted_by }}</i></p>
-            <p class="right-align">At: <i>{{ comment.posted_at }}</i></p>
-            <!-- ensure only poster or admin can delete comments -->
-            {% if session.user|lower == comment.posted_by|lower or
-            session.user|lower == "admin"|lower %}
-            <p class="right-align">
-              <!-- delete comment -->
-              <a href="#delete-comment-modal" class="modal-trigger"
-                ><i class="far fa-trash-alt grey-text"></i
-              ></a>
-            </p>
-          </div>
+        <div class="col s6 offset-s6 m12 grey-text">
+          <p class="right-align">Posted by: <i>{{ comment.posted_by }}</i></p>
+          <p class="right-align">At: <i>{{ comment.posted_at }}</i></p>
 
-          <!-- delete modal Structure -->
-          <div id="delete-comment-modal" class="modal">
-            <div class="modal-content">
-              <h4>
-                Are you sure want to delete your comment?
-              </h4>
-            </div>
-            <div class="modal-footer">
-              <a
-                href="{{ url_for('delete_comment', comment_id=comment._id, plant_post_id=plant_post._id) }}"
-                class="modal-close waves-effect waves-green btn-flat"
-                >Yes, delete</a
-              >
-              <button class="modal-close waves-effect waves-green btn-flat">
-                No, keep
-              </button>
-              {% endif %}
-            </div>
+          <!-- ensure only poster or admin can delete comments -->
+          {% if session.user|lower == comment.posted_by|lower or
+          session.user|lower == "admin"|lower %}
+          <p class="right-align">
+            <!-- delete comment -->
+            <a href="#delete-comment-modal" class="modal-trigger"
+              ><i class="far fa-trash-alt grey-text small"></i
+            ></a>
+          </p>
+        </div>
+        <!-- delete modal Structure -->
+        <div id="delete-comment-modal" class="modal">
+          <div class="modal-content">
+            <h4>
+              Are you sure want to delete your comment?
+            </h4>
+          </div>
+          <div class="modal-footer">
+            <a
+              href="{{ url_for('delete_comment', plant_post_id=plant_post._id, comment_id=comment._id) }}"
+              class="modal-close waves-effect waves-green btn-flat"
+              >Yes, delete</a
+            >
+            <button class="modal-close waves-effect waves-green btn-flat">
+              No, keep
+            </button>
+            {% endif %}
           </div>
         </div>
       </div>
-      <div class="divider"></div>
-      {% endfor %}
-    </form>
+    </div>
+    <div class="divider"></div>
+    {% endfor %}
   </div>
 </section>
 {% endblock %}

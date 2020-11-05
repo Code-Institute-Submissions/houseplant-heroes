@@ -115,86 +115,102 @@
 <!-- comments -->
 <section>
   <div class="container">
-    <div class="col s12 m9">
-      <div class="card blue-grey darken-1">
-        <div class="card-content white-text">
-          <span class="card-title">Card Title</span>
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content">
+          <span class="card-title">Comments</span>
           <form
             method="POST"
             action="{{ url_for('insert_comment', plant_post_id=plant_post._id) }}"
           >
-            <!-- redirect user if not logged in -->
-            {% if not session.user|lower %}
-            <a href="{{ url_for('join' ) }}"
-              ><u><b>Join</b></u></a
-            >
-            or
-            <a href="{{ url_for('login' ) }}"
-              ><u><b>Login</b></u></a
-            >
-            to comment {% endif %}
+            <div class="row">
+              <!-- redirect user if not logged in -->
+              {% if not session.user|lower %}
+              <a href="{{ url_for('join' ) }}"
+                ><u><b>Join</b></u></a
+              >
+              or
+              <a href="{{ url_for('login' ) }}"
+                ><u><b>Login</b></u></a
+              >
+              to comment {% endif %}
+            </div>
             <!-- ensure user is logged in to comment -->
             {% if session.user|lower %}
-            <input
-              id="plant_post_id"
-              name="plant_post_id"
-              type="hidden"
-              value="{{ plant_post._id }}"
-              class="validate"
-            />
-            <div class="input-field col s12">
-              <textarea
-                id="comment_body"
-                name="comment_body"
-                class="materialize-textarea validate"
-                required
-              ></textarea>
-              <label for="comment_body">Add comment</label>
-              <!-- submit button -->
-              <button
-                type="submit"
-                class="btn-floating btn waves-effect waves-light grey"
-              >
-                <i class="fas fa-plus white-text small"></i>
-              </button>
+            <div class="row">
+              <input
+                id="plant_post_id"
+                name="plant_post_id"
+                type="hidden"
+                value="{{ plant_post._id }}"
+                class="validate"
+              />
+              <div class="input-field col s12">
+                <textarea
+                  id="comment_body"
+                  name="comment_body"
+                  class="materialize-textarea validate"
+                  required
+                ></textarea>
+                <label for="comment_body">Add a comment</label>
+                <!-- submit button -->
+                <button
+                  type="submit"
+                  class="btn-floating btn waves-effect waves-light grey"
+                >
+                  <i class="fas fa-plus small"></i>
+                </button>
+              </div>
               {% endif %}
             </div>
-            <div class="col s12">
-              {% for comment in comments %}
-              <p>{{ comment.comment_body }}</p>
-              <p class="right-align">
-                Posted by: <i>{{ comment.posted_by }}</i>
-              </p>
-              <p class="right-align">At: <i>{{ comment.posted_at }}</i></p>
-              <!-- ensure only poster or admin can delete/edit comments -->
-              {% if session.user|lower == comment.posted_by|lower or
-              session.user|lower == "admin"|lower %}
-              <!-- edit comment -->
-              <a
-                href="{{ url_for('edit_comment', comment_id=comment._id, plant_post_id=plant_post._id) }}"
-                ><i class="far fa-edit white-text small"></i
-              ></a>
-              <!-- delete comment -->
-              <a href="#delete-comment-modal" class="modal-trigger"
-                ><i class="far fa-trash-alt white-text small"></i
-              ></a>
-              <!-- delete modal Structure -->
-              <div id="delete-comment-modal" class="modal">
-                <div class="modal-content">
-                  <h4>
-                    Are you sure want to delete your comment?
-                  </h4>
-                </div>
-                <div class="modal-footer">
-                  <a
-                    href="{{ url_for('delete_comment', comment_id=comment._id, plant_post_id=plant_post._id) }}"
-                    class="modal-close waves-effect waves-green btn-flat"
-                    >Yes, delete</a
-                  >
-                  <button class="modal-close waves-effect waves-green btn-flat">
-                    No, keep
-                  </button>
-                  {% endif %}
+            <!-- comment body -->
+            <div class="row">
+              <div class="col s12">
+                {% for comment in comments %}
+                <p>{{ comment.comment_body }}</p>
+              </div>
+              <!-- comment descriptors -->
+              <div class="row">
+                <div class="col s6 offset-s6 m12 grey-text">
+                  <p class="right-align">
+                    Posted by: <i>{{ comment.posted_by }}</i>
+                  </p>
+                  <p class="right-align">At: <i>{{ comment.posted_at }}</i></p>
+                  <!-- ensure only poster or admin can delete/edit comments -->
+                  {% if session.user|lower == comment.posted_by|lower or
+                  session.user|lower == "admin"|lower %}
+                  <!-- edit comment -->
+                  <p class="right-align">
+                    <a
+                      href="{{ url_for('edit_comment', comment_id=comment._id, plant_post_id=plant_post._id) }}"
+                      ><i class="far fa-edit grey-text"></i
+                    ></a>
+                    <!-- delete comment -->
+                    <a href="#delete-comment-modal" class="modal-trigger"
+                      ><i class="far fa-trash-alt grey-text"></i
+                    ></a>
+                  </div>
+                  <!-- delete modal Structure -->
+                  <div id="delete-comment-modal" class="modal">
+                    <div class="modal-content">
+                      <h4>
+                        Are you sure want to delete your comment?
+                      </h4>
+                    </div>
+                    <div class="modal-footer">
+                      <a
+                        href="{{ url_for('delete_comment', comment_id=comment._id, plant_post_id=plant_post._id) }}"
+                        class="modal-close waves-effect waves-green btn-flat"
+                        >Yes, delete</a
+                      >
+                      <button
+                        class="modal-close waves-effect waves-green btn-flat"
+                      >
+                        No, keep
+                      </button>
+                      {% endif %}
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="divider"></div>

@@ -207,7 +207,7 @@ def plant_profile(plant_post_id):
         {"_id": ObjectId(plant_post_id)})
     # Find comments for plant post
     comments = list((mongo.db.comments.find(
-        {"plant_post_id": plant_post_id}).sort("posted_at", -1)))
+        {"plant_post_id": plant_post_id}).sort("_id", -1)))
     maintenance_level = mongo.db.maintenance_level.find().sort("level_name", 1)
     return render_template(
         "plant_profile.html", plant_post=plant_post,

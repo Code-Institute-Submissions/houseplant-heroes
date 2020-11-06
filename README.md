@@ -26,7 +26,7 @@ Description
 
 1. As a Frequent User, I want to see the plants that I have posted
 2. As a Frequent User, I want to edit and delete my posts
-3. I want to discuss the plants with others in the community 
+3. I want to discuss the plants with others in the community
 4. As a Returning User, I want feedback on my posts
 
 #### Site Owner Goals
@@ -67,15 +67,16 @@ Description
 - All documents are stored in a [MongoDB]
 
 ## Comments
-- the ability to edit a comment was deleted to... 
+
+- the ability to edit a comment was deleted to...
 
 ### Features Left to Implement
 
-- Pagination 
-- autofill search 
+- Pagination
+- autofill search
 - favourite
 - water
-- reply to comment 
+- reply to comment
 
 ## Technologies Used
 
@@ -107,7 +108,12 @@ Description
 
    - jQuery was used in conjunction with Materlize CSS for interactive components
 
-7. [MongoDB:](https://www.mongodb.com/)
+7. [Masonry]https://masonry.desandro.com/
+
+   - Masonry was used to create the cascading grid layout library when plant lists were used
+
+8. [MongoDB:](https://www.mongodb.com/)
+
    - MongoDB was used to store and access all generated documents
 
 ## Testing
@@ -136,22 +142,22 @@ Description
 
 1. As a Returning User, I want to browse plants
 
-   - 
+   -
 
 2. As a Returning User, I want to search for plants
 
-   - The homepage has a conveniently place search bar to allow users to start searching with out the need for redirection 
+   - The homepage has a conveniently place search bar to allow users to start searching with out the need for redirection
    - The search bar has a modal tip to inform users of the available search terms
    - The Plants page also has a search bar to allow users to search from there
 
 3. As a Returning User, I want to know which plants are easiest/most difficult to care for
 
-   - Both the Plants page and the, more detailed, plant profile displays the given maintenance level of a plant 
-   - Users are able to search by maintenance level: Easy, medium or hard to provide them with options within their needs 
+   - Both the Plants page and the, more detailed, plant profile displays the given maintenance level of a plant
+   - Users are able to search by maintenance level: Easy, medium or hard to provide them with options within their needs
 
 4. As a Returning User, I want to find care instructions
 
-   - A detailed care guide can be found by... 
+   - A detailed care guide can be found by...
 
 5. ## As a Returning User, I want to create my own posts
 
@@ -164,7 +170,8 @@ Description
 2. As a Frequent User, I want to edit and delete my posts
 
    -
-3. I want to discuss the plants with others in the community 
+
+3. I want to discuss the plants with others in the community
 
 4. As a Returning User, I want feedback on my posts
 
@@ -177,10 +184,11 @@ Description
 ### Further Testing
 
 ### bugs
+
 - on add plant the page may need a refresh for the new plant to appear
-- defensive programming modal 
-- carousel cuts off images 
-- image arrangement on all_plants cards can look messy 
+- defensive programming modal
+- carousel cuts off images
+- image arrangement on all_plants cards can look messy
 
 ## Deployment
 

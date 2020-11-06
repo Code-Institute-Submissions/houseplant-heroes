@@ -56,9 +56,9 @@
       >Reset Search Results</a
     >
   </div>
-  <div class="row">
+  <div class="grid">
     {% for plant_post in all_plants %}
-    <div class="col s12 m4">
+    <div class="grid-item">
       <div class="card">
         <div class="card-image waves-effect waves-block waves-light">
           <img class="activator" src="{{ plant_post.plant_image_url }}" />
@@ -117,5 +117,4 @@
     {% endfor %}
   </div>
 </section>
-
 {% endblock %}

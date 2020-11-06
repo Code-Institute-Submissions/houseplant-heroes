@@ -4,9 +4,14 @@ $(document).ready(function () {
   $(".tooltipped").tooltip();
   $(".modal").modal();
   $(".carousel").carousel();
-  $(".grid").masonry({
-    // options
+  // init Masonry
+  var $grid = $(".grid").masonry({
     itemSelector: ".grid-item",
-    columnWidth: 200,
+    gutter: 15,
+    fitWidth: true
+  });
+  // layout Masonry after each image loads
+  $grid.imagesLoaded().progress(function () {
+    $grid.masonry("layout");
   });
 });

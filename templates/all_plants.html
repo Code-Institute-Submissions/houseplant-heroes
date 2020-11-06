@@ -49,6 +49,7 @@
 {% endblock %} {% block content %}
 <!-- plants -->
 <section id="plants">
+  <!-- reset search button -->
   <div class="row padding-30 margin-0">
     <a
       href="{{ url_for( 'all_plants' ) }}"
@@ -56,6 +57,7 @@
       >Reset Search Results</a
     >
   </div>
+  <!-- plant post grid -->
   <div class="grid">
     {% for plant_post in all_plants %}
     <div class="grid-item">
@@ -116,5 +118,6 @@
     </div>
     {% endfor %}
   </div>
+  ]
 </section>
 {% endblock %}

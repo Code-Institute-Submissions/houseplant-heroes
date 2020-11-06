@@ -3,7 +3,5 @@ $(document).ready(function () {
   $("select").formSelect();
   $(".tooltipped").tooltip();
   $(".modal").modal();
-   $('.carousel').carousel({
-    indicators: true
-  });
+  $(".carousel").carousel();
 });

@@ -179,7 +179,8 @@ Description
 ### bugs
 - on add plant the page may need a refresh for the new plant to appear
 - defensive programming modal 
-
+- carousel cuts off images 
+- image arrangement on all_plants cards can look messy 
 
 ## Deployment
 

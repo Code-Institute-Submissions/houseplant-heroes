@@ -68,6 +68,10 @@ a.brand-logo.black-text.left {
   margin-bottom: 10%;
 }
 
+.margin-bottom-5 {
+  margin-bottom: 5%;
+}
+
 .line-height {
   line-height: 2rem;
 }
@@ -128,9 +132,8 @@ body
   margin: 10px;
 }
 
-.margin-y-50 {
-    margin-top: 50px;
-    margin-bottom: 50px;
+.margin-top-50 {
+  margin-top: 50px;
 }
 
 .back {
@@ -150,3 +153,4 @@ body
   font-size: 52px;
   color: grey;
 }
+

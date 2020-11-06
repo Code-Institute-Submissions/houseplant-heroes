@@ -78,7 +78,7 @@
 {% block content %}
 <!-- promo -->
 <div class="container margin-y-50">
-  <div class="row">
+  <div class="row margin-bottom-0">
     <div class="col s12 m4 center-align">
       <i class="fas fa-seedling home-icons text-shadow"></i>
       <h4>Find Plants</h4>
@@ -109,23 +109,23 @@
       </p>
     </div>
   </div>
-</div>
-
-<!-- carousel -->
-{% if all_plants|length > 0 %}
-<div class="carousel center margin-bottom-5">
   <div class="row">
-    {% for plant_post in all_plants %}
-    <a
-      class="carousel-item"
-      href="{{ url_for('plant_profile', plant_post_id=plant_post._id) }}"
-    >
-      <img
-        src="{{ plant_post.plant_image_url }}"
-        alt="{{ plant_post.plant_nickname }}"
-      />
-    </a>
-    {% endfor %}
+    <!-- carousel -->
+    {% if all_plants|length > 0 %}
+    <div class="carousel center">
+      {% for plant_post in all_plants %}
+      <a
+        class="carousel-item"
+        href="{{ url_for('plant_profile', plant_post_id=plant_post._id) }}"
+      >
+        <img
+          src="{{ plant_post.plant_image_url }}"
+          alt="{{ plant_post.plant_nickname }}"
+        />
+      </a>
+      {% endfor %}
+    </div>
   </div>
 </div>
+
 {% endif %} {% endblock %}

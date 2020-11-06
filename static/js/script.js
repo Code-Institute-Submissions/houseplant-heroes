@@ -3,7 +3,9 @@ $(document).ready(function () {
   $("select").formSelect();
   $(".tooltipped").tooltip();
   $(".modal").modal();
-  $(".carousel").carousel();
+  $(".carousel").carousel({
+      numVisible: "7",	
+  });
   // init Masonry
   var $grid = $(".grid").masonry({
     itemSelector: ".grid-item",

@@ -114,7 +114,7 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     # find plant posted by sesssion user
-    my_plants = mongo.db.plant_posts.find({"posted_by": session["user"]})
+    my_plants = list(mongo.db.plant_posts.find({"posted_by": session["user"]}))
 
     if session["user"]:
         return render_template(

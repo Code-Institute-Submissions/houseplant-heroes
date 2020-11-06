@@ -112,11 +112,13 @@
 </div>
 
 <!-- carousel -->
-<div class="carousel">
-  {% for plant_post in all_plants %}
-  <a class="carousel-item" href=""
-    ><img src="{{ plant_post.plant_image_url }}"
-  /></a>
-  {% endfor %}
+<div class="container">
+  <div class="carousel">
+    {% for plant_post in all_plants %}
+    <div class="carousel-item">
+      <img src="{{ plant_post.plant_image_url }}" />
+    </div>
+    {% endfor %}
+  </div>
 </div>
 {% endblock %}

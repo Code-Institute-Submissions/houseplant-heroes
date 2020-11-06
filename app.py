@@ -24,7 +24,8 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    return render_template("home.html")
+    all_plants = mongo.db.plant_posts.find().limit(5).sort("_id", -1)
+    return render_template("home.html", all_plants=all_plants)
 
 
 # Read and display all posts in all_plants.html

@@ -49,7 +49,7 @@ a.brand-logo.black-text.left {
 }
 
 .subheading {
-    margin: 0 10%;
+  margin: 0 10%;
 }
 /*-------- text --------*/
 .text-shadow {
@@ -128,6 +128,11 @@ body
   margin: 10px;
 }
 
+.margin-y-50 {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
 .back {
   padding: 5px;
 }
@@ -138,5 +143,10 @@ body
 
 /*-------- hover --------*/
 .hover-col:hover {
+  color: grey;
+}
+
+.home-icons {
+  font-size: 52px;
   color: grey;
 }

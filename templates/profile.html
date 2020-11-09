@@ -10,18 +10,11 @@
 
   <!-- block subheading -->
   {% block subheading %} Keep track of your posts below or add a new plant to
-  get started. {% endblock %}
-
-  <!-- block hero image content -->
-  {% block hero_image_content %}
-  <div class="container">
-    <div class="row center-align">
-      <div class="row">
-        <a href="#my-plants" class="hover-col"
-          ><i class="fas fa-chevron-down white-text small"></i
-        ></a>
-      </div>
-    </div>
+  get started.
+  <div>
+    <a href="#my-plants" class="hover-col text-white"
+      ><i class="fas fa-chevron-down small"></i
+    ></a>
   </div>
   {% endblock %}
 
@@ -32,8 +25,8 @@
 <section id="my-plants">
   <!-- show plants created by user -->
   {% if my_plants|length > 0 %}
-  <div class="center">
-    <h4 class="padding-30">{{ username }}'s Plants</h4>
+  <div class="center padding-30">
+    <h4>{{ username }}'s Plants</h4>
     <h6>
       Add a new plant
     </h6>

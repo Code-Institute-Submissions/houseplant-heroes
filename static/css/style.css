@@ -165,3 +165,7 @@ body > section > div > form > div:nth-child(10) > div > div > input {
   position: absolute;
   bottom: 0px;
 }
+
+.block-content {
+  margin: 25px;
+}

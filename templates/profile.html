@@ -9,22 +9,15 @@
   {% block heading %} Welcome {{ username }} {% endblock %}
 
   <!-- block subheading -->
-  {% block subheading %} Keep track of your posts below or add a new plant to get
-  started. {% endblock %}
+  {% block subheading %} Keep track of your posts below or add a new plant to
+  get started. {% endblock %}
 
   <!-- block hero image content -->
   {% block hero_image_content %}
   <div class="container">
-    <div class="row center-align padding-30">
+    <div class="row center-align">
       <div class="row">
-        <h5 class="white-text text-shadow">
-          View your plants
-        </h5>
-      </div>
-      <div class="row">
-        <a
-          href="#my-plants"
-          class="btn-floating btn waves-effect waves-light grey"
+        <a href="#my-plants" class="hover-col"
           ><i class="fas fa-chevron-down white-text small"></i
         ></a>
       </div>
@@ -39,7 +32,17 @@
 <section id="my-plants">
   <!-- show plants created by user -->
   {% if my_plants|length > 0 %}
-  <h4 class="center padding-30">{{ username }}'s Plants</h4>
+  <div class="center">
+    <h4 class="padding-30">{{ username }}'s Plants</h4>
+    <h6>
+      Add a new plant
+    </h6>
+    <a
+      href="{{ url_for('add_plant' )}}"
+      class="btn-floating btn waves-effect waves-light grey"
+      ><i class="fas fa-plus white-text"></i>
+    </a>
+  </div>
   <div class="grid">
     {% for plant_post in my_plants %}
     <div class="grid-item">

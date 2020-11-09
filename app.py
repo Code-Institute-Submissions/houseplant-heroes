@@ -24,6 +24,13 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
+    """
+
+    Creates list of plant_posts in database sorted by Id(highest to lowest)
+    and limits results to 10.
+    Returns home page with results inserted in to carousel.
+
+    """
     all_plants = list(mongo.db.plant_posts.find().sort("_id", -1).limit(10))
     return render_template("home.html", all_plants=all_plants)
 
@@ -31,6 +38,13 @@ def home():
 # Read and display all posts in all_plants.html
 @app.route("/all_plants")
 def all_plants():
+    """
+
+    Creates list of all plant_posts in database
+    sorted alphabetically.
+    Returns all_plants.html.
+
+    """
     all_plants = list(
         mongo.db.plant_posts.find().sort("plant_botanical_name", 1))
     return render_template("all_plants.html", all_plants=all_plants)

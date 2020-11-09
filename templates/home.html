@@ -78,11 +78,11 @@
 {% block content %}
 <!-- promo -->
 <div class="container margin-y-50">
-  <div class="row margin-bottom-0">
+  <div class="row margin-bottom-0 padding-top-30">
     <div class="col s12 m4 center-align">
       <i class="fas fa-seedling home-icons text-shadow"></i>
       <h4>Find Plants</h4>
-      <div class="divider"></div>
+      <hr class="divider-home" />
       <p>
         After something specific? Start searching above. Or looking for
         inspiration? Browse all plants here. You can also search by plant care
@@ -92,7 +92,7 @@
     <div class="col s12 m4 center-align">
       <i class="fas fa-user-plus home-icons"></i>
       <h4>Add</h4>
-      <div class="divider"></div>
+      <hr class="divider-home" />
       <p>
         At Houseplant Heroes we rely on user created guides. Create an account
         to add your plants and keep track of them on your profile page.
@@ -101,7 +101,7 @@
     <div class="col s12 m4 center-align">
       <i class="fas fa-comments home-icons text-shadow"></i>
       <h4>Comment</h4>
-      <div class="divider"></div>
+      <hr class="divider-home" />
       <p>
         Do have questions regarding a specific plant? Or maybe something to add
         to the guide. Each plant has a comments sections to leave your thoughts
@@ -111,7 +111,7 @@
   </div>
   <!-- carousel -->
   {% if all_plants|length > 0 %}
-  <div class="container center">
+  <div class="carousel-container center">
     <div class="carousel">
       {% for plant_post in all_plants %}
       <a

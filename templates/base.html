@@ -133,6 +133,15 @@
     <!-- hero image opening div -->
     {% block hero_image_begin %}{% endblock %}
     <section class="hero-image-section">
+      <!-- flash messages -->
+      <div>
+        {% with messages = get_flashed_messages() %} {% if messages %} {% for
+        message in messages %}
+        <div class="row center-align">
+          <h6 class="white-text text-shadow margin-0">{{ message }}</h6>
+        </div>
+        {% endfor %} {% endif %} {% endwith %}
+      </div>
       <!-- heading -->
       <h2 class="white-text text-shadow center-align">
         {% block heading %}{% endblock %}
@@ -144,15 +153,6 @@
       <!-- hero image content -->
       <div class="padding-30">
         {% block hero_image_content %} {% endblock %}
-      </div>
-      <!-- flash messages -->
-      <div>
-        {% with messages = get_flashed_messages() %} {% if messages %} {% for
-        message in messages %}
-        <div class="row center-align">
-          <h6 class="white-text text-shadow">{{ message }}</h6>
-        </div>
-        {% endfor %} {% endif %} {% endwith %}
       </div>
     </section>
     <!-- hero image closing div -->

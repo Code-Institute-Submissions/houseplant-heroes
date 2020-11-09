@@ -109,10 +109,9 @@
       </p>
     </div>
   </div>
-  <div class="row">
-    <!-- carousel -->
-    {% if all_plants|length > 0 %}
-    <div class="container">
+  <!-- carousel -->
+  {% if all_plants|length > 0 %}
+  <div class="container center">
     <div class="carousel">
       {% for plant_post in all_plants %}
       <a
@@ -123,10 +122,12 @@
           src="{{ plant_post.plant_image_url }}"
           alt="{{ plant_post.plant_nickname }}"
         />
+        <p class="margin-0 black-text">
+          Posted by {{ plant_post.posted_by }}
+        </p>
       </a>
       {% endfor %}
     </div>
   </div>
-</div>
 </div>
 {% endif %} {% endblock %}

@@ -73,7 +73,7 @@ a.brand-logo.black-text.left {
 }
 
 .line-height {
-  line-height: 3rem;
+  line-height: 2rem;
 }
 /*-------- forms --------*/
 
@@ -159,14 +159,6 @@ body > section > div > form > div:nth-child(10) > div > div > input {
 .grid-item {
   width: 400px;
   margin-bottom: 5px;
-}
-
-body > section > div > div:nth-child(2) > div > a.carousel-item > img {
-  height: 300px;
-  width: auto;
-}
-.carousel .carousel-item {
-  height: 50%;
 }
 
 .chevron {

@@ -185,8 +185,8 @@ def edit_plant(plant_post_id):
                 'on %d-%m-%y at %H:%M')
         }
         mongo.db.plant_posts.update({"_id": ObjectId(plant_post_id)}, submit)
-        return redirect(url_for('plant_profile', plant_post_id=plant_post_id))
         flash("post updated")
+        return redirect(url_for('plant_profile', plant_post_id=plant_post_id))
 
     maintenance_level = mongo.db.maintenance_level.find().sort("level_name", 1)
     return render_template(

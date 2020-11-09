@@ -28,8 +28,8 @@
               for="username"
               id="username_label"
               class="white-text text-shadow"
-              ><b>Username</b></label
-            >
+              ><b>Username</b>
+            </label>
           </div>
           <!-- passwords -->
           <div class="input-field col">
@@ -37,14 +37,22 @@
               id="password"
               name="password"
               type="password"
+              minlength="5"
+              maxlength="15"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{5,15}"
               class="validate white-text text-shadow"
             />
             <label
               for="password"
               id="password_label"
               class="white-text text-shadow"
-              ><b>Password</b></label
-            >
+              ><b>Password</b>
+              <i
+                class="fas fa-info-circle tooltipped"
+                data-position="bottom"
+                data-tooltip="Your password must be between 5 and 15 characters and contain one number and a mixture of upper and lowercase letters. Special characters are not permitted."
+              ></i>
+            </label>
           </div>
           <div class="input-field col">
             <input

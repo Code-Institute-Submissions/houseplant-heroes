@@ -112,7 +112,8 @@
   <div class="row">
     <!-- carousel -->
     {% if all_plants|length > 0 %}
-    <div class="carousel center">
+    <div class="container">
+    <div class="carousel">
       {% for plant_post in all_plants %}
       <a
         class="carousel-item"
@@ -127,5 +128,5 @@
     </div>
   </div>
 </div>
-
+</div>
 {% endif %} {% endblock %}

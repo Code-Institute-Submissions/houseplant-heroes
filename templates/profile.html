@@ -2,47 +2,31 @@
 
 <!-- hero image opening div -->
 {% block hero_image_begin %}
-<div class="hero-image height-80">
+<div class="hero-image height-70">
   {% endblock %}
 
   <!-- block heading -->
   {% block heading %} Welcome {{ username }} {% endblock %}
 
   <!-- block subheading -->
-  {% block subheading %} Keep track of your posts here or add a new plant to get
+  {% block subheading %} Keep track of your posts below or add a new plant to get
   started. {% endblock %}
 
   <!-- block hero image content -->
   {% block hero_image_content %}
   <div class="container">
     <div class="row center-align padding-30">
-      <div class="col s12 m4 offset-m2">
-        <div class="row">
-          <h5 class="white-text text-shadow">
-            Add a new plant
-          </h5>
-        </div>
-        <div class="row">
-          <a
-            href="{{ url_for('add_plant' )}}"
-            class="btn-floating btn waves-effect waves-light grey"
-            ><i class="fas fa-plus white-text"></i
-          ></a>
-        </div>
+      <div class="row">
+        <h5 class="white-text text-shadow">
+          View your plants
+        </h5>
       </div>
-      <div class="col s12 m4">
-        <div class="row">
-          <h5 class="white-text text-shadow">
-            View your plants
-          </h5>
-        </div>
-        <div class="row">
-          <a
-            href="#my-plants"
-            class="btn-floating btn waves-effect waves-light grey"
-            ><i class="fas fa-chevron-down white-text small"></i
-          ></a>
-        </div>
+      <div class="row">
+        <a
+          href="#my-plants"
+          class="btn-floating btn waves-effect waves-light grey"
+          ><i class="fas fa-chevron-down white-text small"></i
+        ></a>
       </div>
     </div>
   </div>
@@ -53,8 +37,9 @@
 </div>
 {% endblock %} {% block content %}
 <section id="my-plants">
+  <!-- show plants created by user -->
   {% if my_plants|length > 0 %}
-  <h4>My plants</h4>
+  <h4 class="center padding-30">{{ username }}'s Plants</h4>
   <div class="grid">
     {% for plant_post in my_plants %}
     <div class="grid-item">
@@ -97,7 +82,21 @@
     {% endfor %}
   </div>
   {% else %}
-  <p>no plants yet</p>
+  <!-- If user has yet to add to add any plants -->
+  <div class="container center padding-30">
+    <div class="row">
+      <h4 class="line-height">
+        You don't have any plants yet, add a plant to get started.
+      </h4>
+    </div>
+    <div class="row">
+      <a
+        href="{{ url_for('add_plant' )}}"
+        class="btn-floating btn waves-effect waves-light grey"
+        ><i class="fas fa-plus white-text"></i>
+      </a>
+    </div>
+  </div>
   {% endif %}
 </section>
 {% endblock %}

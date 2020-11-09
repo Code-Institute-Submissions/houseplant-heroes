@@ -23,12 +23,20 @@
               name="username"
               type="text"
               class="validate white-text text-shadow"
+              minlength="4"
+              maxlength="15"
+              pattern="^[a-zA-Z0-9]{5,15}$"
             />
             <label
               for="username"
               id="username_label"
               class="white-text text-shadow"
               ><b>Username</b>
+              <i
+                class="fas fa-info-circle tooltipped"
+                data-position="bottom"
+                data-tooltip="Username must be between 4 and 15 characters. Special characters are not permitted."
+              ></i>
             </label>
           </div>
           <!-- passwords -->
@@ -50,7 +58,7 @@
               <i
                 class="fas fa-info-circle tooltipped"
                 data-position="bottom"
-                data-tooltip="Your password must be between 5 and 15 characters and contain one number and a mixture of upper and lowercase letters. Special characters are not permitted."
+                data-tooltip="Password must be between 5 and 15 characters, contain one number and a mixture of upper and lowercase letters. Special characters are not permitted."
               ></i>
             </label>
           </div>

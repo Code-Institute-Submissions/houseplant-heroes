@@ -195,6 +195,8 @@ Description
 
 ## Credits
 
+https://stackoverflow.com/questions/34248898/how-to-validate-select-option-for-a-materialize-dropdown
+
 ### Code
 
 ### Content

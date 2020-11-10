@@ -38,6 +38,7 @@ def home():
 # Read and display all posts in all_plants.html
 @app.route("/all_plants")
 def all_plants():
+
     """
 
     Creates list of all plant_posts in database
@@ -53,22 +54,34 @@ def all_plants():
 # Search all plants
 @app.route("/search_all_plants", methods=["GET", "POST"])
 def search_all_plants():
+
+    """
+
+    Retrieves search text posted by user and
+    compares text to text within the plant_posts database.
+    If the search text matches a post within plant_posts database
+    return template for all_plants with matching results.
+    If no matches are found
+    Return template for all_plants with flash message
+
+    """
+
     if request.method == "POST":
         search = request.form.get("search")
         all_plants = list(mongo.db.plant_posts.find(
             {"$text": {"$search": search}}))
         # check for search result matches
         if all_plants:
-            flash("Results for...")
             return render_template("all_plants.html", all_plants=all_plants)
         else:
-            flash("No results found, try again or browse all plants below")
+            flash("No results found, try again or browse all plants below.")
             return redirect(url_for("all_plants"))
 
 
 # Register username and password in join.html
 @app.route("/join", methods=["GET", "POST"])
 def join():
+
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(

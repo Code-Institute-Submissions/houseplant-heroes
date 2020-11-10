@@ -164,26 +164,42 @@
     </section>
     <!-- footer -->
     <footer>
-      <div class="row margin-0 grey lighten-2">
-        <div class="col s12 m6">
-          <p class="black-text">
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
-          </p>
-          <div class="white-text">
-            <a
-              target="_blank"
-              href="https://icons8.com/icons/set/potted-plant"
-              class="white-text"
-              >Potted Plant icon</a
-            >
-            icon by
-            <a target="_blank" href="https://icons8.com" class="white-text"
-              >Icons8</a
-            >
+      <div class="grey lighten-2">
+        <div class="row margin-0 valign-wrapper padding-30">
+          <div class="col s12 m6">
+            <p class="black-text margin-0">
+              "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            </p>
+            <div class="white-text">
+              <a
+                target="_blank"
+                href="https://icons8.com/icons/set/potted-plant"
+                class="white-text"
+                >Potted Plant icon</a
+              >
+              icon by
+              <a target="_blank" href="https://icons8.com" class="white-text"
+                >Icons8</a
+              >
+            </div>
           </div>
-        </div>
-        <div class="col s12 m6 right-align">
-          <a href="#">Social Links</a>
+          <div class="col s12 m6">
+            <div class="row margin-0">
+              <a href="#" class="black-text"
+                ><i class="fab fa-facebook social-media-icon hover-col"></i
+              ></a>
+            </div>
+            <div class="row margin-0">
+              <a href="#" class="black-text"
+                ><i class="fab fa-instagram social-media-icon hover-col"></i
+              ></a>
+            </div>
+            <div class="row margin-0">
+              <a href="#" class="black-text"
+                ><i class="fab fa-twitter social-media-icon hover-col"></i
+              ></a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
@@ -196,9 +212,7 @@
     ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
-
     <script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% block scripts %} {% endblock %}
   </body>

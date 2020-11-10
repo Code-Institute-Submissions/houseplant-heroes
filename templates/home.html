@@ -109,25 +109,26 @@
       </p>
     </div>
   </div>
-  <!-- carousel -->
-  {% if all_plants|length > 0 %}
-  <div class="carousel-container center">
-    <div class="carousel">
-      {% for plant_post in all_plants %}
-      <a
-        class="carousel-item"
-        href="{{ url_for('plant_profile', plant_post_id=plant_post._id) }}"
-      >
-        <img
-          src="{{ plant_post.plant_image_url }}"
-          alt="Image for {{ plant_post.plant_nickname }}"
-        />
-        <p class="margin-0 black-text">
-          Posted by {{ plant_post.posted_by }}
-        </p>
-      </a>
-      {% endfor %}
-    </div>
+</div>
+<!-- carousel -->
+{% if all_plants|length > 0 %}
+<div class="carousel-container center">
+  <div class="carousel">
+    {% for plant_post in all_plants %}
+    <a
+      class="carousel-item"
+      href="{{ url_for('plant_profile', plant_post_id=plant_post._id) }}"
+    >
+      <img
+        src="{{ plant_post.plant_image_url }}"
+        alt="Image for {{ plant_post.plant_nickname }}"
+      />
+      <p class="margin-0 black-text">
+        Posted by {{ plant_post.posted_by }}
+      </p>
+    </a>
+    {% endfor %}
   </div>
 </div>
+
 {% endif %} {% endblock %}

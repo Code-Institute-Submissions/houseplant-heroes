@@ -26,9 +26,13 @@ mongo = PyMongo(app)
 def home():
     """
 
-    Creates list of plant_posts in database sorted by Id(highest to lowest)
-    and limits results to 10.
-    Returns home page with results inserted in to carousel.
+    Creates list of plant_posts in MongoDb named 'all_plants'
+    Sorts list by Id(highest to lowest) and limits results to 10.
+
+    Returns:
+        render_template("home.html", all_plants=all_plants): This renders
+        the template for home.html with all_plants list insterted
+        and displays to user
 
     """
     all_plants = list(mongo.db.plant_posts.find().sort("_id", -1).limit(10))
@@ -38,12 +42,15 @@ def home():
 # Read and display all posts in all_plants.html
 @app.route("/all_plants")
 def all_plants():
-
     """
 
-    Creates list of all plant_posts in database
-    sorted alphabetically.
-    Returns all_plants.html.
+    Creates list of plant_posts in MongoDb named 'all_plants'
+    Sorts list alphabetically.
+
+    Returns:
+        render_template("all_plants.html", all_plants=all_plants): This renders
+        the template for all_plants.html with all_plants list insterted
+        and displayed to user.
 
     """
     all_plants = list(
@@ -54,15 +61,27 @@ def all_plants():
 # Search all plants
 @app.route("/search_all_plants", methods=["GET", "POST"])
 def search_all_plants():
-
     """
 
+    Function to allow users to search the plant_posts MongoDb using text.
+
     Retrieves search text posted by user and
-    compares text to text within the plant_posts database.
-    If the search text matches a post within plant_posts database
-    return template for all_plants with matching results.
-    If no matches are found
-    Return template for all_plants with flash message
+    compares to text within plant_posts MongoDb.
+    Creates a list of matching results named 'all_plants'.
+
+    If matching results are found:
+        Returns:
+            render_template("all_plants.html", all_plants=all_plants):
+            This renders the template for all_plants.html with all_plants
+            list insterted and displayed to the user.
+
+    Else (no results):
+        Displays flash message to user that explains that
+        there are no matching results
+        Returns:
+            redirect(url_for("all_plants")): This redirects user to
+            all_plants url so that all plants in plant_posts MongoDb
+            are displayed to the user.
 
     """
 
@@ -81,7 +100,11 @@ def search_all_plants():
 # Register username and password in join.html
 @app.route("/join", methods=["GET", "POST"])
 def join():
+    """
 
+    Function to allow user to create a username, password and profile.
+
+    """
     if request.method == "POST":
         # check if username already exists in db
         existing_user = mongo.db.users.find_one(
@@ -115,6 +138,12 @@ def join():
 # Login page
 @app.route("/login", methods=["GET", "POST"])
 def login():
+
+    """
+    Function to allow users to access their profile
+    providing their username and password is correct.
+    """
+
     if request.method == "POST":
         # check username exists in database
         existing_user = mongo.db.users.find_one(
@@ -138,6 +167,13 @@ def login():
 # User profile page
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
+
+    """
+
+    Function to displays users profile page
+
+    """
+
     # get session user's username from database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -154,6 +190,9 @@ def profile(username):
 # Logout function
 @app.route("/logout")
 def logout():
+    """
+    Function to allow users to logout of their profile.
+    """
     # remove user from session cookie
     flash("You have been logged out")
     session.pop("user")
@@ -163,6 +202,9 @@ def logout():
 # Create a new plant post
 @app.route("/add_plant", methods=["GET", "POST"])
 def add_plant():
+    """
+    Funciton to allow users to add a new plant_post to the MongoDb.
+    """
     is_air_purifying = "on" if request.form.get("is_air_purifying") else "off"
     if request.method == "POST":
         plant_post = {
@@ -191,6 +233,9 @@ def add_plant():
 # Edit/Update existing plant post
 @app.route("/edit_plant/<plant_post_id>", methods=["GET", "POST"])
 def edit_plant(plant_post_id):
+    """
+    Function to allow users to update a plant_post in the MongoDb
+    """
     plant_post = mongo.db.plant_posts.find_one(
         {"_id": ObjectId(plant_post_id)})
     if request.method == "POST":
@@ -224,6 +269,9 @@ def edit_plant(plant_post_id):
 # Delete plant post
 @ app.route("/delete_plant/<plant_post_id>")
 def delete_plant(plant_post_id):
+    """
+    Function to allow user to delete a plant_post in the mongoDb
+    """
     mongo.db.plant_posts.remove({"_id": ObjectId(plant_post_id)})
     flash("Post deleted")
     return redirect(url_for("all_plants"))
@@ -232,6 +280,10 @@ def delete_plant(plant_post_id):
 # Plant profile
 @ app.route("/plant_profile/<plant_post_id>")
 def plant_profile(plant_post_id):
+    """
+    Function to render the profile page for a
+    specific plant and display comments related to that plant.
+    """
     plant_post = mongo.db.plant_posts.find_one(
         {"_id": ObjectId(plant_post_id)})
     # Find comments for plant post
@@ -247,6 +299,10 @@ def plant_profile(plant_post_id):
 @ app.route(
     "/<plant_post_id>/comments", methods=["GET", "POST"])
 def insert_comment(plant_post_id):
+    """
+    Function to allow users to add a comment
+    regarding a specific plant to the MongDb.
+    """
     if request.method == "POST":
         submit = {
             "plant_post_id": request.form.get("plant_post_id"),
@@ -265,6 +321,10 @@ def insert_comment(plant_post_id):
 @ app.route(
     "/<plant_post_id>/delete_comment/<comment_id>")
 def delete_comment(plant_post_id, comment_id):
+    """
+    Function to allow users to delete a comment
+    regarding a specific plant from the MongDb.
+    """
     mongo.db.comments.remove({"_id": ObjectId(comment_id)})
     flash("Comment deleted")
     return redirect(url_for(

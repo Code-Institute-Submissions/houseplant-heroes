@@ -2,18 +2,34 @@
 
 ## Milestone Project 3: Data Centric Development - Code Institute
 
-Description
+[Houseplant Heroes](https://houseplant-heroes.herokuapp.com/) was created as a response to the growing popularity of houseplants which, whilst aesthetically pleasing can often be difficult to maintain! The website allows users to access information on houseplant care as well as contribute their own insights and experiences.
 
-## User Experience (UX)
+## Table of Contents
 
-### User stories
+1. [UX](#UX)
+   - [User Stories](#user-stories)
+     - [First Time User Goals](#first-time-user-goals)
+     - [Returning User Goals](#returning-user-goals)
+     - [Frequent User Goals](#frequent-user-goals)
+     - [Site Owner Goals](#site-ownner-goals)
+   - [Design](#design)
+     - [Colour Scheme](#colour-scheme)
+     - [Typography](#typography)
+     - [Imagery](#imagery)
+     - [Icons](#icons)
+     - [Layout](#layout)
+     - [Wireframes](#wireframes)
 
-#### First Time User Goals
+# UX
+
+## User Stories
+
+### First Time User Goals
 
 1. As a First Time User, I want to easily understand the purpose of the website and the services it offers
 2. As a First Time User, I want to be able to navigate intuitively through the site
 
-#### Returning User Goals
+### Returning User Goals
 
 1. As a Returning User, I want to browse plants
 2. As a Returning User, I want to search for plants
@@ -22,32 +38,60 @@ Description
 5. As a Returning User, I want to find care instructions
 6. As a Returning User, I want to create my own posts
 
-#### Frequent User Goals
+### Frequent User Goals
 
 1. As a Frequent User, I want to see the plants that I have posted
 2. As a Frequent User, I want to edit and delete my posts
 3. I want to discuss the plants with others in the community
 4. As a Returning User, I want feedback on my posts
 
-#### Site Owner Goals
+### Site Owner Goals
 
-1. As Admin, I want the ability to delete any posts deemed inappropriate or unnecessary
+1. As Admin, I want the ability to edit/delete any posts deemed inappropriate or unnecessary
 
-### Design
+## Design
 
--
+The overall design of the website is clean and simplistic, this allows the plants themselves to be the main focus.
 
 #### Colour Scheme
 
--
+![Colour Scheme](./static/images/readme_images/colour-scheme.png)
+
+- The colours were chosen to compliment the hero image used on every page of the site. The muted tones are unobtrusive so as not to detract from the natural colours provided by the plant images.
+
+- The add and edit plant form input uses the Materialize CSS default, on click, colours. They provide users with visually recognisable validation feedback:
+
+Green for go
+![Colour Scheme](./static/images/readme_images/form-green.png)
+
+Red for stop
+![Colour Scheme](./static/images/readme_images/form-red.png)
 
 #### Typography
 
--
+- The Poppins font is used on all pages with Sans Serif as the back-up font due to it's clean presentation, the letters were also spaced apart by 2px to increase this effect.
+
+- A range of font sizes and weights were used to denote importance.
+
+- The white text used on the the hero image includes a text shadow to ensure readability.
 
 #### Imagery
 
--
+Hero Image
+
+![Hero Image](./static/images/hero-img.png)
+
+- The hero image is used on each page of the site to create consistency and promote lasting brand image. A liner gradient of (rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), is used to ensure content is visable on top.
+- The hero image is resized on each page depending on the size of hero image content but is always recognisable as the same image.
+
+Carousel
+
+![Carousel](./static/images/readme_images/carousel.png)
+
+- A [Materialize CSS Carousel](https://materializecss.com/carousel.html) is used to display the most recently added posts on the homepage.
+- The carousel images state who the plant was posted by. The username was included to encourage users to post their own plants to be displayed on the front page.
+
+#### Icons
 
 #### Layout
 

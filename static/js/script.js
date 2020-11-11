@@ -30,11 +30,12 @@ $(document).ready(function () {
     dots: true,
     lazyLoad: "ondemand",
     infinite: true,
+    variableWidth: true,
     speed: 300,
     slidesToShow: 3,
     slidesToScroll: 9,
     centerMode: true,
-    centerPadding: "60px",
+    centerPadding: "100px",
     responsive: [
       {
         breakpoint: 1024,

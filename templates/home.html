@@ -123,10 +123,14 @@
 <div class="container-carousel">
   <div class="responsive">
     {% for plant_post in all_plants %}
-    <img
-      data-lazy="{{ plant_post.plant_image_url }}"
-      alt="Image for {{ plant_post.plant_nickname }}"
-    />
+    <div>
+      <a href="{{ url_for('plant_profile', plant_post_id=plant_post._id) }}">
+        <img
+          data-lazy="{{ plant_post.plant_image_url }}"
+          alt="Image for {{ plant_post.plant_nickname }}"
+        />
+      </a>
+    </div>
     {% endfor %}
   </div>
 </div>

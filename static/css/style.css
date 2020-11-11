@@ -196,12 +196,18 @@ body > section > div > form > div:nth-child(10) > div > div > input {
 }
 
 /* Carousel (important necessary to overwrite default) */
-.container-carousel {
-  margin: 100px;
-}
+
 .slick-prev:before {
   color: #9e9e9e !important;
 }
 .slick-next:before {
   color: #9e9e9e !important;
+}
+
+.container-carousel {
+  margin: 30px;
+}
+
+.slick-slide img{
+    height: 300px;
 }

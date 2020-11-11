@@ -152,7 +152,7 @@ Carousel
 
    - jQuery was used in conjunction with Materlize CSS for interactive components
 
-7. [Masonry]https://masonry.desandro.com/
+7. [Masonry](https://masonry.desandro.com/)
 
    - Masonry was used to create the cascading grid layout library when plant lists were used
 
@@ -161,6 +161,8 @@ Carousel
    - MongoDB was used to store and access all generated documents
 
 9. https://imagesloaded.desandro.com/
+
+10. [Slick Carousel](https://kenwheeler.github.io/slick/)
 
 ## Testing
 
@@ -240,6 +242,8 @@ Carousel
 ## Credits
 
 https://stackoverflow.com/questions/34248898/how-to-validate-select-option-for-a-materialize-dropdown
+
+https://kenwheeler.github.io/slick/
 
 ### Code
 

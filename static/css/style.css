@@ -202,3 +202,17 @@ body > section > div > form > div:nth-child(10) > div > div > input {
 .padding-top-20 {
   padding-top: 20px;
 }
+
+
+/* Carousel (important necessary to overwrite default) */
+.container-carousel {
+  margin: 100px;
+}
+
+.slick-prev:before {
+    color: black !important;
+
+}
+.slick-next:before {
+  color: black !important;
+}

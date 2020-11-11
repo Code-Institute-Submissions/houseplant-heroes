@@ -88,8 +88,9 @@ Carousel
 
 ![Carousel](./static/images/readme_images/carousel.png)
 
-- A [Materialize CSS Carousel](https://materializecss.com/carousel.html) is used to display the most recently added posts on the homepage.
-- The carousel images state who the plant was posted by. The username was included to encourage users to post their own plants to be displayed on the front page.
+- A [Slick](https://kenwheeler.github.io/slick/) Carousel is used to display the most recently added posts on the homepage.
+- The carousel image links to the plant post for easy navigation for users 
+- The carousel images also state who the plant was posted by. The username was included to encourage users to post their own plants to be displayed on the front page.
 
 #### Icons
 
@@ -101,7 +102,7 @@ Carousel
 - Social media icons are clearly positioned within the header in accordance with user expectations. Dead links are used as the social media pages to exist at present. 
 #### Layout
 
--
+- The layout is simplistic, with no overcrowding of objects. This ensure users are able to clearly see and access the information they are looking for. Use of clean lines add to this effect. 
 
 ### Wireframes
 
@@ -117,6 +118,7 @@ Carousel
 - All documents are stored in a [MongoDB]
 
 ## Comments
+
 
 - the ability to edit a comment was deleted to...
 
@@ -241,7 +243,8 @@ Carousel
 
 - on add plant the page may need a refresh for the new plant to appear
 - defensive programming modal
-- carousel cuts off images
+- alt image sometimes shows due to lazy load. Trade off for faster load time so could be changed depending on priorities. 
+
 
 ## Deployment
 

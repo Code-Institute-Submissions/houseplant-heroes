@@ -138,7 +138,6 @@ def join():
 # Login page
 @app.route("/login", methods=["GET", "POST"])
 def login():
-
     """
     Function to allow users to access their profile
     providing their username and password is correct.
@@ -167,7 +166,6 @@ def login():
 # User profile page
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-
     """
 
     Function to displays users profile page
@@ -288,7 +286,7 @@ def plant_profile(plant_post_id):
         {"_id": ObjectId(plant_post_id)})
     # Find comments for plant post
     comments = list((mongo.db.comments.find(
-        {"plant_post_id": plant_post_id}).sort("_id", -1)))
+        {"plant_post_id": plant_post_id})))
     maintenance_level = mongo.db.maintenance_level.find()
     return render_template(
         "plant_profile.html", plant_post=plant_post,

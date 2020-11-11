@@ -205,9 +205,9 @@ body > section > div > form > div:nth-child(10) > div > div > input {
 }
 
 .container-carousel {
-  margin: 30px;
+  margin: 75px;
 }
 
-.slick-slide img{
-    height: 300px;
+.slick-slide img {
+  height: 300px;
 }

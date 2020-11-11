@@ -1,36 +1,40 @@
-{% extends "base.html" %}
-
-{% block styles %}
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+{% extends "base.html" %} {% block styles %}
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
+/>
 {% endblock %}
 <!-- hero image opening div -->
 {% block hero_image_begin %}
 <div class="hero-image height-80">
-	{% endblock %}
+  {% endblock %}
 
-	<!-- heading -->
-	{% block heading %} Houseplant Heroes {% endblock %}
+  <!-- heading -->
+  {% block heading %} Houseplant Heroes {% endblock %}
 
-	<!-- subheading -->
-	{% block subheading %} A community created guide to houseplant care. {%
+  <!-- subheading -->
+  {% block subheading %} A community created guide to houseplant care. {%
   endblock %}
 
-	<!-- hero image content -->
-	{% block hero_image_content %}
+  <!-- hero image content -->
+  {% block hero_image_content %}
 
-	<div class="container">
-		<!-- search -->
-		<form action="{{ url_for('search_all_plants') }}" method="POST">
-			<div class="row center-align">
-				<div class="input-field">
-					<input
+  <div class="container">
+    <!-- search -->
+    <form action="{{ url_for('search_all_plants') }}" method="POST">
+      <div class="row center-align">
+        <div class="input-field">
+          <input
             type="text"
             name="search"
             id="search"
             class="validate white-text text-shadow"
           />
-					<label id="search_label" for="search" class="white-text text-shadow">
+          <label id="search_label" for="search" class="white-text text-shadow">
             <i
               class="fas fa-info-circle tooltipped"
               data-position="bottom"
@@ -38,34 +42,43 @@
             ></i>
             Start Searching...
           </label>
-					<!-- submit -->
-					<button
+          <!-- submit -->
+          <button
             type="submit"
             class="white-text text-shadow right grey darken-1 btn"
           >
             <i class="fas fa-search"></i>
           </button>
-				</div>
-			</div>
-		</form>
+        </div>
+      </div>
+    </form>
 
-		<!-- redirect buttons -->
-		<div class="center-align">
-			<a href="{{ url_for('all_plants') }}" class="btn-large grey darken-1 white-text text-shadow margin-10">
-				<b>All Plants</b>
-			</a>
-			<a href="{{ url_for('login') }}" class="btn-large grey darken-1 white-text text-shadow margin-10">
-				<b>Login</b>
-			</a>
-			<a href="{{ url_for('join') }}" class="btn-large grey darken-1 white-text text-shadow margin-10">
-				<b>Join</b>
-			</a>
-		</div>
-	</div>
-	{% endblock %}
+    <!-- redirect buttons -->
+    <div class="center-align">
+      <a
+        href="{{ url_for('all_plants') }}"
+        class="btn-large grey darken-1 white-text text-shadow margin-10"
+      >
+        <b>All Plants</b>
+      </a>
+      <a
+        href="{{ url_for('login') }}"
+        class="btn-large grey darken-1 white-text text-shadow margin-10"
+      >
+        <b>Login</b>
+      </a>
+      <a
+        href="{{ url_for('join') }}"
+        class="btn-large grey darken-1 white-text text-shadow margin-10"
+      >
+        <b>Join</b>
+      </a>
+    </div>
+  </div>
+  {% endblock %}
 
-	<!-- hero image closing div -->
-	{% block hero_image_end %}
+  <!-- hero image closing div -->
+  {% block hero_image_end %}
 </div>
 {% endblock %}
 
@@ -73,55 +86,50 @@
 {% block content %}
 <!-- promo -->
 <div class="container margin-y-50">
-	<div class="row margin-bottom-0 padding-top-30">
-		<div class="col s12 m4 center-align">
-			<i class="fas fa-seedling home-icons text-shadow"></i>
-			<h4>Find Plants</h4>
-			<hr class="divider-home" />
-			<p>
-				After something specific? Start searching above. Or looking for
-				inspiration? Browse all plants here. You can also search by plant care
-				difficulty to fit the plant around your lifestyle.
-			</p>
-		</div>
-		<div class="col s12 m4 center-align">
-			<i class="fas fa-user-plus home-icons"></i>
-			<h4>Add</h4>
-			<hr class="divider-home" />
-			<p>
-				At Houseplant Heroes we rely on user created guides. Create an account
-				to add your plants and keep track of them on your profile page.
-			</p>
-		</div>
-		<div class="col s12 m4 center-align">
-			<i class="fas fa-comments home-icons text-shadow"></i>
-			<h4>Comment</h4>
-			<hr class="divider-home" />
-			<p>
-				Do have questions regarding a specific plant? Or maybe something to add
-				to the guide. Each plant has a comments sections to leave your thoughts
-				and queries.
-			</p>
-		</div>
-	</div>
+  <div class="row margin-bottom-0 padding-top-30">
+    <div class="col s12 m4 center-align">
+      <i class="fas fa-seedling home-icons text-shadow"></i>
+      <h4>Find Plants</h4>
+      <hr class="divider-home" />
+      <p>
+        After something specific? Start searching above. Or looking for
+        inspiration? Browse all plants here. You can also search by plant care
+        difficulty to fit the plant around your lifestyle.
+      </p>
+    </div>
+    <div class="col s12 m4 center-align">
+      <i class="fas fa-user-plus home-icons"></i>
+      <h4>Add</h4>
+      <hr class="divider-home" />
+      <p>
+        At Houseplant Heroes we rely on user created guides. Create an account
+        to add your plants and keep track of them on your profile page.
+      </p>
+    </div>
+    <div class="col s12 m4 center-align">
+      <i class="fas fa-comments home-icons text-shadow"></i>
+      <h4>Comment</h4>
+      <hr class="divider-home" />
+      <p>
+        Do have questions regarding a specific plant? Or maybe something to add
+        to the guide. Each plant has a comments sections to leave your thoughts
+        and queries.
+      </p>
+    </div>
+  </div>
 </div>
 
 {% if all_plants|length > 0 %}
 <div class="container-carousel">
-	<div class="responsive">
-		{% for plant_post in all_plants %}
-
-		<img
-        src="{{ plant_post.plant_image_url }}"
-        alt="Image for {{ plant_post.plant_nickname }}"
-      />
-	{% endfor %}
-
+  <div class="responsive">
+    {% for plant_post in all_plants %}
+    <img
+      data-lazy="{{ plant_post.plant_image_url }}"
+      alt="Image for {{ plant_post.plant_nickname }}"
+    />
+    {% endfor %}
+  </div>
 </div>
-	</div>
-	{% endif %}
-
-	{% endblock %}
-
-	{% block scripts %} <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-	{% endblock %}
+{% endif %} {% endblock %} {% block scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+{% endblock %}

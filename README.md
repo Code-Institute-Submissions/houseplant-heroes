@@ -93,6 +93,12 @@ Carousel
 
 #### Icons
 
+- Icons are used 
+
+- The use of icons in the plant profile page, along with headings, allows the user to easily scan the page for the information they are looking for. They also break up the information in to make it more managable for the user.
+
+
+- Social media icons are clearly positioned within the header in accordance with user expectations. Dead links are used as the social media pages to exist at present. 
 #### Layout
 
 -

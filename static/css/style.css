@@ -24,26 +24,6 @@ a.brand-logo.black-text.left {
   overflow: hidden;
 }
 
-.height-100 {
-  height: 100%;
-}
-
-.height-85 {
-  height: 85%;
-}
-
-.height-80 {
-  height: 80%;
-}
-
-.height-70 {
-  height: 70%;
-}
-
-.height-55 {
-  height: 55%;
-}
-
 .hero-image-section {
   padding-top: 7%;
 }
@@ -51,6 +31,76 @@ a.brand-logo.black-text.left {
 .subheading {
   margin: 0 10%;
 }
+
+.hero-img-home,
+.hero-img-all-plants {
+  height: 80%;
+}
+
+.hero-img-profile {
+  height: 65%;
+}
+
+.hero-img-plant-profile {
+  height: 75%;
+}
+
+.hero-img-add-plant,
+.hero-img-edit-plant {
+  height: 55%;
+}
+
+.hero-img-login,
+.hero-img-join {
+  height: 100%;
+}
+
+.fa-search {
+  padding: 2px;
+}
+
+/*-------- block content --------*/
+.block-content {
+  margin: 25px;
+}
+
+.divider-home {
+  width: 50px;
+  border-top: 2px solid #9e9e9e;
+}
+
+/*-------- footer --------*/
+.footer-spacing {
+  padding: 30px 50px 0 50px;
+}
+
+/*--------  Carousel (important necessary to overwrite default) --------*/
+.container-carousel {
+  margin: 75px;
+}
+
+.slick-slide img {
+  height: 300px;
+}
+
+/*-- important necessary to overwrite default --*/
+.slick-prev:before {
+  color: #9e9e9e !important;
+}
+.slick-next:before {
+  color: #9e9e9e !important;
+}
+
+/*-------- masonry grid --------*/
+.grid {
+  margin: 0 auto;
+}
+
+.grid-item {
+  width: 400px;
+  margin-bottom: 5px;
+}
+
 /*-------- text --------*/
 .text-shadow {
   text-shadow: 1px 1px 1px rgb(66, 66, 66, 0.5);
@@ -64,19 +114,48 @@ a.brand-logo.black-text.left {
   font-size: 1rem;
 }
 
-.margin-bottom-10 {
-  margin-bottom: 10%;
-}
-
-.margin-bottom-5 {
-  margin-bottom: 5%;
-}
-
 .line-height {
   line-height: 2rem;
 }
-/*-------- forms --------*/
 
+/*-------- margins --------*/
+.margin-0 {
+  margin: 0;
+}
+
+.margin-bottom-0 {
+  margin-bottom: 0;
+}
+
+.margin-10 {
+  margin: 10px;
+}
+
+.margin-y-50 {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+/*-------- padding --------*/
+.padding-30,
+#plant-profile-right,
+#plant-profile-left {
+  padding: 30px;
+}
+
+.padding-0 {
+  padding: 0;
+}
+
+.padding-top-20 {
+  padding-top: 20px;
+}
+
+.padding-top-30 {
+  padding-top: 30px;
+}
+
+/*-------- forms --------*/
 #username,
 #password,
 #confirm_password,
@@ -96,7 +175,7 @@ a.brand-logo.black-text.left {
   padding-top: 50px;
 }
 
-/*-------- overwrites materialize select-wrapper  --------*/
+/*-- overwrites materialize select-wrapper --*/
 .form-text,
 body > section > div > div > form > div:nth-child(10) > div > div > input,
 body > section > div > form > div:nth-child(10) > div > div > input {
@@ -106,77 +185,10 @@ body > section > div > form > div:nth-child(10) > div > div > input {
   letter-spacing: 2px;
 }
 
-/*-------- spacing --------*/
-.padding-30,
-#plant-profile-right,
-#plant-profile-left {
-  padding: 30px;
-}
-
-.margin-0 {
-  margin: 0;
-}
-
-.margin-bottom-0 {
-  margin-bottom: 0;
-}
-
-.padding-0 {
-  padding: 0;
-}
-
-.margin-10 {
-  margin: 10px;
-}
-
-.margin-y-50 {
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
-.back {
-  padding: 5px;
-}
-
-.fa-search {
-  padding: 2px;
-}
-
-/*-------- hover --------*/
-.hover-col:hover {
-  color: #9e9e9e;
-}
-
+/*-------- icons --------*/
 .home-icons {
   font-size: 52px;
   color: #9e9e9e;
-}
-
-.grid {
-  margin: 0 auto;
-}
-
-.grid-item {
-  width: 400px;
-  margin-bottom: 5px;
-}
-
-.chevron {
-  position: absolute;
-  bottom: 0px;
-}
-
-.block-content {
-  margin: 25px;
-}
-
-.padding-top-30 {
-  padding-top: 30px;
-}
-
-.divider-home {
-  width: 50px;
-  border-top: 2px solid #9e9e9e;
 }
 
 .social-media-icons {
@@ -187,27 +199,12 @@ body > section > div > form > div:nth-child(10) > div > div > input {
   height: 40px;
 }
 
-.footer-spacing {
-  padding: 30px 50px 0 50px;
+.chevron {
+  position: absolute;
+  bottom: 0px;
 }
 
-.padding-top-20 {
-  padding-top: 20px;
-}
-
-/* Carousel (important necessary to overwrite default) */
-
-.slick-prev:before {
-  color: #9e9e9e !important;
-}
-.slick-next:before {
-  color: #9e9e9e !important;
-}
-
-.container-carousel {
-  margin: 75px;
-}
-
-.slick-slide img {
-  height: 300px;
+/*-------- hover --------*/
+.hover-col:hover {
+  color: #9e9e9e;
 }

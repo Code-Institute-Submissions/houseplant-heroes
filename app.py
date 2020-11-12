@@ -137,7 +137,7 @@ def join():
             session["user"] = request.form.get("username").lower()
             return redirect(url_for("profile", username=session["user"]))
         else:
-            flash("passwords don't match")
+            flash("Passwords don't match, please try again")
             return redirect(url_for("join"))
     return render_template("join.html")
 
@@ -346,7 +346,7 @@ def delete_plant(plant_post_id):
 
     """
     mongo.db.plant_posts.remove({"_id": ObjectId(plant_post_id)})
-    flash("Post deleted")
+    flash("Your post has been deleted")
     return redirect(url_for("all_plants"))
 
 
@@ -433,7 +433,7 @@ def delete_comment(plant_post_id, comment_id):
 
     """
     mongo.db.comments.remove({"_id": ObjectId(comment_id)})
-    flash("Comment deleted")
+    flash("Your comment has been deleted")
     return redirect(url_for(
         "plant_profile", plant_post_id=plant_post_id, comment_id=comment_id))
 

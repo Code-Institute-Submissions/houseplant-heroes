@@ -29,10 +29,8 @@ def home():
     Creates list of plant_posts in MongoDb named 'all_plants'
     Sorts list by Id(highest to lowest) and limits results to 10.
 
-    Returns:
-        render_template("home.html", all_plants=all_plants): This renders
-        the template for home.html with all_plants list insterted
-        and displays to user
+    Return renders template for home.html with all_plants
+    list insterted and displayed to user
 
     """
     all_plants = list(mongo.db.plant_posts.find().sort("_id", -1).limit(10))
@@ -48,8 +46,7 @@ def all_plants():
     Sorts list alphabetically.
 
     Returns:
-        render_template("all_plants.html", all_plants=all_plants): This renders
-        the template for all_plants.html with all_plants list insterted
+        Renders template for all_plants.html with all_plants list insterted
         and displayed to user.
 
     """
@@ -69,19 +66,14 @@ def search_all_plants():
     compares to text within plant_posts MongoDb.
     Creates a list of matching results named 'all_plants'.
 
-    If matching results are found:
-        Returns:
-            render_template("all_plants.html", all_plants=all_plants):
-            This renders the template for all_plants.html with all_plants
-            list insterted and displayed to the user.
+    If matching results are found,
+    return renders the template for all_plants.html
+    with all_plants list insterted and displayed to the user.
 
-    Else (no results):
-        Displays flash message to user that explains that
-        there are no matching results
-        Returns:
-            redirect(url_for("all_plants")): This redirects user to
-            all_plants url so that all plants in plant_posts MongoDb
-            are displayed to the user.
+    Else if no results are found, users are redirected
+    to the url for all_plants and a flash message is displayed
+    to the user that explains that there are no matching
+    results but they can browse all plants displayed below.
 
     """
 
@@ -103,6 +95,25 @@ def join():
     """
 
     Function to allow user to create a username, password and profile.
+
+    User posts a desired username which is retrieve from the form.
+    An if/else ladder is first, used to check
+    whether that username already exists in the user MongoDb
+
+    If a match is found, a message is flashed to the user username
+    already exist and the user is redirected back
+    to the url for join so they are able to try again.
+
+    Both the password and confirmed password are
+    retrieved from the form, the second if checks that they match.
+    When all if conditions are satisfied, the username and
+    password are retrieved and a password is generated using
+    werkzeug security generate_password_hash.
+    These are then inserted in to the user MongoDb and a session cookie
+    is created for the user from the inputted username.
+
+    They are then redirected to their profile page.
+    If the passwords don't match a flash message is displayed to user.
 
     """
     if request.method == "POST":
@@ -127,7 +138,6 @@ def join():
             mongo.db.users.insert_one(join)
             # put the new user into session cookie
             session["user"] = request.form.get("username").lower()
-            flash("success")
             return redirect(url_for("profile", username=session["user"]))
         else:
             flash("passwords don't match")
@@ -141,6 +151,16 @@ def login():
     """
     Function to allow users to access their profile
     providing their username and password is correct.
+
+    User posts username which is retrieve from the form.
+    An if/else ladder is first, used to check that username
+    is in the user MongoDb. If it does, the check_password_hash from
+    werkzeug security is used to check that the inputted password is correct.
+    If it is, a session cookie is created from a session cookie
+    is created for the user from the inputted username and
+    they are redirected to their profile page. If they do not match,
+    a flash message is displayed to user.
+
     """
 
     if request.method == "POST":
@@ -157,7 +177,7 @@ def login():
                     "profile", username=session["user"]))
 
             else:
-                flash("Incorrect Username and/or Password")
+                flash("Incorrect username and/or password please try again.")
                 return redirect(url_for("login"))
 
     return render_template("login.html")

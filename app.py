@@ -250,7 +250,7 @@ def add_plant():
     When user posts form, retrieve all information and save as 'plant_post'.
     Insert plant_post in to plant_posts MongoDb.
     Flash message of thanks and return redirects to
-    url for all_plants with newly created post displayed.
+    users profile page. 
 
     """
     is_air_purifying = "on" if request.form.get("is_air_purifying") else "off"
@@ -271,8 +271,12 @@ def add_plant():
                 'on: %d-%m-%y at: %H:%M')
         }
         mongo.db.plant_posts.insert_one(plant_post)
-        flash("You're our hero <3. You're post has been added, thank you!")
-        return redirect(url_for("all_plants"))
+        flash("You're our hero <3. View your newly add plant below.")
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+        return redirect(url_for(
+            "profile", username=username))
+
     maintenance_level = mongo.db.maintenance_level.find()
     return render_template(
         "add_plant.html", maintenance_level=maintenance_level)

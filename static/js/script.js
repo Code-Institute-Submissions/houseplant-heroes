@@ -3,7 +3,6 @@ $(document).ready(function () {
   $("select").formSelect();
   $(".tooltipped").tooltip();
   $(".modal").modal();
-  $(".carousel").carousel({});
 
   // init Masonry
   var $grid = $(".grid").masonry({

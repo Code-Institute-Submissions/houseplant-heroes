@@ -54,25 +54,33 @@
     </form>
 
     <!-- redirect buttons -->
-    <div class="center-align">
-      <a
-        href="{{ url_for('all_plants') }}"
-        class="btn-large grey darken-1 white-text text-shadow margin-10"
-      >
-        <b>All Plants</b>
-      </a>
-      <a
-        href="{{ url_for('login') }}"
-        class="btn-large grey darken-1 white-text text-shadow margin-10"
-      >
-        <b>Login</b>
-      </a>
-      <a
-        href="{{ url_for('join') }}"
-        class="btn-large grey darken-1 white-text text-shadow margin-10"
-      >
-        <b>Join</b>
-      </a>
+    <div class="container center-align">
+      <div class="row">
+        <div class="col s12 m4">
+          <a
+            href="{{ url_for('all_plants') }}"
+            class="btn-large grey darken-1 white-text text-shadow margin-10"
+          >
+            <b>Plants</b>
+          </a>
+        </div>
+        <div class="col s12 m4">
+          <a
+            href="{{ url_for('login') }}"
+            class="btn-large grey darken-1 white-text text-shadow margin-10"
+          >
+            <b>Login</b>
+          </a>
+        </div>
+        <div class="col s12 m4">
+          <a
+            href="{{ url_for('join') }}"
+            class="btn-large grey darken-1 white-text text-shadow margin-10"
+          >
+            <b>Join</b>
+          </a>
+        </div>
+      </div>
     </div>
   </div>
   {% endblock %}

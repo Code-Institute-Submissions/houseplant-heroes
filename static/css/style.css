@@ -9,8 +9,9 @@ html {
 }
 
 /*-------- navbars --------*/
-a.brand-logo.black-text.left {
+.nav-logo {
   padding-left: 20px;
+  font-size: 1.5rem;
 }
 
 /*-------- hero image --------*/

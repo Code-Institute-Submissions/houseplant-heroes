@@ -6,7 +6,8 @@
 
 ## Table of Contents
 
-1. [UX](#UX)
+1. <details><summary>UX</summary>
+
    - [User Stories](#user-stories)
      - [First Time User Goals](#first-time-user-goals)
      - [Returning User Goals](#returning-user-goals)
@@ -19,6 +20,7 @@
      - [Icons](#icons)
      - [Layout](#layout)
      - [Wireframes](#wireframes)
+</details>
 
 # UX
 
@@ -111,7 +113,16 @@ Icons are used throughout the site to provide the user with visual cues and crea
 
 #### Layout
 
-- The layout is simplistic, with no overcrowding of objects. This ensure users are able to clearly see and access the information they are looking for. Use of clean lines add to this effect.
+- [Materialize CSS Grid](https://materializecss.com/grid.html) was used to created the layout and make it responsive. The layout is simplistic, with no overcrowding of objects. This ensures users are able to clearly see and access the information they are looking for. Use of clean lines adds to this effect. 
+
+- A [Masonry](https://masonry.desandro.com/) grid was used to tidy up the layout of the cards in all_plants.html and profile.html. This was imporant as users are permitted to add images of varying dimensions, without masonry there could be large white spaces between each card. 
+
+#### Styling
+
+- [Materialize CSS](https://materializecss.com/) was used in conjunction with custom spacing and colours to provide much of the styling for the site. This includes all **buttons**, **forms**, **cards** and **nav bars**.
+
+- [Materialize CSS Cards](https://materializecss.com/card.html) cards were utilized on all_plants.html and profile.html to display the lists of plants. They contained a condensed amount of information to allow the user to decide whether they wanted to proceed to the full care guide for the plant, for which a link is provided.
+
 
 ### Wireframes
 
@@ -137,6 +148,8 @@ Icons are used throughout the site to provide the user with visual cues and crea
 - favourite
 - water
 - reply to comment
+- page denied 
+- backend validation
 
 ## Technologies Used
 
@@ -223,7 +236,7 @@ Icons are used throughout the site to provide the user with visual cues and crea
 
    - A detailed care guide can be found by...
 
-5. ## As a Returning User, I want to create my own posts
+5. As a Returning User, I want to create my own posts
 
 #### Frequent User Goals
 

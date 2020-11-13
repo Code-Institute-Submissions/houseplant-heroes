@@ -442,6 +442,12 @@ def delete_comment(plant_post_id, comment_id):
         "plant_profile", plant_post_id=plant_post_id, comment_id=comment_id))
 
 
+#404 error handler 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),

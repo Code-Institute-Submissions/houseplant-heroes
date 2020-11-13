@@ -89,20 +89,29 @@ Carousel
 ![Carousel](./static/images/readme_images/carousel.png)
 
 - A [Slick](https://kenwheeler.github.io/slick/) Carousel is used to display the most recently added posts on the homepage.
-- The carousel image links to the plant post for easy navigation for users 
+- The carousel image links to the plant post for easy navigation for users
 - The carousel images also state who the plant was posted by. The username was included to encourage users to post their own plants to be displayed on the front page.
 
 #### Icons
 
-- Icons are used 
+Icons are used throughout the site to provide the user with visual cues and create a more interesting aesthetic.
 
-- The use of icons in the plant profile page, along with headings, allows the user to easily scan the page for the information they are looking for. They also break up the information in to make it more managable for the user.
+![Plant Profile Icons](./static/images/readme_images/plant-profile-icons.png)
 
+- The use of icons in the plant profile page are particulary imporant as there may be quite a lot of information for the user to digest. The icons allow the user to easily scan the page for the information they are looking for. They also break up the information to make it more managable for the user.
 
-- Social media icons are clearly positioned within the header in accordance with user expectations. Dead links are used as the social media pages to exist at present. 
+![Arrow Icon](./static/images/readme_images/arrow-img.png)
+![Chevron Icon](./static/images/readme_images/chevron-img.png)
+
+- Arrow and Chevron icons are used throughout, with hover, to indicate directional links.
+
+- A [Plant Pot](https://icons8.com/icon/106115/potted-plant) icon from [Icons8] is used for the site favicon to distinguish the website from other tabs sites for the user. The icon is also used in the footer for consistency.
+
+- Social media icons are clearly positioned within the footer in accordance with user expectations. Dead links are used as the social media pages to exist at present.
+
 #### Layout
 
-- The layout is simplistic, with no overcrowding of objects. This ensure users are able to clearly see and access the information they are looking for. Use of clean lines add to this effect. 
+- The layout is simplistic, with no overcrowding of objects. This ensure users are able to clearly see and access the information they are looking for. Use of clean lines add to this effect.
 
 ### Wireframes
 
@@ -118,7 +127,6 @@ Carousel
 - All documents are stored in a [MongoDB]
 
 ## Comments
-
 
 - the ability to edit a comment was deleted to...
 
@@ -243,8 +251,7 @@ Carousel
 
 - on add plant the page may need a refresh for the new plant to appear
 - defensive programming modal
-- alt image sometimes shows due to lazy load. Trade off for faster load time so could be changed depending on priorities. 
-
+- alt image sometimes shows due to lazy load. Trade off for faster load time so could be changed depending on priorities.
 
 ## Deployment
 

@@ -14,14 +14,14 @@
      - [Returning User Goals](#returning-user-goals)
      - [Frequent User Goals](#frequent-user-goals)
      - [Site Owner Goals](#site-ownner-goals)
-   - [Design](#design) 
-     - [Colour Scheme](#colour-scheme) 
-     - [Typography](#typography) 
-     - [Imagery](#imagery) 
-     - [Icons](#icons) 
-     - [Layout](#layout) 
+   - [Design](#design)
+     - [Colour Scheme](#colour-scheme)
+     - [Typography](#typography)
+     - [Imagery](#imagery)
+     - [Icons](#icons)
+     - [Layout](#layout)
      - [Wireframes](#wireframes)
-   </details>
+     </details>
 
 # UX
 
@@ -83,8 +83,8 @@ Red for stop
 **Hero Image**
 ![Hero Image](./static/images/hero-img.png)
 
-- The hero image is used on each page of the site to create consistency and promote lasting brand image. 
-- The image was chosen as it emphsizes the natural aesthetic of house plants. It also isn't overly busy so as to obtrude upon the overlayed content. 
+- The hero image is used on each page of the site to create consistency and promote lasting brand image.
+- The image was chosen as it emphsizes the natural aesthetic of house plants. It also isn't overly busy so as to obtrude upon the overlayed content.
 - A liner gradient of (rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), is used to ensure content is visable on top.
 - The hero image is resized on each page depending on the size of hero image content but is always recognisable as the same image.
 - This image is coded as a background-image in css and set to background-size: cover; this making the image responsive.
@@ -158,22 +158,26 @@ Icons are used throughout the site to provide the user with visual cues and crea
 
   - For mobile, the navbar collapses in to a burger icon with side navigation on the left of the screen.
 
-  - Active classes are added to active page to show the user what page they are currently on. 
+  - Active classes are added to active page to show the user what page they are currently on.
 
   - The nav bar is fixed to the top of the screen to allow for accesible navigation regardless are where the user is on the page. This simplisity in the design of the nav bar ensure that it is not too obtrusive for the user.
 
-- Hero Image 
-  - See [Imagery](#imagery). 
+- Hero Image
 
-- Flash Messages 
-  - Flash messages are used to provide feedback to the user for certain actions, e.g. when a posted is updated 
-  - The messages are layed over the hero-image and come before the heading so they are, generally, at eye height for the user. 
+  - See [Imagery](#imagery).
 
-- Heading 
-  - Each page has a heading position towards the center of the hero image. This reassures the user where they are on the site. 
+- Flash Messages
+
+  - Flash messages are used to provide feedback to the user for certain actions, e.g. when a posted is updated
+  - The messages are layed over the hero-image and come before the heading so they are, generally, at eye height for the user.
+
+- Heading
+
+  - Each page has a heading position towards the center of the hero image. This reassures the user where they are on the site.
 
 - Subheading
-  - Each page has subheading to expand upon the purpose of the page. 
+
+  - Each page has subheading to expand upon the purpose of the page.
 
 - Footer
   - The footer contains:
@@ -184,32 +188,73 @@ Icons are used throughout the site to provide the user with visual cues and crea
 
 ### Homepage
 
-![Home Responsive](./static/images/readme_images/home-responsive.png)
+![Home Responsive](./static/images/readme_images/home-responsive-2.png)
+
+As the first thing the user sees, the homepage was designed to be clear and informative.
 
 **Search Bar**
-- The search bar is conveniently placed for user to start using the website straight away. 
-- A tool-tip explains to the user the search terms that can be used. 
-- In line with user expectations, users can either hit the enter key or press the search button to enter search term. This takes them to the plants page. 
+
+- The search bar is conveniently placed for user to start using the website straight away.
+- A tool-tip explains to the user the search terms that can be used.
+- In line with user expectations, users can either hit the enter key or press the search button to enter search term. This takes them to the plants page.
 
 **Redirect Buttons**
-- If the user is not logged in they will have button links for, "Plants", "Login" and "Join" pages. These (as well as the homepage) are all the pages that can be accessed when a user is not logged in. This feauture is particulary targetted at first time visitors as it clearly presents them with all actions. 
+
+- If the user is not logged in they will have button links for, "Plants", "Login" and "Join" pages. These (as well as the homepage) are all the pages that can be accessed when a user is not logged in. This feauture is particulary targetted at first time visitors as it clearly presents them with all actions.
 
 **Promo Content**
-- This section is for promotional purposes, providing the user with immediate information of the features of the site. 
-The majority of which cannot be accessed without an account. This encourages user to create an account in order to have full access to what the site has to offer. 
 
-- Links are provided to make it easier for the user to access what they are after, making them more likely to do so. 
+- This section is for promotional purposes, providing the user with immediate information of the features of the site.
+  The majority of which cannot be accessed without an account. This encourages user to create an account in order to have full access to what the site has to offer.
+
+- Links are provided for convenient access, making users more likely to create an account.
 
 **Recently Added Carousel**
-- See [Imagery](#imagery). 
 
+- See [Imagery](#imagery).
 
+### Plants Page
 
+![Plants Responsive](./static/images/readme_images/all-plants-responsive.png)
 
-- Once on the plants page, the user will either see a flash message "No results. Please try again or browse all plants below." if no matches have been found. Or they will be presented with their search results.
+**If users have arrived at the Plants page via the search bar on the home page:**
 
+- If no matches have been found, a flash message will be displayed to user "No results. Please try again or browse all plants below." With all plants displayed below.
+- If a match has been found, the user will be presented with their search results.
 
+**Search Bar**
 
+- See Search Bar in [Homepage](#Homepage)
+
+**Search Bar Reset Button**
+
+- Resetting the search results displays all plant posts in the database, eliminating the need for the user to refresh or go back.
+
+**Cards**
+
+- See [Layout](#layout) and [Styling](#styling).
+
+### Login Page
+
+![Login responsive](./static/images/readme_images/login-responsive.png)
+
+**Form**
+- The login page features a simple form for user to enter their username and password.
+- Python checks whether the password and passwords match what is held in the database.
+- If both are correct the user is directed to their profile page.
+- If either are incorrect the a flash message is displayed "Incorrect username and/or password please try again.". It is not specified which is incorrect to increase security.
+
+**Redirect**
+- A link for the join page is provided "New? Join here ->" in case the user has found themself in the wrong place and needs redirecting. 
+
+### Join
+![Join Responsive](./static/images/readme_images/join-responsive.png)
+
+**Form** 
+- Similarly to the login page, a simple form is used for the user to enter a desired username and password. 
+- Users are asked to confirm password, which is checked by python. If the passwords don't match a flash message is displayed, "Passwords don't match, please try again"
+- Tooltips are used to tell users what is required for a valid username and password.
+- If they meet the requirements the input field will be underlined in green, if they don't they will be red and will not be permitted to proceed. 
 
 
 ## Features Left to Implement
@@ -222,6 +267,7 @@ The majority of which cannot be accessed without an account. This encourages use
 - page denied
 - backend validation
 - contact page
+- reset password
 
 ## Technologies Used
 

@@ -2,6 +2,7 @@
 
 ## Milestone Project 3: Data Centric Development - Code Institute
 
+![Home Responsive](./static/images/readme_images/home-responsive.png)
 [Houseplant Heroes](https://houseplant-heroes.herokuapp.com/) was created as a response to the growing popularity of houseplants which, whilst aesthetically pleasing can often be difficult to maintain! The website allows users to access information on houseplant care as well as contribute their own insights and experiences.
 
 ## Table of Contents
@@ -13,14 +14,14 @@
      - [Returning User Goals](#returning-user-goals)
      - [Frequent User Goals](#frequent-user-goals)
      - [Site Owner Goals](#site-ownner-goals)
-   - [Design](#design)
-     - [Colour Scheme](#colour-scheme)
-     - [Typography](#typography)
-     - [Imagery](#imagery)
-     - [Icons](#icons)
-     - [Layout](#layout)
+   - [Design](#design) 
+     - [Colour Scheme](#colour-scheme) 
+     - [Typography](#typography) 
+     - [Imagery](#imagery) 
+     - [Icons](#icons) 
+     - [Layout](#layout) 
      - [Wireframes](#wireframes)
-</details>
+   </details>
 
 # UX
 
@@ -55,7 +56,7 @@
 
 The overall design of the website is clean and simplistic, this allows the plants themselves to be the main focus.
 
-#### Colour Scheme
+### Colour Scheme
 
 ![Colour Scheme](./static/images/readme_images/colour-scheme.png)
 
@@ -69,7 +70,7 @@ Green for go
 Red for stop
 ![Colour Scheme](./static/images/readme_images/form-red.png)
 
-#### Typography
+### Typography
 
 - The Poppins font is used on all pages with Sans Serif as the back-up font due to it's clean presentation, the letters were also spaced apart by 2px to increase this effect.
 
@@ -77,24 +78,25 @@ Red for stop
 
 - The white text used on the the hero image includes a text shadow to ensure readability.
 
-#### Imagery
+### Imagery
 
-Hero Image
-
+**Hero Image**
 ![Hero Image](./static/images/hero-img.png)
 
-- The hero image is used on each page of the site to create consistency and promote lasting brand image. A liner gradient of (rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), is used to ensure content is visable on top.
+- The hero image is used on each page of the site to create consistency and promote lasting brand image. 
+- The image was chosen as it emphsizes the natural aesthetic of house plants. It also isn't overly busy so as to obtrude upon the overlayed content. 
+- A liner gradient of (rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), is used to ensure content is visable on top.
 - The hero image is resized on each page depending on the size of hero image content but is always recognisable as the same image.
+- This image is coded as a background-image in css and set to background-size: cover; this making the image responsive.
 
-Carousel
-
+**Carousel**
 ![Carousel](./static/images/readme_images/carousel.png)
 
 - A [Slick](https://kenwheeler.github.io/slick/) Carousel is used to display the most recently added posts on the homepage.
 - The carousel image links to the plant post for easy navigation for users
 - The carousel images also state who the plant was posted by. The username was included to encourage users to post their own plants to be displayed on the front page.
 
-#### Icons
+### Icons
 
 Icons are used throughout the site to provide the user with visual cues and create a more interesting aesthetic.
 
@@ -111,45 +113,84 @@ Icons are used throughout the site to provide the user with visual cues and crea
 
 - Social media icons are clearly positioned within the footer in accordance with user expectations. Dead links are used as the social media pages to exist at present.
 
-#### Layout
+### Layout
 
-- [Materialize CSS Grid](https://materializecss.com/grid.html) was used to created the layout and make it responsive. The layout is simplistic, with no overcrowding of objects. This ensures users are able to clearly see and access the information they are looking for. Use of clean lines adds to this effect. 
+- [Materialize CSS Grid](https://materializecss.com/grid.html) was used to created the layout and make it responsive. The layout is simplistic, with no overcrowding of objects. This ensures users are able to clearly see and access the information they are looking for. Use of clean lines adds to this effect.
 
-- A [Masonry](https://masonry.desandro.com/) grid was used to tidy up the layout of the cards in all_plants.html and profile.html. This was imporant as users are permitted to add images of varying dimensions, without masonry there could be large white spaces between each card. 
+- A [Masonry](https://masonry.desandro.com/) grid was used to tidy up the layout of the cards in all_plants.html and profile.html. This was imporant as users are permitted to add images of varying dimensions, without masonry there could be large white spaces between each card.
 
-#### Styling
+### Styling
 
 - [Materialize CSS](https://materializecss.com/) was used in conjunction with custom spacing and colours to provide much of the styling for the site. This includes all **buttons**, **forms**, **cards** and **nav bars**.
 
 - [Materialize CSS Cards](https://materializecss.com/card.html) cards were utilized on all_plants.html and profile.html to display the lists of plants. They contained a condensed amount of information to allow the user to decide whether they wanted to proceed to the full care guide for the plant, for which a link is provided.
 
-
 ### Wireframes
 
 -
 
-## Features
+# Features
 
-### Existing Features
+## Existing Features
 
-- The website is responsive on a range of devices
+### Elements on every page
 
-- Users are able to create, read, update and delete
-- All documents are stored in a [MongoDB]
+- Navbar
 
-## Comments
+  - The navigation bar has the Houseplants Hero title in the top left corner for clarity
 
-- the ability to edit a comment was deleted to...
+  - The navigation links are on the top right hand corner.
 
-### Features Left to Implement
+  - For vistors who are not logged in, the links are:
+    1. Home
+    2. Plants
+    3. Login
+    4. Join
+  - For users who are logged in, the links are:
+
+    1. Home
+    2. Plants
+    3. Profile
+    4. Add plant
+    5. Log out
+
+  - Python checks whether a user is logged in or not with `if 'user' in session`, this data is padded to Jinja to display the correct navbar for the user.
+
+  - For mobile, the navbar collapses in to a burger icon with side navigation on the left of the screen.
+
+  - The nav bar is fixed to the top of the screen to allow for accesible navigation regardless are where the user is on the page. This simplisity in the design of the nav bar ensure that it is not too obtrusive for the user.
+
+- Hero Image 
+  - See [Imagery](#imagery). 
+
+- Heading 
+  - Each page has a heading position towards the center of the hero image. This reassures the user where they are on the site. 
+
+- subheading
+  - 
+
+- Footer
+  - The footer contains:
+    - Logo
+    - Copywrite nformation
+    - Social media links
+    - In the future, contact information can be added
+
+### Homepage
+
+![Home Responsive](./static/images/readme_images/home-responsive.png)
+
+
+## Features Left to Implement
 
 - Pagination
 - autofill search
 - favourite
 - water
 - reply to comment
-- page denied 
+- page denied
 - backend validation
+- contact page
 
 ## Technologies Used
 

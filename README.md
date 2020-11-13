@@ -220,6 +220,7 @@ As the first thing the user sees, the homepage was designed to be clear and info
 **If users have arrived at the Plants page via the search bar on the home page:**
 
 - If no matches have been found, a flash message will be displayed to user "No results. Please try again or browse all plants below." With all plants displayed below.
+
 - If a match has been found, the user will be presented with their search results.
 
 **Search Bar**
@@ -240,8 +241,11 @@ As the first thing the user sees, the homepage was designed to be clear and info
 
 **Form**
 - The login page features a simple form for user to enter their username and password.
+
 - Python checks whether the password and passwords match what is held in the database.
+
 - If both are correct the user is directed to their profile page.
+
 - If either are incorrect the a flash message is displayed "Incorrect username and/or password please try again.". It is not specified which is incorrect to increase security.
 
 **Redirect**
@@ -252,9 +256,19 @@ As the first thing the user sees, the homepage was designed to be clear and info
 
 **Form** 
 - Similarly to the login page, a simple form is used for the user to enter a desired username and password. 
-- Users are asked to confirm password, which is checked by python. If the passwords don't match a flash message is displayed, "Passwords don't match, please try again"
+
+- Users are asked to confirm password, (checked by Python). If the passwords don't match a flash message is displayed, "Passwords don't match, please try again"
+
 - Tooltips are used to tell users what is required for a valid username and password.
+
 - If they meet the requirements the input field will be underlined in green, if they don't they will be red and will not be permitted to proceed. 
+
+- If a username is already exits in the database (checked by Python) a flash message will appear, "Username already in user, please try another".
+
+- If all requirements are met, the user will be directed to their newly created profile page. 
+
+
+
 
 
 ## Features Left to Implement

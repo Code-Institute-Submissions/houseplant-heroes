@@ -76,7 +76,7 @@ a.brand-logo.black-text.left {
 
 /*--------  Carousel (important necessary to overwrite default) --------*/
 .container-carousel {
-  margin: 75px;
+  margin: 90px 75px 90px 75px;
 }
 
 .slick-slide img {

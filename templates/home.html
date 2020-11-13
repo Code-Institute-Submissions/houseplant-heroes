@@ -54,6 +54,8 @@
     </form>
 
     <!-- redirect buttons -->
+    <!-- only visibile if logged out -->
+    {% if not session.user|lower %}
     <div class="container center-align">
       <div class="row">
         <div class="col s12 m4">
@@ -82,6 +84,7 @@
         </div>
       </div>
     </div>
+    {% endif %}
   </div>
   {% endblock %}
 
@@ -93,57 +96,79 @@
 <!-- content -->
 {% block content %}
 <!-- promo -->
-<div class="container margin-y-50">
-  <div class="row margin-bottom-0 padding-top-30">
-    <div class="col s12 m4 center-align">
-      <i class="fas fa-seedling home-icons text-shadow"></i>
-      <h4>Find Plants</h4>
-      <hr class="divider-home" />
-      <p>
-        After something specific? Start searching above. Or looking for
-        inspiration? Browse all plants here. You can also search by plant care
-        difficulty to fit the plant around your lifestyle.
-      </p>
-    </div>
-    <div class="col s12 m4 center-align">
-      <i class="fas fa-user-plus home-icons"></i>
-      <h4>Add</h4>
-      <hr class="divider-home" />
-      <p>
-        At Houseplant Heroes we rely on user created guides. Create an account
-        to add your plants and keep track of them on your profile page.
-      </p>
-    </div>
-    <div class="col s12 m4 center-align">
-      <i class="fas fa-comments home-icons text-shadow"></i>
-      <h4>Comment</h4>
-      <hr class="divider-home" />
-      <p>
-        Do have questions regarding a specific plant? Or maybe something to add
-        to the guide. Each plant has a comments sections to leave your thoughts
-        and queries.
-      </p>
+<section id="promo-content">
+  <div class="container margin-y-50">
+    <div class="row margin-bottom-0 padding-top-30">
+      <div class="col s12 m4 center-align">
+        <i class="fas fa-seedling home-icons text-shadow"></i>
+        <h4>Discover</h4>
+        <hr class="divider-home" />
+        <p>
+          After something specific? Search by plant care difficulty to fit the
+          plant around your lifestyle. Or looking for inspiration?
+        </p>
+        <a href="{{ url_for('all_plants') }}" class="black-text">
+          <p class="hover-col">
+            Browse all plants
+            <i class="fas fa-long-arrow-alt-right hover-col"></i>
+          </p>
+        </a>
+      </div>
+      <div class="col s12 m4 center-align">
+        <i class="fas fa-user-plus home-icons"></i>
+        <h4>Add</h4>
+        <hr class="divider-home" />
+        <p>
+          At Houseplant Heroes we rely on user created guides. Create an account
+          to add your plants and keep track of them on your profile page.
+        </p>
+        <a href="{{ url_for('login') }}" class="black-text">
+          <p class="hover-col">
+            Login <i class="fas fa-long-arrow-alt-right hover-col"></i>
+          </p>
+        </a>
+      </div>
+      <div class="col s12 m4 center-align">
+        <i class="fas fa-comments home-icons text-shadow"></i>
+        <h4>Comment</h4>
+        <hr class="divider-home" />
+        <p>
+          Do have questions regarding a specific plant? Or maybe something to
+          add to the guide. Join now to start commenting!
+        </p>
+        <a href="{{ url_for('join') }}" class="black-text">
+          <p class="hover-col">
+            Join <i class="fas fa-long-arrow-alt-right hover-col"></i>
+          </p>
+        </a>
+      </div>
     </div>
   </div>
-</div>
+</section>
 
-{% if all_plants|length > 0 %}
-<div class="container-carousel">
-  <div class="responsive">
-    {% for plant_post in all_plants %}
-    <div>
-      <a href="{{ url_for('plant_profile', plant_post_id=plant_post._id) }}">
-        <img
-          data-lazy="{{ plant_post.plant_image_url }}"
-          alt="Image for {{ plant_post.plant_nickname }}"
-        />
-      </a>
-      <p class="center"><b>{{ plant_post.plant_nickname }}</b></p>
-      <p class="center">Posted by {{ plant_post.posted_by }}</p>
+<section id="recent-carousel">
+  {% if all_plants|length > 0 %}
+  <div class="container-carousel">
+    <h4>Recently added...</h4>
+
+    <div class="responsive">
+      {% for plant_post in all_plants %}
+      <div>
+        <a href="{{ url_for('plant_profile', plant_post_id=plant_post._id) }}">
+          <img
+            data-lazy="{{ plant_post.plant_image_url }}"
+            alt="Image for {{ plant_post.plant_nickname }}"
+          />
+        </a>
+        <p class="center"><b>{{ plant_post.plant_nickname }}</b></p>
+        <p class="center">Posted by {{ plant_post.posted_by }}</p>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
   </div>
-</div>
-{% endif %} {% endblock %} {% block scripts %}
+  {% endif %}
+</section>
+
+{% endblock %} {% block scripts %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 {% endblock %}

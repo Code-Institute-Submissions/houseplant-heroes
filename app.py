@@ -119,7 +119,7 @@ def join():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            flash("Username already in user, please try another")
+            flash("Username already in use, please try another")
             return redirect(url_for("join"))
 
         # check that the first password matched the "confirm password"

@@ -81,7 +81,7 @@ def search_all_plants():
         if all_plants:
             return render_template("all_plants.html", all_plants=all_plants)
         else:
-            flash("No results found, try again or browse all plants below.")
+            flash("No results. Please try again or browse all plants below.")
             return redirect(url_for("all_plants"))
 
 

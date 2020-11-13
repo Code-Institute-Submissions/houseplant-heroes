@@ -93,8 +93,8 @@ Red for stop
 ![Carousel](./static/images/readme_images/carousel.png)
 
 - A [Slick](https://kenwheeler.github.io/slick/) Carousel is used to display the most recently added posts on the homepage.
-- The carousel image links to the plant post for easy navigation for users
-- The carousel images also state who the plant was posted by. The username was included to encourage users to post their own plants to be displayed on the front page.
+- The carousel image links to the plant post for easy navigation for users.
+- The carousel also state who the plant was posted by. The username was included to encourage users to post their own plants to be displayed on the front page.
 
 ### Icons
 
@@ -158,16 +158,22 @@ Icons are used throughout the site to provide the user with visual cues and crea
 
   - For mobile, the navbar collapses in to a burger icon with side navigation on the left of the screen.
 
+  - Active classes are added to active page to show the user what page they are currently on. 
+
   - The nav bar is fixed to the top of the screen to allow for accesible navigation regardless are where the user is on the page. This simplisity in the design of the nav bar ensure that it is not too obtrusive for the user.
 
 - Hero Image 
   - See [Imagery](#imagery). 
 
+- Flash Messages 
+  - Flash messages are used to provide feedback to the user for certain actions, e.g. when a posted is updated 
+  - The messages are layed over the hero-image and come before the heading so they are, generally, at eye height for the user. 
+
 - Heading 
   - Each page has a heading position towards the center of the hero image. This reassures the user where they are on the site. 
 
-- subheading
-  - 
+- Subheading
+  - Each page has subheading to expand upon the purpose of the page. 
 
 - Footer
   - The footer contains:
@@ -179,6 +185,31 @@ Icons are used throughout the site to provide the user with visual cues and crea
 ### Homepage
 
 ![Home Responsive](./static/images/readme_images/home-responsive.png)
+
+**Search Bar**
+- The search bar is conveniently placed for user to start using the website straight away. 
+- A tool-tip explains to the user the search terms that can be used. 
+- In line with user expectations, users can either hit the enter key or press the search button to enter search term. This takes them to the plants page. 
+
+**Redirect Buttons**
+- If the user is not logged in they will have button links for, "Plants", "Login" and "Join" pages. These (as well as the homepage) are all the pages that can be accessed when a user is not logged in. This feauture is particulary targetted at first time visitors as it clearly presents them with all actions. 
+
+**Promo Content**
+- This section is for promotional purposes, providing the user with immediate information of the features of the site. 
+The majority of which cannot be accessed without an account. This encourages user to create an account in order to have full access to what the site has to offer. 
+
+- Links are provided to make it easier for the user to access what they are after, making them more likely to do so. 
+
+**Recently Added Carousel**
+- See [Imagery](#imagery). 
+
+
+
+
+- Once on the plants page, the user will either see a flash message "No results. Please try again or browse all plants below." if no matches have been found. Or they will be presented with their search results.
+
+
+
 
 
 ## Features Left to Implement

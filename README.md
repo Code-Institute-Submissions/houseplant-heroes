@@ -127,7 +127,21 @@ Icons are used throughout the site to provide the user with visual cues and crea
 
 ### Wireframes
 
--
+- [Homepage](./static/images/readme_images/wireframes/wireframe-home.png)
+
+- [Plants](./static/images/readme_images/wireframes/wireframe-all-plants.png)
+
+- [Plant Profile](./static/images/readme_images/wireframes/wireframe-plant-profile.png)
+
+- [Login](./static/images/readme_images/wireframes/wireframe-login.png)
+
+- [Join](./static/images/readme_images/wireframes/wireframe-join.png)
+
+- [User Profile](./static/images/readme_images/wireframes/wireframe-profile.png)
+
+- [Add Plant](./static/images/readme_images/wireframes/wireframe-add-plant.png)
+
+- [Edit Plant](./static/images/readme_images/wireframes/wireframe-edit-plant.png)
 
 # Features
 
@@ -240,6 +254,7 @@ As the first thing the user sees, the homepage was designed to be clear and info
 ![Login responsive](./static/images/readme_images/login-responsive.png)
 
 **Form**
+
 - The login page features a simple form for user to enter their username and password.
 
 - Python checks whether the password and passwords match what is held in the database.
@@ -249,27 +264,26 @@ As the first thing the user sees, the homepage was designed to be clear and info
 - If either are incorrect the a flash message is displayed "Incorrect username and/or password please try again.". It is not specified which is incorrect to increase security.
 
 **Redirect**
-- A link for the join page is provided "New? Join here ->" in case the user has found themself in the wrong place and needs redirecting. 
+
+- A link for the join page is provided "New? Join here ->" in case the user has found themself in the wrong place and needs redirecting.
 
 ### Join
+
 ![Join Responsive](./static/images/readme_images/join-responsive.png)
 
-**Form** 
-- Similarly to the login page, a simple form is used for the user to enter a desired username and password. 
+**Form**
+
+- Similarly to the login page, a simple form is used for the user to enter a desired username and password.
 
 - Users are asked to confirm password, (checked by Python). If the passwords don't match a flash message is displayed, "Passwords don't match, please try again"
 
 - Tooltips are used to tell users what is required for a valid username and password.
 
-- If they meet the requirements the input field will be underlined in green, if they don't they will be red and will not be permitted to proceed. 
+- If they meet the requirements the input field will be underlined in green, if they don't they will be red and will not be permitted to proceed.
 
 - If a username is already exits in the database (checked by Python) a flash message will appear, "Username already in user, please try another".
 
-- If all requirements are met, the user will be directed to their newly created profile page. 
-
-
-
-
+- If all requirements are met, the user will be directed to their newly created profile page.
 
 ## Features Left to Implement
 

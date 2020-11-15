@@ -3,189 +3,205 @@
 <!-- hero image opening div -->
 {% block hero_image_begin %}
 <div class="hero-image hero-img-plant-profile">
-	{% endblock %}
-	<!-- heading -->
-	{% block heading %} {{ plant_post.plant_nickname }} {% endblock %}
+  {% endblock %}
+  <!-- heading -->
+  {% block heading %} {{ plant_post.plant_nickname }} {% endblock %}
 
-	<!-- subheading -->
-	{% block subheading %} {{ plant_post.plant_botanical_name }} {% endblock %}
+  <!-- subheading -->
+  {% block subheading %} {{ plant_post.plant_botanical_name }} {% endblock %}
 
-	<!-- hero image content -->
-	{% block hero_image_content %}
-	<!-- description -->
-	<div class="container center-align line-height">
-		<p class="white-text text-shadow margin-0">
-			{{ plant_post.plant_description }}
-		</p>
-	</div>
-	{% endblock %}
+  <!-- hero image content -->
+  {% block hero_image_content %}
+  <!-- description -->
+  <div class="container center-align line-height">
+    <p class="white-text text-shadow margin-0">
+      {{ plant_post.plant_description }}
+    </p>
+  </div>
+  {% endblock %}
 
-	<!-- hero image closing div -->
-	{% block hero_image_end %}
+  <!-- hero image closing div -->
+  {% block hero_image_end %}
 </div>
 {% endblock %}
 
 <!-- block content -->
 {% block content %}
 <section id="plant-info">
-	<div class="row">
-		<!-- Plant Image -->
-		<div id="plant-profile-left" class="col m4 s12 center-align">
-			<div class="row">
-				<img
-        class="responsive-img left-align"
-        src="{{ plant_post.plant_image_url }}"
-        alt="Image for {{ plant_post.plant_botanical_name }}"
-      />
+  <div class="row">
+    <!-- Plant Image -->
+    <div id="plant-profile-left" class="col m4 s12 center-align">
+      <div class="row">
+        <img
+          class="responsive-img left-align"
+          src="{{ plant_post.plant_image_url }}"
+          alt="Image for {{ plant_post.plant_botanical_name }}"
+        />
+      </div>
+      <!-- posted by -->
+      <div class="row">
+        <p>Posted by: <i>{{ plant_post.posted_by }}</i></p>
+      </div>
+      <!-- is air purifying? -->
+      {% if plant_post.is_air_purifying == "on" %}
+      <div class="row">
+        <p><i class="fas fa-leaf"></i> This plant is air purfying</p>
+      </div>
+      {% endif %}
+      <div class="row">
+        <p class="grey-text">
+          Last updated {{ plant_post.lastest_post_date }}
+        </p>
+      </div>
+      <div class="row">
+        <!-- ensure only poster or admin can delete/edit posts -->
+        {% if session.user|lower == plant_post.posted_by|lower or
+        session.user|lower == "admin"|lower%}
+        <!-- edit plant post -->
+        <a href="{{ url_for('edit_plant', plant_post_id=plant_post._id) }}"
+          ><i class="far fa-edit grey-text small"></i
+        ></a>
+        <!-- delete plant post -->
+        <a href="#delete-modal" class="modal-trigger"
+          ><i class="far fa-trash-alt grey-text small"></i
+        ></a>
+        {% endif %}
+        <!-- delete modal Structure -->
+        <div id="delete-modal" class="modal">
+          <div class="modal-content">
+            <h4>
+              Are you sure want to delete {{ plant_post.plant_nickname }}?
+            </h4>
+          </div>
+          <div class="modal-footer">
+            <a
+              href="{{ url_for('delete_plant', plant_post_id=plant_post._id) }}"
+              class="modal-close waves-effect waves-green btn-flat"
+              >Yes, delete</a
+            >
+            <button class="modal-close waves-effect waves-green btn-flat">
+              No, keep
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-				<!-- posted by -->
-				<div class="row">
-					<p>Posted by: <i>{{ plant_post.posted_by }}</i></p>
-				</div>
-				<!-- is air purifying? -->
-				{% if plant_post.is_air_purifying == "on" %}
-				<div class="row">
-					<p><i class="fas fa-leaf"></i> This plant is air purfying</p>
-				</div>
-				{% endif %}
-				<div class="row">
-					<p class="grey-text">
-						Last updated {{ plant_post.lastest_post_date }}
-					</p>
-				</div>
-				<div class="row">
-					<!-- ensure only poster or admin can delete/edit posts -->
-					{% if session.user|lower == plant_post.posted_by|lower or
-      session.user|lower == "admin"|lower%}
-					<!-- edit plant post -->
-					<a
-						href="{{ url_for('edit_plant', plant_post_id=plant_post._id) }}"><i class="far fa-edit grey-text small"></i></a>
-					<!-- delete plant post -->
-					<a href="#delete-modal" class="modal-trigger"><i class="far fa-trash-alt grey-text small"></i></a>
-					{% endif %}
-					<!-- delete modal Structure -->
-					<div id="delete-modal" class="modal">
-						<div class="modal-content">
-							<h4>
-								Are you sure want to delete {{ plant_post.plant_nickname }}?
-							</h4>
-						</div>
-						<div class="modal-footer">
-							<a href="{{ url_for('delete_plant', plant_post_id=plant_post._id) }}"
-								class="modal-close waves-effect waves-green btn-flat">Yes, delete</a>
-							<button class="modal-close waves-effect waves-green btn-flat">
-            No, keep
-          </button>
-						</div>
-					</div>
-				</div>
-			</div>
 
-			<!-- care instructions -->
-			<div id="plant-profile-right" class="col m8 s12 center-align">
-				<div class="section">
-					<h5><i class="fas fa-home"></i> Environment</h5>
-					<p>{{ plant_post.best_environment }}</p>
-				</div>
-				<div class="divider"></div>
-				<div class="section">
-					<h5><i class="fas fa-tint"></i> Water</h5>
-					<p>{{ plant_post.water }}</p>
-				</div>
-				<div class="divider"></div>
-				<div class="section">
-					<h5><i class="fas fa-spray-can"></i> Humidity</h5>
-					<p>{{ plant_post.humidity }}</p>
-				</div>
-				<div class="divider"></div>
-				<div class="section">
-					<h5><i class="fas fa-seedling"></i> Feeding</h5>
-					<p>{{ plant_post.feeding }}</p>
-				</div>
-				<div class="divider"></div>
-				<div class="section">
-					<h5><i class="fas fa-hand-holding-heart"></i> Maintenance Level</h5>
-					<p>{{ plant_post.maintenance_level }}</p>
-				</div>
-			</div>
-		</div>
+    <!-- care instructions -->
+    <div id="plant-profile-right" class="col m8 s12 center-align">
+      <div class="section">
+        <h5><i class="fas fa-home"></i> Environment</h5>
+        <p>{{ plant_post.best_environment }}</p>
+      </div>
+      <div class="divider"></div>
+      <div class="section">
+        <h5><i class="fas fa-tint"></i> Water</h5>
+        <p>{{ plant_post.water }}</p>
+      </div>
+      <div class="divider"></div>
+      <div class="section">
+        <h5><i class="fas fa-spray-can"></i> Humidity</h5>
+        <p>{{ plant_post.humidity }}</p>
+      </div>
+      <div class="divider"></div>
+      <div class="section">
+        <h5><i class="fas fa-seedling"></i> Feeding</h5>
+        <p>{{ plant_post.feeding }}</p>
+      </div>
+      <div class="divider"></div>
+      <div class="section">
+        <h5><i class="fas fa-hand-holding-heart"></i> Maintenance Level</h5>
+        <p>{{ plant_post.maintenance_level }}</p>
+      </div>
+    </div>
+  </div>
 </section>
 <!-- comments -->
 <section id="comments">
-	<div class="container">
-		<div class="card-panel white">
-			<div class="row">
-				<h4 class="card-title">Comments</h4>
-			</div>
-			<form method="POST" action="{{ url_for('insert_comment', plant_post_id=plant_post._id) }}">
-				<div class="row">
-					<!-- redirect user if not logged in -->
-					{% if not session.user|lower %}
-					<a href="{{ url_for('login' ) }}"><u><b>Login</b></u></a>
-					or
-					<a href="{{ url_for('join' ) }}"><u><b>Join</b></u></a>
-					to comment {% endif %}
-				</div>
-				<!-- ensure user is logged in to comment -->
-				{% if session.user|lower %}
-				<div class="row">
-					<input
+  <div class="container">
+    <div class="card-panel white">
+      <div class="row">
+        <h4 class="card-title">Comments</h4>
+      </div>
+      <form
+        method="POST"
+        action="{{ url_for('insert_comment', plant_post_id=plant_post._id) }}"
+      >
+        <div class="row">
+          <!-- redirect user if not logged in -->
+          {% if not session.user|lower %}
+          <a href="{{ url_for('login' ) }}"
+            ><u><b>Login</b></u></a
+          >
+          or
+          <a href="{{ url_for('join' ) }}"
+            ><u><b>Join</b></u></a
+          >
+          to comment {% endif %}
+        </div>
+        <!-- ensure user is logged in to comment -->
+        {% if session.user|lower %}
+        <div class="row">
+          <input
             id="plant_post_id"
             name="plant_post_id"
             type="hidden"
             value="{{ plant_post._id }}"
             class="validate"
           />
-					<div class="input-field col s12">
-						<textarea
+          <div class="input-field col s12">
+            <textarea
               id="comment_body"
               name="comment_body"
               class="materialize-textarea validate"
+              maxlength="350"
               required
             ></textarea>
-						<label for="comment_body">Add a comment</label>
-						<!-- submit button -->
-						<button
+            <label for="comment_body">Add a comment</label>
+            <!-- submit button -->
+            <button
               type="submit"
               class="btn-floating btn waves-effect waves-light grey"
             >
               <i class="fas fa-plus small"></i>
             </button>
-					</div>
-				</div>
-				{% endif %}
-			</form>
-			<!-- comment body -->
-			{% for comment in comments %}
-			<!-- comment descriptors -->
-			<div class="row">
-				<div class="col s6 m12 grey-text">
-					<p>
-						Posted by <i>{{ comment.posted_by }}</i> at
-						<i>{{ comment.posted_at }}</i>
-					</p>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col s12">
-					<p>{{ comment.comment_body }}</p>
-				</div>
-			</div>
-			<!-- ensure only poster or admin can delete comments -->
-			{% if session.user|lower == comment.posted_by|lower or session.user|lower
+          </div>
+        </div>
+        {% endif %}
+      </form>
+      <!-- comment body -->
+      {% for comment in comments %}
+      <!-- comment descriptors -->
+      <div class="row">
+        <div class="col s6 m12 grey-text">
+          <p>
+            Posted by <i>{{ comment.posted_by }}</i> at
+            <i>{{ comment.posted_at }}</i>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col s12">
+          <p>{{ comment.comment_body }}</p>
+        </div>
+      </div>
+      <!-- ensure only poster or admin can delete comments -->
+      {% if session.user|lower == comment.posted_by|lower or session.user|lower
       == "admin"|lower %}
-			<!-- delete comment -->
-			<div class="row">
-				<div class="col s12 right-align">
-					<a
-						href="{{ url_for('delete_comment', comment_id=comment._id, plant_post_id=plant_post._id) }}"><i class="far fa-trash-alt grey-text"></i></a>
-				</div>
-			</div>
+      <!-- delete comment -->
+      <div class="row">
+        <div class="col s12 right-align">
+          <a
+            href="{{ url_for('delete_comment', comment_id=comment._id, plant_post_id=plant_post._id) }}"
+            ><i class="far fa-trash-alt grey-text"></i
+          ></a>
+        </div>
+      </div>
 
-			{% endif %}
-			<div class="divider"></div>
-			{% endfor %}
-		</div>
-	</div>
+      {% endif %}
+      <div class="divider"></div>
+      {% endfor %}
+    </div>
+  </div>
 </section>
 {% endblock %}

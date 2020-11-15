@@ -62,7 +62,7 @@ The overall design of the website is clean and simplistic, this allows the plant
 
 - The colours were chosen to compliment the hero image used on every page of the site. The muted tones are unobtrusive so as not to detract from the natural colours provided by the plant images.
 
-- The add and edit plant form input uses the Materialize CSS default, on click, colours. They provide users with visually recognisable validation feedback:
+- The add and edit plant form input uses the Materialize CSS default, on click, colours. They provide users with visually instinctual validation feedback:
 
 Green for go
 ![Colour Scheme](./static/images/readme_images/form-green.png)
@@ -94,7 +94,8 @@ Red for stop
 
 - A [Slick](https://kenwheeler.github.io/slick/) Carousel is used to display the most recently added posts on the homepage.
 - The carousel image links to the plant post for easy navigation for users.
-- The carousel also state who the plant was posted by. The username was included to encourage users to post their own plants to be displayed on the front page.
+- The carousel also states who the plant was posted by. The username was included to encourage users to post their own plants to be displayed on the front page.
+- The decision to use slick was purely aesthetic as the carousel provided by Materialize CSS appeared either too big or too small and were rigid in their customisablity.
 
 ### Icons
 
@@ -293,19 +294,26 @@ This section contains more detailed information on the plant.
       - the modal is closed immediately, cancelling the action and the plant post remains in the database.
 
 **Comments**
-The comments section allows users to leave comments about specific plants. The aim is to increase user engagement and stimulate conversation. 
+The comments section allows users to leave comments about specific plants. The aim is to increase user engagement and stimulate conversation.
 
 - All comments show username and date/time posted
 
-- Comments are displayed, oldest to newest. This decision was based on [this post](https://ux.stackexchange.com/questions/38002/display-comments-order-best-practice) from Ux Stack Exchange in which it is conclued that reverse chronological order is more condusive to natural conversation.  
+- Comments are displayed, oldest to newest. This decision was based on [this post](https://ux.stackexchange.com/questions/38002/display-comments-order-best-practice) from Ux Stack Exchange in which it is concluded that reverse chronological order is more condusive to natural conversation.
 
 - If no user is logged in they will see:
   ![comments logged out](./static/images/readme_images/comment-logged-out.png)
 
-  - The user must be logged in to comment as it shows who the comment is posted by to increase and accountability and allow for more developed conversation. 
-  - Comments are visibile to all visitors as the provide futher information and encourage vistitors to make an account. 
+  - The user must be logged in to comment as it shows who the comment is posted by to increase and accountability and allow for more developed conversation.
+  - Comments are visible to all visitors as they provide futher information and encourage vistitors to make an account.
 
-- 
+- If user is logged in they will see:
+  ![comments logged in](./static/images/readme_images/comment-logged-in.png)
+
+  - The input field is limited to 350 characters so that they are easy for readers to digest.
+
+- The delete buttons is only visible if the session user matches the "posted_by" of the specific comment, or is admin.
+
+- The ability to edit the comment was removed as editting a comment may change the flow of conversation or cause confusion.
 
 ### Login Page
 
@@ -342,7 +350,7 @@ The comments section allows users to leave comments about specific plants. The a
 
 - If user input does not meet requirements:
 
-  - input field will be underlined in red
+  - input field will be underlined in red, see (colour scheme)[#colour-scheme].
   - on submit, they will not be permitted to proceed.
 
 - If the chosen username already exits in the database (checked by Python):
@@ -350,7 +358,8 @@ The comments section allows users to leave comments about specific plants. The a
   - flash message will appear, "Username already in user, please try another".
 
 - If user input meets all requirements:
-  - input field will be underlined in green
+
+  - input field will be underlined in green, see (colour scheme)[#colour-scheme].
   - on submit, user will be directed to their newly created profile page.
 
 **Redirect Links**
@@ -361,14 +370,57 @@ The comments section allows users to leave comments about specific plants. The a
 
 <i>Unable to provide responsive image due to necessity for session cookie</i>
 
+- The main purpose of the user profile page is to allow the user to see a list of the plants that they have posted. Users have the ability to edit and delete their own posts and this gives them easy access to do so.
+
+**Hero Image Content**
+
+- The heading welcomes the user
+
+- The subheading directs users to look at their plants or add a new one
+
 **User's Plants list**
 
-- The main purpose of the user profile page is to allow the user to see a list of the plants that they have posted. Users have the ability to edit and delete their own posts and this gives them easy access to do so.
 - If the user has no plants to show they will see:
+  ![No user plants](./static/images/readme_images/user-no-plants.png)
+
+  - The add button takes users to the [Add Plant Page](#add-plant-page).
+
+- If the user has already added plants they will see a list of their plants:
+  ![User Plants List](./static/images/readme_images/user-plants-list.png)
+  - A link to add [Add Plant Page](#add-plant-page) is included to encourage users to continue adding plants.
+  - Cards are used to display the list of user's plants. See [Layout](#layout) and [Styling](#styling).
 
 ### Add Plant Page
 
+![Add Plant Responsive](./static/images/readme_images/responsive/add-plant-responsive.png)
+
+**Hero Image Content**
+
+- The subheading reassures users that they will be able to edit or delete their plant should the wish to later. This was include so that user's do not over-think their posts.
+
+**Form**
+
+- The form asks users to input information on their plants
+
+- Feedback is provided to the user by underlining in either green or red, see (colour scheme)[#colour-scheme]. The form will not be sumbitted until everything is green.
+
+- As MongoDB, alone, is not capable of storing images. User's are asked to paste an imaged url instead. A tooltip provides instructions on how to do this.
+
+- A switch is used for the "Is the plant air purfiying" as it can only be yes or no.
+
+- A dropdown selection is used for the maintenance level in order to limit the user input. This makes it easier for user's to search plants by maintenance level as it can only have three specific terms: easy, medium and hard. Materialize CSS does not provide validation for select options so a jquery method was taken from [this](https://stackoverflow.com/questions/34248898/how-to-validate-select-option-for-a-materialize-dropdown) stack overflow answer from user Imran Saleem.
+
+- The add button submits the form, adding the post to the database.
+
 ### Edit Plant Page
+
+The edit plant page is almost identical to the add plant page (above) with a few exceptions:
+
+- All form information is prefilled with the current plant information, this allows users to edit only edit small amounts if neccessary.
+
+- There is both an edit and cancel button at the end of the form:
+  - The edit button submits the form. Updating the current post in the database and returning the user back to the plant's profile page, with the newly updated information.
+  - The cancel button returns the user back to the plant's profile without any change.
 
 ## Features Left to Implement
 
@@ -377,6 +429,7 @@ The comments section allows users to leave comments about specific plants. The a
 - favourite
 - water
 - reply to comment
+- comment deleted by
 - page denied
 - backend validation
 - contact page
@@ -487,7 +540,7 @@ The comments section allows users to leave comments about specific plants. The a
 
 #### Site Owner Goals
 
-1. ## As Admin, I want the ability to delete any posts deemed inappropriate or unnecessary
+1. As Admin, I want the ability to delete any posts deemed inappropriate or unnecessary
 
 ### Testing Interactive Elements
 

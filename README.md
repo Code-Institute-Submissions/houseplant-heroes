@@ -253,7 +253,7 @@ As the first thing the user sees, the homepage was designed to be clear and info
 **Cards List**
 
 - See [Layout](#layout) and [Styling](#styling)
-- Posts are sorted alphabetically. 
+- Posts are sorted alphabetically.
 
 ### Plant Profile Page
 
@@ -481,8 +481,10 @@ The edit plant page is almost identical to the add plant page (above) with a few
     - E.g. newest first
 
 # Information Architecture
-## Database Choice 
-MongoDB was chosen for its usability. 
+
+## Database Choice
+
+MongoDB was chosen for its usability.
 
 In order to create relational data, object id's were used inside the data structure. E.g." plant_post_id" in comments.
 
@@ -491,43 +493,46 @@ In order to create relational data, object id's were used inside the data struct
 ### Data Storage Types
 
 #### 1. Users Collection
-| Title | Key in db | Data type |
---- | --- | --- | --- 
-User ID | _id | ObjectId 
-Username | username | string
-Password | password | string
+
+| Title    | Key in db | Data type |
+| -------- | --------- | --------- |
+| User ID  | \_id      | ObjectId  |
+| Username | username  | string    |
+| Password | password  | string    |
 
 #### 2. Plant Posts Collection
-| Title | Key in db | Data type |
---- | --- | --- | --- 
-Plant Post ID | _id | ObjectId 
-Plant Nickname | plant_nickname | string
-Plant Botanical Name | plant_botanical_name | string
-Plant Description | plant_description | string
-Plant Image | plant_image_url | string 
-Best Environment | best_environment | string
-Water | water | string
-Humidity | Humidity | string 
-Feeding | Feeding | string
-Is air purfiying? | is_air_purifying | boolean
-Mainenance Level | maintenance_level | string 
-Last Post Date | last_post_date | string
+
+| Title                | Key in db            | Data type |
+| -------------------- | -------------------- | --------- |
+| Plant Post ID        | \_id                 | ObjectId  |
+| Plant Nickname       | plant_nickname       | string    |
+| Plant Botanical Name | plant_botanical_name | string    |
+| Plant Description    | plant_description    | string    |
+| Plant Image          | plant_image_url      | string    |
+| Best Environment     | best_environment     | string    |
+| Water                | water                | string    |
+| Humidity             | Humidity             | string    |
+| Feeding              | Feeding              | string    |
+| Is air purfiying?    | is_air_purifying     | boolean   |
+| Mainenance Level     | maintenance_level    | string    |
+| Last Post Date       | last_post_date       | string    |
 
 #### 3. Comments Collection
-| Title | Key in db | Data type |
---- | --- | --- | --- 
-Comment ID | _id | ObjectId 
-Plant Post ID | plant_post_id | string
-Posted at | posted_at | string
-Posted by | posted_by | string
-Comment Body | comment_body | string 
+
+| Title         | Key in db     | Data type |
+| ------------- | ------------- | --------- |
+| Comment ID    | \_id          | ObjectId  |
+| Plant Post ID | plant_post_id | string    |
+| Posted at     | posted_at     | string    |
+| Posted by     | posted_by     | string    |
+| Comment Body  | comment_body  | string    |
 
 #### 4. Mainenance Level Collection
-| Title | Key in db | Data type |
---- | --- | --- | --- 
-Mainenance Level ID | _id | ObjectId 
-Level | level_name | string
 
+| Title               | Key in db  | Data type |
+| ------------------- | ---------- | --------- |
+| Mainenance Level ID | \_id       | ObjectId  |
+| Level               | level_name | string    |
 
 # Technologies Used
 
@@ -535,43 +540,64 @@ Level | level_name | string
 
 ### Frameworks, Libraries & Programs Used
 
-1. [Font Awesome:](https://fontawesome.com/)
+1. [Am I Responsive](http://ami.responsivedesign.is/)
+
+   - Was used to create images of each page displayed on different screen sizes for this readme file
+
+2. [Font Awesome:](https://fontawesome.com/)
 
    - Font Awesome icons were used throughout
 
-2. [Git](https://git-scm.com/)
+3. [Flask](https://flask.palletsprojects.com/en/1.0.x/)
+
+   - Flask was used to to construct and render html pages
+
+4. [Git](https://git-scm.com/)
 
    - The Gitpod terminal from Git was used to commit to Git and Push to GitHub
 
-3. [GitHub:](https://github.com/)
+5. [GitHub:](https://github.com/)
 
    - GitHub was used to store the code after being pushed from Git
 
-4. [Google Fonts:](https://fonts.google.com/)
+6. [Google Fonts:](https://fonts.google.com/)
 
    - Google fonts was used to import the ‘Poppins’ font into the style.css
 
-5. [jQuery:](https://jquery.com/)
+7. [imagesLoaded](https://imagesloaded.desandro.com/)
+
+   - Images loaded was used in conjuction with in conjunction with the masonry grid to stop unloaded images from overlapping [see here](https://masonry.desandro.com/layout.html#imagesloaded) for details
+
+8. [Jinja](http://jinja.pocoo.org/docs/2.10/)
+
+   - Jinja was used to displa data from the backend to the front-end displayed to the user
+
+9. [jQuery:](https://jquery.com/)
 
    - jQuery was used in conjunction with Materlize CSS for interactive components
 
+10. [Matarilize CSS](https://materializecss.com/)
 
-6. [Matarilize CSS](https://materializecss.com/)
+    - Materlize CSS was used for styling, components and creating responivity on a range of devices
 
-   - Materlize CSS was used for styling, components and creating responivity on a range of devices
+11. [Masonry](https://masonry.desandro.com/)
 
+    - Masonry was used to create the cascading grid layout library when plant lists were used
 
-7. [Masonry](https://masonry.desandro.com/)
+12. [MongoDB:](https://www.mongodb.com/)
 
-   - Masonry was used to create the cascading grid layout library when plant lists were used
+    - MongoDB Atlas is the database for this project
 
-8. [MongoDB:](https://www.mongodb.com/)
+13. [PIP](https://pip.pypa.io/en/stable/installing/)
 
-   - MongoDB was used to store and access all generated documents
+    - Pip was user to for install tools needed in this project
 
-9. https://imagesloaded.desandro.com/
+14. [PyMongo](https://api.mongodb.com/python/current/)
 
-10. [Slick Carousel](https://kenwheeler.github.io/slick/)
+    - PyMongo was user to communicate between python and mongoDB
+
+15. [Slick Carousel](https://kenwheeler.github.io/slick/)
+    - Slick carousel was used to create the carousel on the homepage
 
 ## Testing
 
@@ -645,8 +671,8 @@ Level | level_name | string
 - on add plant the page may need a refresh for the new plant to appear
 - defensive programming modal
 - alt image sometimes shows due to lazy load. Trade off for faster load time so could be changed depending on priorities.
-- space 
-- deleting post doesn't delete related commetns 
+- space
+- deleting post doesn't delete related commetns
 - join length
 
 ## Deployment

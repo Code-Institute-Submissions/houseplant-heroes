@@ -93,8 +93,13 @@ Red for stop
 ![Carousel](./static/images/readme_images/carousel.png)
 
 - A [Slick](https://kenwheeler.github.io/slick/) Carousel is used to display the most recently added posts on the homepage.
+
 - The carousel image links to the plant post for easy navigation for users.
+
 - The carousel also states who the plant was posted by. The username was included to encourage users to post their own plants to be displayed on the front page.
+
+- Lazy loading is used to postpone loading of images outside the browser viewport, decreasing loading time.
+
 - The decision to use slick was purely aesthetic as the carousel provided by Materialize CSS appeared either too big or too small and were rigid in their customisablity.
 
 ### Icons
@@ -424,18 +429,42 @@ The edit plant page is almost identical to the add plant page (above) with a few
 
 ## Features Left to Implement
 
-- Pagination
-- autofill search
-- favourite
-- water
-- reply to comment
-- comment deleted by
-- page denied
-- backend validation
-- contact page
-- reset password
-- admin dashboard
-- add postsed by?
+1. User password reset
+   - Allow user's the ability to reset their password if forgotten
+
+2. Pagination
+   - Pagination is needed on the Plants and User Profile pages.
+   - At present this is not neccessary as their are so few plants but as the database grows the results per page should be limited. This will decrease loading time.
+
+3. Autofill of search input
+   - This would provide user's with guidance of search terms.
+
+4. Favourite Plant Button
+   - To allow user's to have a list of their favourites displayed on their profile page.
+
+5. Plant Tracking Dashboard
+   - Eventually, I would like to implement a plant tracking system.
+   - This would allow users to input information and track their plants in their profile page.
+   - E.g. a "water plant" button would remind user's of the last time they watered their plants.
+   - This type of information is likely more suited to an SQL database.
+
+6. Reply to comment
+   - Reply to a specific comment in the comments section to aid ability to answer questions
+
+7. Comment/Post Deleted By
+   - I would like a message to display to users when a comment or post has been deleted.
+   - This would elimated any potentential confusion caused by deletion.
+
+8. Back-end Validation 
+    - Materialize CSS forms provide front-end validation but back-end validation would be ideal to ensure posts are entered and added correctly to the database. 
+
+9. Contact Page
+    - A contact page would allow user's to contact admit with any questions or issues they have. 
+
+10. Admin Dashboard
+    - Increase admin's capabalities to manage the site
+    - Allow admin to delete or contact users directly 
+
 
 ## Technologies Used
 

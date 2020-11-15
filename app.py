@@ -48,7 +48,7 @@ def all_plants():
 
     """
     all_plants = list(
-        mongo.db.plant_posts.find().sort("plant_botanical_name", 1))
+        mongo.db.plant_posts.find().sort("plant_nickname", 1))
     return render_template("all_plants.html", all_plants=all_plants)
 
 

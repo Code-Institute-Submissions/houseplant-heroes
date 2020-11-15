@@ -381,8 +381,8 @@ def delete_plant(plant_post_id):
 
     """
     mongo.db.plant_posts.remove({"_id": ObjectId(plant_post_id)})
-    mongo.db.comments.remove({"plant_post_id": {
-        "_id": ObjectId(plant_post_id)}})
+    # mongo.db.comments.remove({"plant_post_id": {
+    #     "_id": ObjectId(plant_post_id)}})
     flash("Your post has been deleted")
     return redirect(url_for("all_plants"))
 

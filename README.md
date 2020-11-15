@@ -2,7 +2,7 @@
 
 ## Milestone Project 3: Data Centric Development - Code Institute
 
-![Home Responsive](./static/images/readme_images/home-responsive.png)
+![Home Responsive](./static/images/readme_images/responsive/home-responsive.png)
 [Houseplant Heroes](https://houseplant-heroes.herokuapp.com/) was created as a response to the growing popularity of houseplants which, whilst aesthetically pleasing can often be difficult to maintain! The website allows users to access information on houseplant care as well as contribute their own insights and experiences.
 
 ## Table of Contents
@@ -202,7 +202,7 @@ Icons are used throughout the site to provide the user with visual cues and crea
 
 ### Homepage
 
-![Home Responsive](./static/images/readme_images/home-responsive-2.png)
+![Home Responsive](./static/images/readme_images/responsive/home-responsive-2.png)
 
 As the first thing the user sees, the homepage was designed to be clear and informative.
 
@@ -218,10 +218,9 @@ As the first thing the user sees, the homepage was designed to be clear and info
 
 **Promo Content**
 
-- This section is for promotional purposes, providing the user with immediate information of the features of the site.
-  The majority of which cannot be accessed without an account. This encourages user to create an account in order to have full access to what the site has to offer.
+- This section is for promotional purposes, providing the user with immediate information of the features of the site. The majority of which cannot be accessed without an account. This encourages user to create an account in order to have full access to these features.
 
-- Links are provided for convenient access, making users more likely to create an account.
+- Links are provided for convenient access.
 
 **Recently Added Carousel**
 
@@ -229,7 +228,7 @@ As the first thing the user sees, the homepage was designed to be clear and info
 
 ### Plants Page
 
-![Plants Responsive](./static/images/readme_images/all-plants-responsive.png)
+![Plants Responsive](./static/images/readme_images/responsive/all-plants-responsive.png)
 
 **If users have arrived at the Plants page via the search bar on the home page:**
 
@@ -247,11 +246,25 @@ As the first thing the user sees, the homepage was designed to be clear and info
 
 **Cards**
 
-- See [Layout](#layout) and [Styling](#styling).
+- See [Layout](#layout) and [Styling](#styling)
+
+### Plant Profile Page
+
+![Join Responsive](./static/images/readme_images/responsive/plant-profile-responsive.png)
+
+**Hero Image Content**
+
+**Plant Info**
+
+- Left info (if user logged in)
+
+- Care instructions
+
+**Comments**
 
 ### Login Page
 
-![Login responsive](./static/images/readme_images/login-responsive.png)
+![Login responsive](./static/images/readme_images/responsive/login-responsive.png)
 
 **Form**
 
@@ -259,17 +272,20 @@ As the first thing the user sees, the homepage was designed to be clear and info
 
 - Python checks whether the password and passwords match what is held in the database.
 
-- If both are correct the user is directed to their profile page.
+- If both are correct:
 
-- If either are incorrect the a flash message is displayed "Incorrect username and/or password please try again.". It is not specified which is incorrect to increase security.
+  - user is directed to their profile page.
 
-**Redirect**
+- If either are incorrect:
+  - flash message is displayed "Incorrect username and/or password please try again.". It is not specified which is incorrect to increase security.
+
+**Redirect Links**
 
 - A link for the join page is provided "New? Join here ->" in case the user has found themself in the wrong place and needs redirecting.
 
 ### Join
 
-![Join Responsive](./static/images/readme_images/join-responsive.png)
+![Join Responsive](./static/images/readme_images/responsive/join-responsive.png)
 
 **Form**
 
@@ -279,11 +295,32 @@ As the first thing the user sees, the homepage was designed to be clear and info
 
 - Tooltips are used to tell users what is required for a valid username and password.
 
-- If they meet the requirements the input field will be underlined in green, if they don't they will be red and will not be permitted to proceed.
+- If user input does not meet requirements:
 
-- If a username is already exits in the database (checked by Python) a flash message will appear, "Username already in user, please try another".
+  - input field will be underlined in red
+  - on submit, they will not be permitted to proceed.
 
-- If all requirements are met, the user will be directed to their newly created profile page.
+- If the chosen username already exits in the database (checked by Python):
+
+  - flash message will appear, "Username already in user, please try another".
+
+- If user input meets all requirements:
+  - input field will be underlined in green
+  - on submit, user will be directed to their newly created profile page.
+
+**Redirect Links**
+
+- A link for the login page is provided "Already have an account? Login ->" in case the user has found themself in the wrong place and needs redirecting.
+
+### User Profile Page
+
+<i>Unable to provide responsive image due to necessity for session cookie</i>
+
+**User's Plants list**
+
+- The main purpose of the user profile page is to allow the user to see a list of the plants that they have posted. Users have the ability to edit and delete their own posts and this gives them easy access to do so.
+- If the user has no plants to show they will see: 
+
 
 ## Features Left to Implement
 
@@ -296,6 +333,8 @@ As the first thing the user sees, the homepage was designed to be clear and info
 - backend validation
 - contact page
 - reset password
+- admin dashboard
+- add postsed by?
 
 ## Technologies Used
 

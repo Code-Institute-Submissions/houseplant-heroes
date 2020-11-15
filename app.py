@@ -333,27 +333,6 @@ def edit_plant(plant_post_id):
         maintenance_level=maintenance_level)
 
 
-# Delete plant post
-@ app.route("/delete_plant/<plant_post_id>")
-def delete_plant(plant_post_id):
-    """
-    Function to allow user to delete a plant_post in the mongoDb.
-    Uses bson ObjectId to render Mongodb documents by their unique id.
-
-    Parameters:
-        plant_post_id: Unique post id to be to be passed in to url.
-
-    Remove specific plant post from plant_posts
-    using _id to convert "plant_post_id"
-    in to bson data type, that will be passed in to url.
-    Return redirects to url for all_plants and flash message.
-
-    """
-    mongo.db.plant_posts.remove({"_id": ObjectId(plant_post_id)})
-    flash("Your post has been deleted")
-    return redirect(url_for("all_plants"))
-
-
 # Plant profile
 @ app.route("/plant_profile/<plant_post_id>")
 def plant_profile(plant_post_id):
@@ -383,6 +362,29 @@ def plant_profile(plant_post_id):
     return render_template(
         "plant_profile.html", plant_post=plant_post,
         maintenance_level=maintenance_level, comments=comments)
+
+
+# Delete plant post
+@ app.route("/delete_plant/<plant_post_id>")
+def delete_plant(plant_post_id):
+    """
+    Function to allow user to delete a plant_post in the mongoDb.
+    Uses bson ObjectId to render Mongodb documents by their unique id.
+
+    Parameters:
+        plant_post_id: Unique post id to be to be passed in to url.
+
+    Remove specific plant post from plant_posts
+    using _id to convert "plant_post_id"
+    in to bson data type, that will be passed in to url.
+    Return redirects to url for all_plants and flash message.
+
+    """
+    mongo.db.plant_posts.remove({"_id": ObjectId(plant_post_id)})
+    mongo.db.comments.remove({"plant_post_id": {
+        "_id": ObjectId(plant_post_id)}})
+    flash("Your post has been deleted")
+    return redirect(url_for("all_plants"))
 
 
 # Insert comment
@@ -442,7 +444,7 @@ def delete_comment(plant_post_id, comment_id):
         "plant_profile", plant_post_id=plant_post_id, comment_id=comment_id))
 
 
-#404 error handler 
+# 404 error handler
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404

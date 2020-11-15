@@ -250,9 +250,10 @@ As the first thing the user sees, the homepage was designed to be clear and info
 
 - Resetting the search results displays all plant posts in the database, eliminating the need for the user to refresh or go back.
 
-**Cards**
+**Cards List**
 
 - See [Layout](#layout) and [Styling](#styling)
+- Posts are sorted alphabetically. 
 
 ### Plant Profile Page
 
@@ -430,43 +431,76 @@ The edit plant page is almost identical to the add plant page (above) with a few
 ## Features Left to Implement
 
 1. User password reset
+
    - Allow user's the ability to reset their password if forgotten
 
 2. Pagination
+
    - Pagination is needed on the Plants and User Profile pages.
    - At present this is not neccessary as their are so few plants but as the database grows the results per page should be limited. This will decrease loading time.
 
 3. Autofill of search input
+
    - This would provide user's with guidance of search terms.
 
 4. Favourite Plant Button
+
    - To allow user's to have a list of their favourites displayed on their profile page.
 
 5. Plant Tracking Dashboard
+
    - Eventually, I would like to implement a plant tracking system.
    - This would allow users to input information and track their plants in their profile page.
    - E.g. a "water plant" button would remind user's of the last time they watered their plants.
    - This type of information is likely more suited to an SQL database.
 
 6. Reply to comment
+
    - Reply to a specific comment in the comments section to aid ability to answer questions
 
 7. Comment/Post Deleted By
+
    - I would like a message to display to users when a comment or post has been deleted.
    - This would elimated any potentential confusion caused by deletion.
 
-8. Back-end Validation 
-    - Materialize CSS forms provide front-end validation but back-end validation would be ideal to ensure posts are entered and added correctly to the database. 
+8. Back-end Validation
+
+   - Materialize CSS forms provide front-end validation but back-end validation would be ideal to ensure posts are entered and added correctly to the database.
 
 9. Contact Page
-    - A contact page would allow user's to contact admit with any questions or issues they have. 
+
+   - A contact page would allow user's to contact admit with any questions or issues they have.
 
 10. Admin Dashboard
-    - Increase admin's capabalities to manage the site
-    - Allow admin to delete or contact users directly 
+
+    - Increase admin's capabalities to manage the site.
+    - Allow admin to delete or contact users directly.
+
+11. Sort by
+    - User a select box on Plants Page to allow user to decide what they would like to order the posts by (currently alphabetical).
+    - E.g. newest first
+
+# Information Architecture
+## Database Choice 
+MongoDB was chosen for its usability. 
+
+In order to create relational data, object id's were used inside the data structure. E.g." plant_post_id" in comments.
+
+## Collections Data structure
+
+### Data Storage Types
+
+#### Users Collection
+| Title | Key in db | form validation type | Data type |
+--- | --- | --- | --- 
+Account ID | _id | None | ObjectId 
+Name | username | text, `maxlength="15", ` | string
+Password | password | text, `maxlength="15"` | string
 
 
-## Technologies Used
+
+
+# Technologies Used
 
 ### Languages
 
@@ -580,6 +614,9 @@ The edit plant page is almost identical to the add plant page (above) with a few
 - on add plant the page may need a refresh for the new plant to appear
 - defensive programming modal
 - alt image sometimes shows due to lazy load. Trade off for faster load time so could be changed depending on priorities.
+- space 
+- deleting post doesn't delete related commetns 
+- join length
 
 ## Deployment
 

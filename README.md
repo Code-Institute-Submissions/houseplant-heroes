@@ -490,14 +490,43 @@ In order to create relational data, object id's were used inside the data struct
 
 ### Data Storage Types
 
-#### Users Collection
-| Title | Key in db | form validation type | Data type |
+#### 1. Users Collection
+| Title | Key in db | Data type |
 --- | --- | --- | --- 
-Account ID | _id | None | ObjectId 
-Name | username | text, `maxlength="15", ` | string
-Password | password | text, `maxlength="15"` | string
+User ID | _id | ObjectId 
+Username | username | string
+Password | password | string
 
+#### 2. Plant Posts Collection
+| Title | Key in db | Data type |
+--- | --- | --- | --- 
+Plant Post ID | _id | ObjectId 
+Plant Nickname | plant_nickname | string
+Plant Botanical Name | plant_botanical_name | string
+Plant Description | plant_description | string
+Plant Image | plant_image_url | string 
+Best Environment | best_environment | string
+Water | water | string
+Humidity | Humidity | string 
+Feeding | Feeding | string
+Is air purfiying? | is_air_purifying | boolean
+Mainenance Level | maintenance_level | string 
+Last Post Date | last_post_date | string
 
+#### 3. Comments Collection
+| Title | Key in db | Data type |
+--- | --- | --- | --- 
+Comment ID | _id | ObjectId 
+Plant Post ID | plant_post_id | string
+Posted at | posted_at | string
+Posted by | posted_by | string
+Comment Body | comment_body | string 
+
+#### 4. Mainenance Level Collection
+| Title | Key in db | Data type |
+--- | --- | --- | --- 
+Mainenance Level ID | _id | ObjectId 
+Level | level_name | string
 
 
 # Technologies Used
@@ -506,29 +535,31 @@ Password | password | text, `maxlength="15"` | string
 
 ### Frameworks, Libraries & Programs Used
 
-1. [Matarilize CSS](https://materializecss.com/)
-
-   - Materlize CSS was used for styling, components and creating responivity on a range of devices
-
-2. [Font Awesome:](https://fontawesome.com/)
+1. [Font Awesome:](https://fontawesome.com/)
 
    - Font Awesome icons were used throughout
 
-3. [Git](https://git-scm.com/)
+2. [Git](https://git-scm.com/)
 
    - The Gitpod terminal from Git was used to commit to Git and Push to GitHub
 
-4. [GitHub:](https://github.com/)
+3. [GitHub:](https://github.com/)
 
    - GitHub was used to store the code after being pushed from Git
 
-5. [Google Fonts:](https://fonts.google.com/)
+4. [Google Fonts:](https://fonts.google.com/)
 
    - Google fonts was used to import the ‘Poppins’ font into the style.css
 
-6. [jQuery:](https://jquery.com/)
+5. [jQuery:](https://jquery.com/)
 
    - jQuery was used in conjunction with Materlize CSS for interactive components
+
+
+6. [Matarilize CSS](https://materializecss.com/)
+
+   - Materlize CSS was used for styling, components and creating responivity on a range of devices
+
 
 7. [Masonry](https://masonry.desandro.com/)
 

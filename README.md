@@ -10,18 +10,65 @@
 1. <details><summary>UX</summary>
 
    - [User Stories](#user-stories)
+
      - [First Time User Goals](#first-time-user-goals)
      - [Returning User Goals](#returning-user-goals)
      - [Frequent User Goals](#frequent-user-goals)
      - [Site Owner Goals](#site-ownner-goals)
+
    - [Design](#design)
      - [Colour Scheme](#colour-scheme)
      - [Typography](#typography)
      - [Imagery](#imagery)
      - [Icons](#icons)
      - [Layout](#layout)
+     - [Styling](#styling)
      - [Wireframes](#wireframes)
+         </details>
+
+2. <details><summary>Features</summary>
+
+   - [Existing Features](#existing-features)
+
+     - [Elements on every page](#elements-on-every-page)
+     - [Homepage](#homepage)
+     - [Plants Page](#plants-page)
+     - [Plant Profile Page](#plant-profile-page)
+     - [Login Page](#login)
+     - [Join](#join)
+     - [User Profile Page](#user-profile-page)
+     - [Add Plant Page](#add-plant-page)
+     - [Edit Plant Page](#edit-plant-page)
+
+   - [Features Left to Implement](#features-left-to-implement)
      </details>
+
+3. <details><summary>Information Architecture
+   </summary>
+
+   - [Database Choice](#database-choice)
+   - [Collections Data Structure](#collections-data-structure)
+   </details>
+
+4. <details><summary>Technologies Used
+   </summary>
+
+   - [Languages](#languages)
+   - [Frameworks, Libraries & Programs Used](#frameworks,-libraries-&-programs-used)
+   </details>
+
+5. <details><summary>Testing
+   </summary>
+   - [Separate Page] 
+   </details>
+
+6. <details><summary>Deployment
+   </summary>
+   </details>
+
+7. <details><summary>Credits
+   </summary>
+   </details>
 
 # UX
 
@@ -84,7 +131,7 @@ Red for stop
 ![Hero Image](./static/images/hero-img.png)
 
 - The hero image is used on each page of the site to create consistency and promote lasting brand image.
-- The image was chosen as it emphsizes the natural aesthetic of house plants. It also isn't overly busy so as to obtrude upon the overlayed content.
+- The image was chosen as it emphasizes the natural aesthetic of house plants. It also isn't overly busy so as to obtrude upon the overlaid content.
 - A liner gradient of (rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), is used to ensure content is visable on top.
 - The hero image is resized on each page depending on the size of hero image content but is always recognisable as the same image.
 - This image is coded as a background-image in css and set to background-size: cover; this making the image responsive.
@@ -100,7 +147,7 @@ Red for stop
 
 - Lazy loading is used to postpone loading of images outside the browser viewport, decreasing loading time.
 
-- The decision to use slick was purely aesthetic as the carousel provided by Materialize CSS appeared either too big or too small and were rigid in their customisablity.
+- The decision to use slick was purely aesthetic as the carousel provided by Materialize CSS appeared either too big or too small and were rigid in their customisability.
 
 ### Icons
 
@@ -108,7 +155,7 @@ Icons are used throughout the site to provide the user with visual cues and crea
 
 ![Plant Profile Icons](./static/images/readme_images/plant-profile-icons.png)
 
-- The use of icons in the plant profile page are particulary imporant as there may be quite a lot of information for the user to digest. The icons allow the user to easily scan the page for the information they are looking for. They also break up the information to make it more managable for the user.
+- The use of icons in the plant profile page are particularly important as there may be quite a lot of information for the user to digest. The icons allow the user to easily scan the page for the information they are looking for. They also break up the information to make it more manageable for the user.
 
 ![Arrow Icon](./static/images/readme_images/arrow-img.png)
 ![Chevron Icon](./static/images/readme_images/chevron-img.png)
@@ -123,7 +170,7 @@ Icons are used throughout the site to provide the user with visual cues and crea
 
 - [Materialize CSS Grid](https://materializecss.com/grid.html) was used to created the layout and make it responsive. The layout is simplistic, with no overcrowding of objects. This ensures users are able to clearly see and access the information they are looking for. Use of clean lines adds to this effect.
 
-- A [Masonry](https://masonry.desandro.com/) grid was used to tidy up the layout of the cards in all_plants.html and profile.html. This was imporant as users are permitted to add images of varying dimensions, without masonry there could be large white spaces between each card.
+- A [Masonry](https://masonry.desandro.com/) grid was used to tidy up the layout of the cards in all_plants.html and profile.html. This was important as users are permitted to add images of varying dimensions, without masonry there could be large white spaces between each card.
 
 ### Styling
 
@@ -161,7 +208,7 @@ Icons are used throughout the site to provide the user with visual cues and crea
 
   - The navigation links are on the top right hand corner.
 
-  - For vistors who are not logged in, the links are:
+  - For visitors who are not logged in, the links are:
     1. Home
     2. Plants
     3. Login
@@ -180,7 +227,7 @@ Icons are used throughout the site to provide the user with visual cues and crea
 
   - Active classes are added to active page to show the user what page they are currently on.
 
-  - The nav bar is fixed to the top of the screen to allow for accesible navigation regardless are where the user is on the page. This simplisity in the design of the nav bar ensure that it is not too obtrusive for the user.
+  - The nav bar is fixed to the top of the screen to allow for accessible navigation regardless are where the user is on the page. This simplicity in the design of the nav bar ensure that it is not too obtrusive for the user.
 
 - Hero Image
 
@@ -189,11 +236,11 @@ Icons are used throughout the site to provide the user with visual cues and crea
 - Flash Messages
 
   - Flash messages are used to provide feedback to the user for certain actions, e.g. when a posted is updated
-  - The messages are layed over the hero-image and come before the heading so they are, generally, at eye height for the user.
+  - The messages are laid over the hero-image and come before the heading so they are, generally, at eye height for the user.
 
 - Heading
 
-  - Each page has a heading position towards the center of the hero image. This reassures the user where they are on the site.
+  - Each page has a heading position towards the centre of the hero image. This reassures the user where they are on the site.
 
 - Subheading
 
@@ -202,7 +249,7 @@ Icons are used throughout the site to provide the user with visual cues and crea
 - Footer
   - The footer contains:
     - Logo
-    - Copywrite nformation
+    - Copywrite information
     - Social media links
     - In the future, contact information can be added
 
@@ -220,7 +267,7 @@ As the first thing the user sees, the homepage was designed to be clear and info
 
 **Redirect Buttons**
 
-- If the user is not logged in they will have button links for, "Plants", "Login" and "Join" pages. These (as well as the homepage) are all the pages that can be accessed when a user is not logged in. This feauture is particulary targetted at first time visitors as it clearly presents them with all actions.
+- If the user is not logged in they will have button links for, "Plants", "Login" and "Join" pages. These (as well as the homepage) are all the pages that can be accessed when a user is not logged in. This feature is particularly targeted at first time visitors as it clearly presents them with all actions.
 
 **Promo Content**
 
@@ -268,7 +315,7 @@ User's arrive on this page following a link from either the All Plants Page or U
 
 - The plant botanical name is used as the subheading
 
-- The plant description provides a little more informationon the plant, it is capped at 400 characters to ensure there is no overflow.
+- The plant description provides a little more information the plant, it is capped at 400 characters to ensure there is no overflow.
 
 **Plant Info**
 This section contains more detailed information on the plant.
@@ -277,7 +324,7 @@ This section contains more detailed information on the plant.
 
   - The plant image, which uses Materialize CSS's [responsive image](https://materializecss.com/media-css.html) class to ensure responsivity.
   - Shows who the plant is posted by.
-  - Shows whether the plant is air purfiying.
+  - Shows whether the plant is air purifying.
   - Shows when the plant was last updated. This initially, will show the date and time the plant was added. If the plant is edited, it will update accordingly. This was included to allow users to see whether any updates have been made since their last viewing.
 
 - Care instructions:
@@ -304,13 +351,13 @@ The comments section allows users to leave comments about specific plants. The a
 
 - All comments show username and date/time posted
 
-- Comments are displayed, oldest to newest. This decision was based on [this post](https://ux.stackexchange.com/questions/38002/display-comments-order-best-practice) from Ux Stack Exchange in which it is concluded that reverse chronological order is more condusive to natural conversation.
+- Comments are displayed, oldest to newest. This decision was based on [this post](https://ux.stackexchange.com/questions/38002/display-comments-order-best-practice) from Ux Stack Exchange in which it is concluded that reverse chronological order is more conducive to natural conversation.
 
 - If no user is logged in they will see:
   ![comments logged out](./static/images/readme_images/comment-logged-out.png)
 
   - The user must be logged in to comment as it shows who the comment is posted by to increase and accountability and allow for more developed conversation.
-  - Comments are visible to all visitors as they provide futher information and encourage vistitors to make an account.
+  - Comments are visible to all visitors as they provide further information and encourage visitors to make an account.
 
 - If user is logged in they will see:
   ![comments logged in](./static/images/readme_images/comment-logged-in.png)
@@ -319,7 +366,7 @@ The comments section allows users to leave comments about specific plants. The a
 
 - The delete buttons is only visible if the session user matches the "posted_by" of the specific comment, or is admin.
 
-- The ability to edit the comment was removed as editting a comment may change the flow of conversation or cause confusion.
+- The ability to edit the comment was removed as editing a comment may change the flow of conversation or cause confusion.
 
 ### Login Page
 
@@ -340,7 +387,7 @@ The comments section allows users to leave comments about specific plants. The a
 
 **Redirect Links**
 
-- A link for the join page is provided "New? Join here ->" in case the user has found themself in the wrong place and needs redirecting.
+- A link for the join page is provided "New? Join here ->" in case the user has found themselves in the wrong place and needs redirecting.
 
 ### Join
 
@@ -348,7 +395,7 @@ The comments section allows users to leave comments about specific plants. The a
 
 **Form**
 
-- Similarly to the login page, a simple form is used for the user to enter a desired username and password.
+- Similarly, to the login page, a simple form is used for the user to enter a desired username and password.
 
 - Users are asked to confirm password, (checked by Python). If the passwords don't match a flash message is displayed, "Passwords don't match, please try again"
 
@@ -359,7 +406,7 @@ The comments section allows users to leave comments about specific plants. The a
   - input field will be underlined in red, see (colour scheme)[#colour-scheme].
   - on submit, they will not be permitted to proceed.
 
-- If the chosen username already exits in the database (checked by Python):
+- If the chosen username already exists in the database (checked by Python):
 
   - flash message will appear, "Username already in user, please try another".
 
@@ -408,11 +455,11 @@ The comments section allows users to leave comments about specific plants. The a
 
 - The form asks users to input information on their plants
 
-- Feedback is provided to the user by underlining in either green or red, see (colour scheme)[#colour-scheme]. The form will not be sumbitted until everything is green.
+- Feedback is provided to the user by underlining in either green or red, see (colour scheme)[#colour-scheme]. The form will not be submitted until everything is green.
 
 - As MongoDB, alone, is not capable of storing images. User's are asked to paste an imaged url instead. A tooltip provides instructions on how to do this.
 
-- A switch is used for the "Is the plant air purfiying" as it can only be yes or no.
+- A switch is used for the "Is the plant air purifying" as it can only be yes or no.
 
 - A dropdown selection is used for the maintenance level in order to limit the user input. This makes it easier for user's to search plants by maintenance level as it can only have three specific terms: easy, medium and hard. Materialize CSS does not provide validation for select options so a jquery method was taken from [this](https://stackoverflow.com/questions/34248898/how-to-validate-select-option-for-a-materialize-dropdown) stack overflow answer from user Imran Saleem.
 
@@ -422,7 +469,7 @@ The comments section allows users to leave comments about specific plants. The a
 
 The edit plant page is almost identical to the add plant page (above) with a few exceptions:
 
-- All form information is prefilled with the current plant information, this allows users to edit only edit small amounts if neccessary.
+- All form information is prefilled with the current plant information, this allows users to edit only edit small amounts if necessary.
 
 - There is both an edit and cancel button at the end of the form:
   - The edit button submits the form. Updating the current post in the database and returning the user back to the plant's profile page, with the newly updated information.
@@ -437,7 +484,7 @@ The edit plant page is almost identical to the add plant page (above) with a few
 2. Pagination
 
    - Pagination is needed on the Plants and User Profile pages.
-   - At present this is not neccessary as their are so few plants but as the database grows the results per page should be limited. This will decrease loading time.
+   - At present this is not necessary as there are so few plants but as the database grows the results per page should be limited. This will decrease loading time.
 
 3. Autofill of search input
 
@@ -461,7 +508,7 @@ The edit plant page is almost identical to the add plant page (above) with a few
 7. Comment/Post Deleted By
 
    - I would like a message to display to users when a comment or post has been deleted.
-   - This would elimated any potentential confusion caused by deletion.
+   - This would eliminate any potential confusion caused by deletion.
 
 8. Back-end Validation
 
@@ -473,7 +520,7 @@ The edit plant page is almost identical to the add plant page (above) with a few
 
 10. Admin Dashboard
 
-    - Increase admin's capabalities to manage the site.
+    - Increase admin's  capabilities to manage the site.
     - Allow admin to delete or contact users directly.
 
 11. Sort by
@@ -489,8 +536,6 @@ MongoDB was chosen for its usability.
 In order to create relational data, object id's were used inside the data structure. E.g." plant_post_id" in comments.
 
 ## Collections Data structure
-
-### Data Storage Types
 
 #### 1. Users Collection
 
@@ -538,6 +583,11 @@ In order to create relational data, object id's were used inside the data struct
 
 ### Languages
 
+- [HTML5](https://en.wikipedia.org/wiki/HTML5)
+- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+- [Python](https://www.python.org/)
+
 ### Frameworks, Libraries & Programs Used
 
 1. [Am I Responsive](http://ami.responsivedesign.is/)
@@ -566,7 +616,7 @@ In order to create relational data, object id's were used inside the data struct
 
 7. [imagesLoaded](https://imagesloaded.desandro.com/)
 
-   - Images loaded was used in conjuction with in conjunction with the masonry grid to stop unloaded images from overlapping [see here](https://masonry.desandro.com/layout.html#imagesloaded) for details
+   - Images loaded was used in conjunction with the masonry grid to stop unloaded images from overlapping [see here](https://masonry.desandro.com/layout.html#imagesloaded) for details
 
 8. [Jinja](http://jinja.pocoo.org/docs/2.10/)
 
@@ -574,11 +624,11 @@ In order to create relational data, object id's were used inside the data struct
 
 9. [jQuery:](https://jquery.com/)
 
-   - jQuery was used in conjunction with Materlize CSS for interactive components
+   - jQuery was used in conjunction with MaterializeCSS for interactive components
 
-10. [Matarilize CSS](https://materializecss.com/)
+10. [Materialize CSS](https://materializecss.com/)
 
-    - Materlize CSS was used for styling, components and creating responivity on a range of devices
+    - MaterializeCSS was used for styling, components and creating responsivity on a range of devices
 
 11. [Masonry](https://masonry.desandro.com/)
 

@@ -251,16 +251,61 @@ As the first thing the user sees, the homepage was designed to be clear and info
 ### Plant Profile Page
 
 ![Join Responsive](./static/images/readme_images/responsive/plant-profile-responsive.png)
+User's arrive on this page following a link from either the All Plants Page or User Profile Page card lists.
 
 **Hero Image Content**
 
+- Contains content to assure the user they are on the plant they expected
+
+- The plant nickname is used as the page header at it is generally the most recognisable name.
+
+- The plant botanical name is used as the subheading
+
+- The plant description provides a little more informationon the plant, it is capped at 400 characters to ensure there is no overflow.
+
 **Plant Info**
+This section contains more detailed information on the plant.
 
-- Left info (if user logged in)
+- To the left or top of section(depending on screen size):
 
-- Care instructions
+  - The plant image, which uses Materialize CSS's [responsive image](https://materializecss.com/media-css.html) class to ensure responsivity.
+  - Shows who the plant is posted by.
+  - Shows whether the plant is air purfiying.
+  - Shows when the plant was last updated. This initially, will show the date and time the plant was added. If the plant is edited, it will update accordingly. This was included to allow users to see whether any updates have been made since their last viewing.
+
+- Care instructions:
+
+  - Shows all details obtained from the add plant form.
+  - Materialize layouts and icons were used to break up the information.
+
+**Edit/Delete**
+
+- Edit/Delete buttons are only visible if the session user matches the "posted_by" of the specific plant, or is admin.
+  ![edit delete icons](./static/images/readme_images/edit-delete.png)
+
+- Clicking the edit button takes users to the [Edit Plant Page](#edit-plant-page).
+
+- Clicking delete triggers a defensive modal:
+  ![delete modal](./static/images/readme_images/delete-modal.png)
+  1.  If yes, delete:
+      - the plant post is removed from the database and the modal is closed.
+  2.  If no, keep:
+      - the modal is closed immediately, cancelling the action and the plant post remains in the database.
 
 **Comments**
+The comments section allows users to leave comments about specific plants. The aim is to increase user engagement and stimulate conversation. 
+
+- All comments show username and date/time posted
+
+- Comments are displayed, oldest to newest. This decision was based on [this post](https://ux.stackexchange.com/questions/38002/display-comments-order-best-practice) from Ux Stack Exchange in which it is conclued that reverse chronological order is more condusive to natural conversation.  
+
+- If no user is logged in they will see:
+  ![comments logged out](./static/images/readme_images/comment-logged-out.png)
+
+  - The user must be logged in to comment as it shows who the comment is posted by to increase and accountability and allow for more developed conversation. 
+  - Comments are visibile to all visitors as the provide futher information and encourage vistitors to make an account. 
+
+- 
 
 ### Login Page
 
@@ -319,8 +364,11 @@ As the first thing the user sees, the homepage was designed to be clear and info
 **User's Plants list**
 
 - The main purpose of the user profile page is to allow the user to see a list of the plants that they have posted. Users have the ability to edit and delete their own posts and this gives them easy access to do so.
-- If the user has no plants to show they will see: 
+- If the user has no plants to show they will see:
 
+### Add Plant Page
+
+### Edit Plant Page
 
 ## Features Left to Implement
 

@@ -274,8 +274,8 @@ def add_plant():
             "is_air_purifying": is_air_purifying,
             "maintenance_level": request.form.get("maintenance_level"),
             "posted_by": session["user"],
-            "posted_datetime": datetime.utcnow(),
-            "posted_datetime_string": datetime.utcnow().strftime(
+            "post_date": datetime.utcnow(),
+            "post_date_string": datetime.utcnow().strftime(
                 'on: %d-%m-%y at: %H:%M')
         }
         mongo.db.plant_posts.insert_one(plant_post)
@@ -314,8 +314,8 @@ def edit_plant(plant_post_id):
     plant_post = mongo.db.plant_posts.find_one(
         {"_id": ObjectId(plant_post_id)})
     if request.method == "POST":
-        is_air_purifying = "on" if request.form.get(
-            "is_air_purifying") else "off"
+        is_air_purifying = True if request.form.get(
+            "is_air_purifying") else False
         submit = {
             "plant_nickname": request.form.get("plant_nickname"),
             "plant_botanical_name": request.form.get("plant_botanical_name"),
@@ -328,8 +328,9 @@ def edit_plant(plant_post_id):
             "is_air_purifying": is_air_purifying,
             "maintenance_level": request.form.get("maintenance_level"),
             "posted_by": session["user"],
-            "lastest_post_date": datetime.utcnow().strftime(
-                'on %d-%m-%y at %H:%M')
+            "post_date": datetime.utcnow(),
+            "post_date_string": datetime.utcnow().strftime(
+                'on: %d-%m-%y at: %H:%M')
         }
         mongo.db.plant_posts.update({"_id": ObjectId(plant_post_id)}, submit)
         flash("You have updated your post.")
@@ -416,7 +417,8 @@ def insert_comment(plant_post_id):
     if request.method == "POST":
         comment = {
             "plant_post_id": request.form.get("plant_post_id"),
-            "posted_at": datetime.utcnow().strftime(
+            "posted_at": datetime.utcnow(),
+            "posted_at_string": datetime.utcnow().strftime(
                 '%H:%M:%S, %d-%m-%y'),
             "posted_by": session["user"],
             "comment_body": request.form.get("comment_body"),

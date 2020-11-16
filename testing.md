@@ -68,8 +68,7 @@
 ### bugs
 
 - on add plant the page may need a refresh for the new plant to appear
-- defensive programming modal
+- defensive programming modal for comments
 - alt image sometimes shows due to lazy load. Trade off for faster load time so could be changed depending on priorities.
 - space
-- deleting post doesn't delete related commetns
 - join length

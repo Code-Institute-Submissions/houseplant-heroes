@@ -64,7 +64,7 @@
    </summary>
 
    - [testing.md](./testing.md)
-   
+
    </details>
 
 6. <details><summary>Deployment
@@ -538,11 +538,14 @@ The edit plant page is almost identical to the add plant page (above) with a few
 
 MongoDB was chosen for its usability.
 
-In order to create relational data, object id's were used inside the data structure. E.g." plant_post_id" in comments.
-
 ## Collections Data structure
 
-#### 1. Users Collection
+In order to access relational data, shared inner objects were used inside the data structure:
+
+1. Users Collection is linked to Plant_Posts Collection via username (posted_by)
+2. Plant_Posts Collection is linked to Comments via plant_post_id
+
+#### 1. Users Collection - c
 
 | Title    | Key in db | Data type |
 | -------- | --------- | --------- |
@@ -550,7 +553,7 @@ In order to create relational data, object id's were used inside the data struct
 | Username | username  | string    |
 | Password | password  | string    |
 
-#### 2. Plant Posts Collection
+#### 2. Plant_Posts Collection
 
 | Title                | Key in db            | Data type |
 | -------------------- | -------------------- | --------- |
@@ -561,21 +564,26 @@ In order to create relational data, object id's were used inside the data struct
 | Plant Image          | plant_image_url      | string    |
 | Best Environment     | best_environment     | string    |
 | Water                | water                | string    |
-| Humidity             | Humidity             | string    |
-| Feeding              | Feeding              | string    |
+| Humidity             | humidity             | string    |
+| Feeding              | feeding              | string    |
 | Is air purfiying?    | is_air_purifying     | boolean   |
 | Mainenance Level     | maintenance_level    | string    |
-| Last Post Date       | last_post_date       | string    |
+| Posted By            | posted_by            | string    |
+| Post Date            | post_date            | date      |
+| Post Date String     | post_date_string     | string    |
+
+- Two data types were included for the post date. The date version allows for back end filter functionality, the string version formats the date for the front end.
 
 #### 3. Comments Collection
 
-| Title         | Key in db     | Data type |
-| ------------- | ------------- | --------- |
-| Comment ID    | \_id          | ObjectId  |
-| Plant Post ID | plant_post_id | string    |
-| Posted at     | posted_at     | string    |
-| Posted by     | posted_by     | string    |
-| Comment Body  | comment_body  | string    |
+| Title            | Key in db     | Data type |
+| -------------    | ------------- | --------- |
+| Comment ID       | \_id          | ObjectId  |
+| Plant Post ID    | plant_post_id | string    |
+| Posted at        | posted_at     | date      |
+| Posted at String | posted_at     | string    |
+| Posted by        | posted_by     | string    |
+| Comment Body     | comment_body  | string    |
 
 #### 4. Mainenance Level Collection
 

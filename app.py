@@ -24,12 +24,14 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    """
+    """home:
+
     Creates list of plant_posts in MongoDb named 'all_plants'
     Sorts list by Id(highest to lowest) and limits results to 10.
 
-    Return renders template for home.html with all_plants
-    list insterted and displayed.
+    Returns: 
+        renders template for home.html with all_plants
+        list insterted and displayed.
 
     """
     all_plants = list(mongo.db.plant_posts.find().sort("_id", -1).limit(10))
@@ -39,11 +41,13 @@ def home():
 # Read and display all posts in all_plants.html
 @app.route("/all_plants")
 def all_plants():
-    """
+    """all_plants:
+
     Creates list of plant_posts in MongoDb named 'all_plants'
     Sorts list alphabetically.
 
-    Returns renders template for all_plants.html with all_plants list insterted
+    Returns: 
+    renders template for all_plants.html with all_plants list insterted
     and displayed.
 
     """
@@ -55,8 +59,8 @@ def all_plants():
 # Search all plants
 @app.route("/search_all_plants", methods=["GET", "POST"])
 def search_all_plants():
-    """
-    Function to allow users to search the plant_posts MongoDb using text.
+    """search_all_plants:
+    Allows users to search the plant_posts MongoDb using text.
 
     Retrieves search text posted by user and
     compares to text within plant_posts MongoDb.
@@ -66,7 +70,10 @@ def search_all_plants():
     return renders the template for all_plants.html
     with all_plants list insterted and displayed to the user.
 
-    Else if no results are found, return redirects users
+    Else if no results are found,
+
+    Returns:
+    redirects users
     to the url for all_plants and a flash message is displayed
     to the user that explains that there are no matching
     results but they can browse all plants displayed below.
@@ -250,10 +257,10 @@ def add_plant():
     When user posts form, retrieve all information and save as 'plant_post'.
     Insert plant_post in to plant_posts MongoDb.
     Flash message of thanks and return redirects to
-    users profile page. 
+    users profile page.
 
     """
-    is_air_purifying = "on" if request.form.get("is_air_purifying") else "off"
+    is_air_purifying = True if request.form.get("is_air_purifying") else False
     if request.method == "POST":
         plant_post = {
             "plant_nickname": request.form.get("plant_nickname"),
@@ -267,7 +274,8 @@ def add_plant():
             "is_air_purifying": is_air_purifying,
             "maintenance_level": request.form.get("maintenance_level"),
             "posted_by": session["user"],
-            "lastest_post_date": datetime.utcnow().strftime(
+            "posted_datetime": datetime.utcnow(),
+            "posted_datetime_string": datetime.utcnow().strftime(
                 'on: %d-%m-%y at: %H:%M')
         }
         mongo.db.plant_posts.insert_one(plant_post)

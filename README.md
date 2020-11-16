@@ -47,13 +47,16 @@
    </summary>
 
    - [Database Choice](#database-choice)
+
    - [Collections Data Structure](#collections-data-structure)
+
    </details>
 
 4. <details><summary>Technologies Used
    </summary>
 
    - [Languages](#languages)
+
    - [Frameworks, Libraries & Programs Used](#frameworks,-libraries-&-programs-used)
    </details>
 
@@ -61,6 +64,7 @@
    </summary>
 
    - [testing.md](./testing.md)
+   
    </details>
 
 6. <details><summary>Deployment

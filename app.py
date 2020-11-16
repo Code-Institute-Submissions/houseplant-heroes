@@ -384,14 +384,12 @@ def delete_plant(plant_post_id):
         plant_post_id: Unique post id to be to be passed in to url.
 
     Remove specific plant post from plant_posts
-    using _id to convert "plant_post_id"
     in to bson data type, that will be passed in to url.
     Return redirects to url for all_plants and flash message.
 
     """
+    mongo.db.comments.remove({"plant_post_id": plant_post_id})
     mongo.db.plant_posts.remove({"_id": ObjectId(plant_post_id)})
-    # mongo.db.comments.remove({"plant_post_id": {
-    #     "_id": ObjectId(plant_post_id)}})
     flash("Your post has been deleted")
     return redirect(url_for("all_plants"))
 

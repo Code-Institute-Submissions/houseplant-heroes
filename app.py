@@ -187,6 +187,10 @@ def login():
             else:
                 flash("Incorrect username and/or password please try again.")
                 return redirect(url_for("login"))
+        # return flash if username doesn't exist in database
+        else:
+            flash("Incorrect username and/or password please try again.")
+            return redirect(url_for("login"))
 
     return render_template("login.html")
 

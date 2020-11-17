@@ -691,7 +691,7 @@ Required tools:
 
 ## Making a Local Clone 
 
-1. Save a copy of the [this] github repository located at https://github.com/AJGreaves/familyhub by clicking the "download zip" button at the top of the page and extracting the zip file to your chosen folder. If you have Git installed on your system, you can clone the repository with the following command.
+1. Save a copy of the [this](https://github.com/irahbt/houseplant-heroes) github repository by clicking the "download zip" button at the top of the page and extracting the zip file to your chosen folder. If you have Git installed on your system, you can clone the repository with the following command.
 1. 
 
 ## Credits

@@ -483,6 +483,9 @@ The edit plant page is almost identical to the add plant page (above) with a few
   - The edit button submits the form. Updating the current post in the database and returning the user back to the plant's profile page, with the newly updated information.
   - The cancel button returns the user back to the plant's profile without any change.
 
+### 404 Page
+- The custom 404 page contains links to refirect the user back to either the homepage or the plants page.
+
 ## Features Left to Implement
 
 1. User password reset
@@ -673,7 +676,23 @@ In order to access relational data, shared inner objects were used inside the da
 
 ### See [testing.md](./testing.md)
 
-## Deployment
+# Deployment
+## Making a Local Clone 
+
+Required tools: 
+- An IDE such as [Gitpod](https://gitpod.io/)
+
+**Must be** installed on your machine:
+- [PIP](https://pip.pypa.io/en/stable/installing/)
+- [Python 3](https://www.python.org/downloads/)
+- An account with[MongoDB Atlas](https://www.mongodb.com/cloud/atlas) or MongoDB running locally on your machine. 
+    - See how to set up your Mongo Atlas account [here](https://docs.atlas.mongodb.com/).
+- If using an IDE other than Gitpod: [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03)
+
+## Making a Local Clone 
+
+1. Save a copy of the [this] github repository located at https://github.com/AJGreaves/familyhub by clicking the "download zip" button at the top of the page and extracting the zip file to your chosen folder. If you have Git installed on your system, you can clone the repository with the following command.
+1. 
 
 ## Credits
 

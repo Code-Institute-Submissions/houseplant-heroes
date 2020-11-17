@@ -43,7 +43,7 @@
 
    - The hero image clearly displays houseplants suggesting the nature of the website to the user.
 
-   - The promo section of the homepage describes to user's the main functionalities of the site.
+   - The promo section of the homepage describes to users the main functionalities of the site.
 
 2) As a First Time User, I want to be able to navigate intuitively through the site
 
@@ -326,7 +326,7 @@
 - Hero Image Content
 
   - Confirm that username is inserted in to heading.
-  - Confirmed on click that the chevron takes user's to their list.
+  - Confirmed on click that the chevron takes user to their list.
 
 - User's Plants list
 
@@ -352,11 +352,12 @@
 
 - Confirm that all data is updated correctly by checking MongoDB. 
 
+**404 Page**
+- Confirm that user is taken to 404 page by typing an incorrect url into the browser.
+- Confirmed on click:
+  - **Home** link takes user to homepage
+  - **Plants** link takes user to all_plants 
+
 ### Bugs
 
-- on add plant the page may need a refresh for the new plant to appear
-- defensive programming modal for comments
-- alt image sometimes shows due to lazy load. Trade off for faster load time so could be changed depending on priorities.
-- space
-- join max length
-- buttons cut off
+- On the Join Page, the ssername min-length seems to cap characters at one above the stated. To get around this I set the min-length to 3 characters but instructed users to create a username with a min-length of 4 characters.

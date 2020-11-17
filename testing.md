@@ -241,16 +241,39 @@
 
 **Plant Profile Page**
 
-- Hero Image Content 
-  - Confirm hero image content has been correctly insterted from plant_post database. 
+- Hero Image Content
+
+  - Confirm hero image content has been correctly insterted from plant_post database.
 
 - Plant Info
-  - Confirm content has been correctly insterted from plant_post database. 
+
+  - Confirm content has been correctly insterted from plant_post database.
   - Confirm that the plant image is responsive on a range of devices.
-  - Confirm that **last updated** changes if plant is edited. 
+  - Confirm that **last updated** changes if plant is edited.
 
+- Edit/Delete
 
+  - Confirm that icons are only visible if session user matches posted_by in plant_post.
+  - Confirmed on click:
+    - **Edit Icon** takes user to edit_plant page.
+    - **Delete Icon** triggers modal that ask user to confirm that they want to delete post:
+      - No, keep closes modal with no further actions.
+      - Yes, delete deletes takes user to all_plants with a flash message.
+  - Confirm that post and related comments have been removed by checking the MongoDB for plant_posts.
 
+- Comments
+
+  - Confirm that users are unable to comment unless they are logged in:
+    - Confirm on click:
+      - Login takes user to login page
+      - Join takes user to join page
+  - Confirm that is users are logged in they see an input area.
+    - Confirm on click:
+      - Add button refreshes page with message and newly added comment.
+  - Confirm that delete icon is only visible if session user matches posted_by in comments:
+    - Confirm on click:
+      - Delete removes post.
+  - Confirm that comment has been deleted by checking MongoDB comments collection.
 
 **Login Page**
 
@@ -298,21 +321,36 @@
   - Confirm that **
     Already have an account? Login ->** takes user to join page.
 
-**Join Page**
-- Hero Image Content 
+**User Profile Page**
+
+- Hero Image Content
+
   - Confirm that username is inserted in to heading.
   - Confirmed on click that the chevron takes user's to their list.
 
 - User's Plants list
-  - Confirmed that if user has no plants they will be shown a differed to message to if they do. 
-  - Confirm that users are only show plant posts that they have created. 
-  - Confirmed on click: 
-    - Add button takes user to add_plant page. 
+
+  - Confirmed that if user has no plants they will be shown a differed to message to if they do.
+  - Confirm that users are only show plant posts that they have created.
+  - Confirmed on click:
+    - Add button takes user to add_plant page.
 
 - Cards
-  - See Plant Cards in Plants Page above. 
+  - See Plant Cards in Plants Page above.
 
+**Add Plant Page**
+- Confirm that all requirements must be met before a post is added.
 
+- Confirm that all data is gathered correctly by checking MongoDB. 
+
+**Edit Plant Page**
+- Confirm that all requirements must be met before a post is edited.
+
+- Confirmed on click: 
+   - Cancel button returns the user back to the plant's profile without any change.
+   - Edit button submits form and returns user to plant_profile. 
+
+- Confirm that all data is updated correctly by checking MongoDB. 
 
 ### Bugs
 

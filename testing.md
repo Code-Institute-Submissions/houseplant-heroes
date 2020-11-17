@@ -360,4 +360,4 @@
 
 ### Bugs
 
-- On the Join Page, the ssername min-length seems to cap characters at one above the stated. To get around this I set the min-length to 3 characters but instructed users to create a username with a min-length of 4 characters.
+- On the Join Page, the username min-length seems to cap characters at one above the stated. To get around this I set the min-length to 3 characters but instructed users to create a username with a min-length of 4 characters.

@@ -152,6 +152,55 @@
     - **Add Plant** takes user to the add_plant page.
     - **Logout** triggers function to remove session user, logging them out and reverting navbar to logged out configuration.
 
+- Active page is highlighted.
+
+- Hero Image
+
+  - Confirm that hero image loads at a reasonable speed, and that the image is clear.
+  - Confirm that hero image is an appropiate size for inner content.
+  - Confirm that content is easy to read.
+
+- Flash messages
+
+  - Confirm that a flash message appears if:
+
+    - A user searches for a plant post and no matches are found.
+    - A user tries to create a username that already exists in the database.
+    - A user's password and confirm password do not match.
+    - Either the password or username is incorrect.
+    - Both the password and username are incorrect.
+    - A user logs out.
+    - A user adds a plant.
+    - A user updates/edits a post.
+    - A user deletes a post.
+    - A user posts a comment.
+    - A user deletes their comment.
+
+  - Confirm that flash messages are clear and easy to read.
+
+- Footer
+
+  - Hovering over social links confirm that the hover effect works as intended.
+
+**Elements on Every Page Mobile**
+
+- Confirm that navbar collapses in to burger icon.
+
+- Confirmed on click:
+  - **Houseplant Hero logo** takes user to homepage.
+  - **Burger icon** triggers side nav.
+  - [**Same as Above for Desktop**](####testing-features)
+
+**Homepage**
+
+- Search bar
+  - Confirm that users are able to search by maintenance_level, plant_nickname or plant_botanical_name.
+  - Confirm that search returns matching results.
+  - Confirm that users are alerted if no matches are found and all plants are displayed.
+
+- Redirect Buttons
+  - Confirm that 
+
 ### Bugs
 
 - on add plant the page may need a refresh for the new plant to appear

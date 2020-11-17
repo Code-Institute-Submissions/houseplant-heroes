@@ -532,6 +532,10 @@ The edit plant page is almost identical to the add plant page (above) with a few
 
     - User a select box on Plants Page to allow user to decide what they would like to order the posts by (currently newest first) e.g. newest first.
 
+12. Comments Notification
+
+    - Notify users when a plant that they have posted recieves a comment. 
+
 # Information Architecture
 
 ## Database Choice

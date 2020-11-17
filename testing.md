@@ -199,7 +199,7 @@
   - Confirm that users are alerted if no matches are found and all plants are displayed.
 
 - Redirect Buttons
-  - Confirm that 
+  - Confirm that buttons are only visibly if user is logged in 
 
 ### Bugs
 
@@ -208,3 +208,4 @@
 - alt image sometimes shows due to lazy load. Trade off for faster load time so could be changed depending on priorities.
 - space
 - join max length
+- buttons cut off

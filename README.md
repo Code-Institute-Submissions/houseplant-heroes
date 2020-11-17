@@ -274,6 +274,8 @@ As the first thing the user sees, the homepage was designed to be clear and info
 
 - If the user is not logged in they will have button links for, "Plants", "Login" and "Join" pages. These (as well as the homepage) are all the pages that can be accessed when a user is not logged in. This feature is particularly targeted at first time visitors as it clearly presents them with all actions.
 
+- Buttons are hidden on mobile due to sizing issues. See [testing](./testing.md#bugs).
+
 **Promo Content**
 
 - This section is for promotional purposes, providing the user with immediate information of the features of the site. The majority of which cannot be accessed without an account. This encourages user to create an account in order to have full access to these features.

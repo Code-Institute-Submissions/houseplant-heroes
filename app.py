@@ -44,15 +44,13 @@ def all_plants():
     """all_plants:
 
     Creates list of plant_posts in MongoDb named 'all_plants'
-    Sorts list alphabetically.
-
+    
     Returns: 
     renders template for all_plants.html with all_plants list insterted
     and displayed.
 
     """
-    all_plants = list(
-        mongo.db.plant_posts.find().sort("plant_nickname", 1))
+    all_plants = list(mongo.db.plant_posts.find())
     return render_template("all_plants.html", all_plants=all_plants)
 
 

@@ -54,7 +54,7 @@
       {% endif %}
       <div class="row">
         <p class="grey-text">
-          Last updated {{ plant_post.lastest_post_date }}
+          Last updated {{ plant_post.post_date_string }}
         </p>
       </div>
       <div class="row">
@@ -180,7 +180,7 @@
         <div class="col s6 m12 grey-text">
           <p>
             Posted by <i>{{ comment.posted_by }}</i> at
-            <i>{{ comment.posted_at }}</i>
+            <i>{{ comment.posted_at_string }}</i>
           </p>
         </div>
       </div>

@@ -1,8 +1,34 @@
-## Testing
+## Houseplant Heroes Testing
+
+- [Primary README.md file](./README.md)
+- [View Website](https://houseplant-heroes.herokuapp.com/)
+
+## Table of Contents
+
+1. [Validators](#validators)
+2. [User Stories](#testing-user-stoies)
+     - [First Time User Goals](#first-time-user-goals)
+     - [Returning User Goals](#returning-user-goals)
+     - [Frequent User Goals](#frequent-user-goals)
+     - [Site Owner Goals](#site-ownner-goals)
+3. [Manual Testing](#manual-testing)
+     - [Devices Tested On](#devices-tested-on)
+     - [Testing Interactive Elements](#testing-interactive-elements)
+
+4. [Bugs](#bugs)
 
 ### Validators
 
-## -
+- HTML: [W3C Markup Validator](https://validator.w3.org/#validate_by_input)
+  - The use of Jinja in the html results in a number of errors in each file, all have been reviewed and deemed acceptable.
+
+- CSS: [W3C CSS Validator](https://jigsaw.w3.org/css-validator/#validate_by_input)
+
+- JavaScript: [JSHint](https://jshint.com/)
+
+- Python: 
+    - [PEP8](http://pep8online.com/)
+    - [Gitpod](https://gitpod.io/)
 
 ### Testing User stories
 
@@ -61,14 +87,19 @@
 
 1. As Admin, I want the ability to delete any posts deemed inappropriate or unnecessary
 
-### Testing Interactive Elements
+### Manual Testing 
+#### Devices Tested On
 
-### Further Testing
 
-### bugs
+#### Devices Tested On
+
+#### Testing Interactive Elements
+
+
+### Bugs
 
 - on add plant the page may need a refresh for the new plant to appear
 - defensive programming modal for comments
 - alt image sometimes shows due to lazy load. Trade off for faster load time so could be changed depending on priorities.
 - space
-- join length
+- join max length

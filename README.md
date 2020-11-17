@@ -305,7 +305,7 @@ As the first thing the user sees, the homepage was designed to be clear and info
 **Cards List**
 
 - See [Layout](#layout) and [Styling](#styling)
-- Posts are sorted alphabetically.
+- Posts are sorted newest first
 
 ### Plant Profile Page
 
@@ -529,8 +529,8 @@ The edit plant page is almost identical to the add plant page (above) with a few
     - Allow admin to delete or contact users directly.
 
 11. Sort by
-    - User a select box on Plants Page to allow user to decide what they would like to order the posts by (currently alphabetical).
-    - E.g. newest first
+
+    - User a select box on Plants Page to allow user to decide what they would like to order the posts by (currently newest first) e.g. newest first.
 
 # Information Architecture
 

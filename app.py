@@ -29,7 +29,7 @@ def home():
     Creates list of plant_posts in MongoDb named 'all_plants'
     Sorts list by Id(highest to lowest) and limits results to 10.
 
-    Returns: 
+    Returns:
         renders template for home.html with all_plants
         list insterted and displayed.
 

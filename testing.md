@@ -194,12 +194,125 @@
 **Homepage**
 
 - Search bar
+
   - Confirm that users are able to search by maintenance_level, plant_nickname or plant_botanical_name.
   - Confirm that search returns matching results.
   - Confirm that users are alerted if no matches are found and all plants are displayed.
 
 - Redirect Buttons
-  - Confirm that buttons are only visibly if user is logged in 
+
+  - Confirm that buttons are only visibly if user is logged in.
+  - Confirm that buttons are not visible on mobile.
+  - Confirmed on click:
+    - **Plant** takes user to all_plants.
+    - **Login** takes user to login.
+    - **Join** takes user to join.
+
+- Promo Content
+
+  - Confirmed on click:
+    - **Browse Plants** takes user to all_plants.
+    - **Login** takes user to login.
+    - **Join** takes user to join.
+
+- Carousel
+
+  - Confirm that images render correctly.
+  - Confirm that plant_nickname and posted_by is correct.
+  - Confirm that newest plant posts are inserted in to carousel by adding a new plant.
+  - Confirm that clicking an image takes user to that plant's profile page.
+
+**Plants Page**
+
+- Search bar
+- See homepage Search Bar above.
+
+- Confirm that matching results are rendered correctly.
+
+- Search Bar Reset Button
+
+- Confirm that clicking displays all plants.
+
+- Plant Cards
+  - Confirm that all cards are laid out correctly by adding a plant.
+  - Confirmed on click:
+    - Image brings up more information on the plant.
+    - **Care guide** link takes user to the plant's profile page.
+
+**Plant Profile Page**
+
+- Hero Image Content 
+  - Confirm hero image content has been correctly insterted from plant_post database. 
+
+- Plant Info
+  - Confirm content has been correctly insterted from plant_post database. 
+  - Confirm that the plant image is responsive on a range of devices.
+  - Confirm that **last updated** changes if plant is edited. 
+
+
+
+
+**Login Page**
+
+- Form
+
+  - Confirm that the log in form is displayed correctly.
+
+  - Confirm that user is not logged in and a flash message appears if on click of **login**:
+
+    - Either the password or username is incorrect.
+    - Both the password and username are incorrect.
+
+  - Confirm that user is logged in and redirected on click of **login** to their profile page if:
+    - The username matches the hashed password in the database.
+
+- Redirect Links
+
+  - Confirm that **New? Join here ->** takes user to join page.
+
+- Confirm that user is logged in by checking that session data can be seen in developer tools.
+
+**Log Out**
+
+- Confirm on click of **logout** in navbar that user is redirected to login.
+
+- Confirm that logout was successful by checking that no session data can be seen in developer tools.
+
+**Join Page**
+
+- Form
+
+  - Confirm that the join form is displayed correctly.
+
+  - Confirm that an account is not created and a flash message appears if on click of **join** if:
+
+    - The chosen username already exists in the database.
+    - The password and confirm password do not match.
+    - Input does not match requested format.
+
+  - Confirm that if all requirements are met, on click of **join**, an account is created and the user is taken to their profile page.
+
+- Confirm that account has been created by check the MongoDB users collection.
+
+- Redirect Links
+  - Confirm that **
+    Already have an account? Login ->** takes user to join page.
+
+**Join Page**
+- Hero Image Content 
+  - Confirm that username is inserted in to heading.
+  - Confirmed on click that the chevron takes user's to their list.
+
+- User's Plants list
+  - Confirmed that if user has no plants they will be shown a differed to message to if they do. 
+  - Confirm that users are only show plant posts that they have created. 
+  - Confirmed on click: 
+    - Add button takes user to add_plant page. 
+
+- Cards
+  - See Plant Cards in Plants Page above. 
+
+
 
 ### Bugs
 

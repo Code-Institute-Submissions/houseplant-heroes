@@ -34,8 +34,8 @@
      - [Homepage](#homepage)
      - [Plants Page](#plants-page)
      - [Plant Profile Page](#plant-profile-page)
-     - [Login Page](#login)
-     - [Join](#join)
+     - [Login Page](#login-page)
+     - [Join Page](#join-page)
      - [User Profile Page](#user-profile-page)
      - [Add Plant Page](#add-plant-page)
      - [Edit Plant Page](#edit-plant-page)
@@ -325,7 +325,8 @@ User's arrive on this page following a link from either the All Plants Page or U
 - The plant description provides a little more information the plant, it is capped at 400 characters to ensure there is no overflow.
 
 **Plant Info**
-This section contains more detailed information on the plant.
+
+- This section contains more detailed information on the plant.
 
 - To the left or top of section(depending on screen size):
 
@@ -389,20 +390,24 @@ The comments section allows users to leave comments about specific plants. The a
 
   - user is directed to their profile page.
 
-- If either are incorrect:
+- If either or both are incorrect:
   - flash message is displayed "Incorrect username and/or password please try again.". It is not specified which is incorrect to increase security.
 
 **Redirect Links**
 
 - A link for the join page is provided "New? Join here ->" in case the user has found themselves in the wrong place and needs redirecting.
 
-### Join
+### Join Page
 
 ![Join Responsive](./static/images/readme_images/responsive/join-responsive.png)
 
 **Form**
 
 - Similarly, to the login page, a simple form is used for the user to enter a desired username and password.
+
+- If the chosen username already exists in the database (checked by Python):
+
+  - flash message will appear, "Username already in user, please try another".
 
 - Users are asked to confirm password, (checked by Python). If the passwords don't match a flash message is displayed, "Passwords don't match, please try again"
 
@@ -412,10 +417,6 @@ The comments section allows users to leave comments about specific plants. The a
 
   - input field will be underlined in red, see (colour scheme)[#colour-scheme].
   - on submit, they will not be permitted to proceed.
-
-- If the chosen username already exists in the database (checked by Python):
-
-  - flash message will appear, "Username already in user, please try another".
 
 - If user input meets all requirements:
 
@@ -536,7 +537,7 @@ The edit plant page is almost identical to the add plant page (above) with a few
 
 12. Comments Notification
 
-    - Notify users when a plant that they have posted recieves a comment. 
+    - Notify users when a plant that they have posted recieves a comment.
 
 # Information Architecture
 
@@ -583,7 +584,7 @@ In order to access relational data, shared inner objects were used inside the da
 #### 3. Comments Collection
 
 | Title            | Key in db     | Data type |
-| -------------    | ------------- | --------- |
+| ---------------- | ------------- | --------- |
 | Comment ID       | \_id          | ObjectId  |
 | Plant Post ID    | plant_post_id | string    |
 | Posted at        | posted_at     | date      |

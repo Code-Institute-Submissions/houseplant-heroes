@@ -15,7 +15,7 @@
 
    - [Devices & Browsers](#devices-tested-on)
    - [User Testing](#testing)
-   - [Testing Interactive Elements](#testing-interactive-elements)
+   - [Testing Features](#testing-interactive-elements)
 
 4. [Bugs](#bugs)
 
@@ -131,7 +131,26 @@
 
 - Friends and family members viewed the site and provided feedback on bugs and UX issues.
 
-#### Testing Interactive Elements
+#### Testing Features
+
+**Elements on Every Page Desktop**
+
+- Navbar
+
+  - Hovering over each link confirms that the hover effect works as intended.
+
+  - Confirmed on click:
+    - **Houseplant Hero logo** takes user to homepage.
+    - **Home** takes user to homepage.
+    - **Plants** takes user to all_plants page.
+    - **Login** takes user to login page.
+    - **Join** takes user to join page.
+  - Logging in, confirm that the navbar no longer displays the Log In or Join links but now displays Profile, Add Plant and Log Out.
+
+  - Confirmed on click:
+    - **Profile** takes user to their profile page.
+    - **Add Plant** takes user to the add_plant page.
+    - **Logout** triggers function to remove session user, logging them out and reverting navbar to logged out configuration.
 
 ### Bugs
 

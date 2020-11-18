@@ -209,3 +209,8 @@ body > section > div > form > div:nth-child(10) > div > div > input {
 .hover-col:hover {
   color: #9e9e9e;
 }
+
+
+.caret {
+  border-color: transparent !important;
+}

@@ -1,21 +1,10 @@
 $(document).ready(function () {
   $(".sidenav").sidenav();
-  $("select").formSelect();
+
   $(".tooltipped").tooltip();
-  $(".modal").modal();
 
-  // init Masonry
-  var $grid = $(".grid").masonry({
-    itemSelector: ".grid-item",
-    gutter: 15,
-    fitWidth: true,
-  });
-  // layout Masonry after each image loads
-  $grid.imagesLoaded().progress(function () {
-    $grid.masonry("layout");
-  });
-
-  // validate select box
+  $("select").formSelect();
+    // validate select box
   $("select[required]").css({
     display: "block",
     height: 0,
@@ -24,7 +13,9 @@ $(document).ready(function () {
     position: "absolute",
   });
 
-  // responsive slick carousel
+  $(".modal").modal();
+
+// responsive slick carousel
   $(".responsive").slick({
     dots: true,
     lazyLoad: "ondemand",
@@ -60,5 +51,17 @@ $(document).ready(function () {
         },
       },
     ],
+  });
+
+  // init Masonry
+  var $grid = $(".grid").masonry({
+    itemSelector: ".grid-item",
+    gutter: 15,
+    fitWidth: true,
+  });
+
+  // layout Masonry after each image loads
+  $grid.imagesLoaded().progress(function () {
+    $grid.masonry("layout");
   });
 });

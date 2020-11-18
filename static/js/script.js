@@ -12,6 +12,9 @@ $(document).ready(function () {
     width: 0,
     position: "absolute",
   });
+    $('li[id^="select-options"]').on('touchend', function (e) {
+     e.stopPropagation();
+  }); 
 
   $(".modal").modal();
 

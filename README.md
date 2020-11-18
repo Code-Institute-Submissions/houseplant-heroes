@@ -677,10 +677,11 @@ In order to access relational data, shared inner objects were used inside the da
 ### See [testing.md](./testing.md)
 
 # Deployment
-## Making a Local Clone 
+
+## Making a Local Clone on Gitpod
 
 Required tools: 
-- An IDE such as [Gitpod](https://gitpod.io/)
+- [Gitpod](https://gitpod.io/)
 
 **Must be** installed on your machine:
 - [PIP](https://pip.pypa.io/en/stable/installing/)
@@ -689,10 +690,102 @@ Required tools:
     - See how to set up your Mongo Atlas account [here](https://docs.atlas.mongodb.com/).
 - If using an IDE other than Gitpod: [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03)
 
-## Making a Local Clone 
+## Making a Local Clone on Gitpod
 
-1. Save a copy of the [this](https://github.com/irahbt/houseplant-heroes) github repository by clicking the "download zip" button at the top of the page and extracting the zip file to your chosen folder. If you have Git installed on your system, you can clone the repository with the following command.
-1. 
+1. Navigate to this project's github repository [https://github.com/irahbt/houseplant-heroes](https://github.com/irahbt/houseplant-heroes) 
+
+2. Above the list of files, click "Clone"
+
+3. The default is to clone the repository using HTTPS, under "Clone with HTTPS", to clone the repository using an SSH key click "Use SSH"
+
+4. Click the icon next to the link to copy your link
+
+5. Open terminal
+
+6. Change the current working directory to the location where you want the cloned directory
+
+7. Clone repository with terminal command:  
+```
+git clone <paste copied link>
+
+```
+
+8.  Install all required modules with terminal command:
+```
+pip -r requirements.txt
+
+```
+9. Create a file called `env.py`
+
+10. Create a file called `.gitignore`
+
+11. Type `env.py` in to `.gitignore` file
+
+12. Create a SECRET_KEY variable and a MONGO_URI to link to your own database
+
+13. The `env.py` must contain the following variables ([see Heroku Deployment](#heroku-deployment) step 8. for details of how to obtain these): 
+```
+os.environ.setdefault("IP", "0.0.0.0")
+os.environ.setdefault("PORT", "5000")
+os.environ.setdefault("SECRET_KEY", "<your_secret_key")
+os.environ.setdefault("MONGO_URI", "<your_mongo_uri")
+os.environ.setdefault("MONGO_DBNAME", "houseplant_heroes")
+
+```
+
+14. Run application with terminal command: 
+```
+python3 app.py
+```
+
+## Heroku Deployment
+
+1. Create a `requirements.txt` file with terminal command:
+```
+pip freeze > requirements.txt
+```
+
+2.  Create a `Procfile` with terminal command 
+```
+echo web: python app.py > Procfile
+```
+
+3. `git add` and `git commit -m` the new requirements in terminal and Procfile and then `git push` the project to GitHub.
+
+4. Create an account on [Heroku](https://dashboard.heroku.com/apps)
+
+5. Once logged in, create a new app by clicking the "New" button in your dashboard. Give it a name and set the region to Europe.
+
+6. Confirm that the heroku app is linked to the correct GitHub repository.
+
+7. On the Heroku dashboard for the app, go to "Settings" > "Reveal Config Vars".
+
+8. Set the config vars
+
+- To get your MONGO_URI read the [MongoDB Atlas documentation ](https://docs.atlas.mongodb.com/)
+
+| Key | Value |
+ --- | ---
+IP | 0.0.0.0
+MONGO_DBNAME | houseplant_heroes
+MONGO_URI | <your_mongo_uri>
+PORT | 5000
+SECRET_KEY | <your_secret_key>
+
+9. In the heroku dashboard, go to "Deploy"
+
+10.  In the heroku dashboard, click "Deploy"
+
+11. Select deployment method > "GitHub"
+
+12. Select "Enable Automatic Deployment"
+
+13. Make sure master branch is selected
+
+14. Click "Deploy Branch" 
+
+15. Once app has been built, click "View" to launch your deployed app
+
 
 ## Credits
 

@@ -361,10 +361,23 @@
 ### Bugs
 
 - When adding a plant on IOS mobile devices, a double caret appears:
+![Caret Bug](./static/images/readme_images/caret-bug.png)
 
-
-  - After extensive research I found that the second caret could be removed with [CSS](https://stackoverflow.com/questions/34804562/materialize-select-input-shows-two-carets)`.caret {
+  - After extensive research I found that the second caret could be removed with [CSS](https://stackoverflow.com/questions/34804562/materialize-select-input-shows-two-carets): 
+  `.caret {
   border-color: transparent !important;
 }`
+  - However, there is a known bug with the Materialize select on touch IOS see [here](https://github.com/Dogfalo/materialize/issues/6449) that makes selection difficult. 
 
+   - I made the decision to pick substance over style and keep both carets visible as the second caret is effective. This users the ability to select but may cause confusion. 
+
+  - A fix for this has been established [here](https://github.com/Dogfalo/materialize/commit/c0da34049deec36efbd4681f73b3446e92918ca8) but was beyond the scope of this project. I've left it here to be implemented in the future. 
+
+- In the add_plant and edit_plant forms, labels exeding two lines (just 'humidity' in this project) cause an overlapping issue:
+![Form Bug](./static/images/readme_images/form-bug.png)
+  - As the bug is purely aesthetic and does not cause any input issues, it has been left for now as overriding Materialize CSS can be fiddly. But should be addressed in the future. 
+
+- Occasionally, the carousel on the homepage shows alt images when the whole image is not in view (to the left or right). This is due to the inclusion of lazy loading which decreases loading time and can therefore be removed depending on the client's priorities. 
+ 
 - On the Join Page, the username min-length seems to cap characters at one above the stated. To get around this I set the min-length to 3 characters but instructed users to create a username with a min-length of 4 characters.
+

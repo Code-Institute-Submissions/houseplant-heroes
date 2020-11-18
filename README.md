@@ -69,10 +69,25 @@
 
 6. <details><summary>Deployment
    </summary>
+
+   - [Requirements](#requirements)
+   
+   - [Making a Local Clone on Gitpod](#making-a-local-clone-on-gitpod)
+
+   - [Heroku Deployment](#heroku-deployment)
+
    </details>
 
 7. <details><summary>Credits
    </summary>
+
+   - [Content](#content)
+
+   - [Media](#media)
+
+   - [Code](#code)
+
+   - [Acknowledgements](#acknowledgements)
    </details>
 
 # UX
@@ -678,10 +693,9 @@ In order to access relational data, shared inner objects were used inside the da
 
 # Deployment
 
-## Making a Local Clone on Gitpod
-
+## Requirements 
 Required tools: 
-- [Gitpod](https://gitpod.io/)
+- [Gitpod](https://gitpod.io/) or other IDE
 
 **Must be** installed on your machine:
 - [PIP](https://pip.pypa.io/en/stable/installing/)

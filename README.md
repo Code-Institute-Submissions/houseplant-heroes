@@ -312,7 +312,7 @@ As the first thing the user sees, the homepage was designed to be clear and info
 ### Plant Profile Page
 
 ![Join Responsive](./static/images/readme_images/responsive/plant-profile-responsive.png)
-User's arrive on this page following a link from either the All Plants Page or User Profile Page card lists.
+Users arrive on this page following a link from either the All Plants Page or User Profile Page card lists.
 
 **Hero Image Content**
 
@@ -457,7 +457,7 @@ The comments section allows users to leave comments about specific plants. The a
 
 **Hero Image Content**
 
-- The subheading reassures users that they will be able to edit or delete their plant should the wish to later. This was include so that user's do not over-think their posts.
+- The subheading reassures users that they will be able to edit or delete their plant should the wish to later. This was include so that users do not over-think their posts.
 
 **Form**
 
@@ -465,11 +465,11 @@ The comments section allows users to leave comments about specific plants. The a
 
 - Feedback is provided to the user by underlining in either green or red, see (colour scheme)[#colour-scheme]. The form will not be submitted until everything is green.
 
-- As MongoDB, alone, is not capable of storing images. User's are asked to paste an imaged url instead. A tooltip provides instructions on how to do this.
+- As MongoDB, alone, is not capable of storing images. Users are asked to paste an imaged url instead. A tooltip provides instructions on how to do this.
 
 - A switch is used for the "Is the plant air purifying" as it can only be yes or no.
 
-- A dropdown selection is used for the maintenance level in order to limit the user input. This makes it easier for user's to search plants by maintenance level as it can only have three specific terms: easy, medium and hard. Materialize CSS does not provide validation for select options so a jquery method was taken from [this](https://stackoverflow.com/questions/34248898/how-to-validate-select-option-for-a-materialize-dropdown) stack overflow answer from user Imran Saleem.
+- A dropdown selection is used for the maintenance level in order to limit the user input. This makes it easier for users to search plants by maintenance level as it can only have three specific terms: easy, medium and hard. Materialize CSS does not provide validation for select options so a jquery method was taken from [this](https://stackoverflow.com/questions/34248898/how-to-validate-select-option-for-a-materialize-dropdown) stack overflow answer from user Imran Saleem.
 
 - The add button submits the form, adding the post to the database.
 
@@ -490,7 +490,7 @@ The edit plant page is almost identical to the add plant page (above) with a few
 
 1. User password reset
 
-   - Allow user's the ability to reset their password if forgotten
+   - Allow users the ability to reset their password if forgotten
 
 2. Pagination
 
@@ -499,17 +499,17 @@ The edit plant page is almost identical to the add plant page (above) with a few
 
 3. Autofill of search input
 
-   - This would provide user's with guidance of search terms.
+   - This would provide users with guidance of search terms.
 
 4. Favourite Plant Button
 
-   - To allow user's to have a list of their favourites displayed on their profile page.
+   - To allow users to have a list of their favourites displayed on their profile page.
 
 5. Plant Tracking Dashboard
 
    - Eventually, I would like to implement a plant tracking system.
    - This would allow users to input information and track their plants in their profile page.
-   - E.g. a "water plant" button would remind user's of the last time they watered their plants.
+   - E.g. a "water plant" button would remind users of the last time they watered their plants.
    - This type of information is likely more suited to an SQL database.
 
 6. Reply to comment
@@ -527,7 +527,7 @@ The edit plant page is almost identical to the add plant page (above) with a few
 
 9. Contact Page
 
-   - A contact page would allow user's to contact admit with any questions or issues they have.
+   - A contact page would allow users to contact admin with any questions or issues they have.
 
 10. Admin Dashboard
 
@@ -789,16 +789,38 @@ SECRET_KEY | <your_secret_key>
 
 ## Credits
 
-https://stackoverflow.com/questions/34248898/how-to-validate-select-option-for-a-materialize-dropdown
-
-https://kenwheeler.github.io/slick/
-
-### Code
 
 ### Content
 
+- The majority of information for plant posts, where "Posted by Admin", was sourced from [Patch Plants](https://www.patchplants.com/gb/en/).
+
 ### Media
 
-- https://tinypng.com/
-- background img w3schools https://www.w3schools.com/howto/howto_css_hero_image.asp
-- https://realfavicongenerator.net/
+- The hero image was sourced from [Unsplash](https://unsplash.com/).
+
+- [Tiny PNG](https://tinypng.com/) was used to compressthe hero image size.
+
+- The majority of image URL's for plant posts, where "Posted by Admin", were sourced from [Patch Plants](https://www.patchplants.com/gb/en/).
+
+- [Real Favicon Generator](https://realfavicongenerator.net/) was used to generate the website's favicon. 
+
+- Icons were sourced from either [Font Awesome](https://fontawesome.com/) or [Icons8](https://icons8.com/)
+
+### Code
+
+- [Materialize CSS](https://materializecss.com/) code was used throughout.
+
+- Code for the hero image was adapted from [this](https://www.w3schools.com/howto/howto_css_hero_image.asp) W3School post.
+
+- Code to validate Materialize CSS select was takend for [this](https://stackoverflow.com/questions/34248898/how-to-validate-select-option-for-a-materialize-dropdown
+) Stack Overflow post.
+
+- Code for the slick carousel was taken from [Kenwheeler's website](https://kenwheeler.github.io/slick/). 
+
+- Code was adapted from the Code Institute Solutions [Task Manager](https://github.com/Code-Institute-Solutions/TaskManager/tree/flask-rebuild-2020) project. 
+
+### Acknowledgements 
+
+Special thanks to my Code Institute mentor, Dick Vlaanderen, for his guidance throughout this project. 
+
+

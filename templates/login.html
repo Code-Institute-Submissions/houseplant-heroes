@@ -1,5 +1,4 @@
-{% extends "base.html" %}
-{% set active_page = "login" %}
+{% extends "base.html" %} {% set active_page = "login" %}
 
 <!-- hero image opening div -->
 {% block hero_image_begin %}
@@ -63,7 +62,8 @@
         <p class="white-text text-shadow">
           New? Join
           <a href="{{ url_for('join') }}" class="white-text text-shadow"
-            ><b class="hover-col"> here <i class="fas fa-long-arrow-alt-right"></i></b
+            ><b class="hover-col">
+              here <i class="fas fa-long-arrow-alt-right"></i></b
           ></a>
         </p>
       </div>

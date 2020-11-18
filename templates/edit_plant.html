@@ -3,15 +3,15 @@
 <!-- hero image opening div -->
 {% block hero_image_begin %}
 <div class="hero-image hero-img-edit-plant">
-	{% endblock %}
+  {% endblock %}
 
-	<!-- heading -->
-	{% block heading %}
-	<div class="margin-bottom-10">Edit your Plant</div>
-	{% endblock %}
+  <!-- heading -->
+  {% block heading %}
+  <div class="margin-bottom-10">Edit your Plant</div>
+  {% endblock %}
 
-	<!-- hero image closing div -->
-	{% block hero_image_end %}
+  <!-- hero image closing div -->
+  {% block hero_image_end %}
 </div>
 {% endblock %}
 
@@ -20,12 +20,16 @@
 
 <!-- form -->
 <div class="container plant-form">
-	<div class="row">
-		<form class="col s12" method="POST" action="{{ url_for('edit_plant', plant_post_id=plant_post._id) }}">
-			<!-- Plant Nickname -->
-			<div class="row">
-				<div class="input-field col s12">
-					<input
+  <div class="row">
+    <form
+      class="col s12"
+      method="POST"
+      action="{{ url_for('edit_plant', plant_post_id=plant_post._id) }}"
+    >
+      <!-- Plant Nickname -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input
             id="plant_nickname"
             name="plant_nickname"
             type="text"
@@ -34,13 +38,13 @@
             maxlength="30"
             required
           />
-					<label for="plant_nickname">Plant Nickame</label>
-				</div>
-			</div>
-			<!-- Plant botanical name -->
-			<div class="row">
-				<div class="input-field col s12">
-					<input
+          <label for="plant_nickname">Plant Nickame</label>
+        </div>
+      </div>
+      <!-- Plant botanical name -->
+      <div class="row">
+        <div class="input-field col s12">
+          <input
             id="plant_botanical_name"
             name="plant_botanical_name"
             type="text"
@@ -49,13 +53,13 @@
             maxlength="50"
             required
           />
-					<label for="plant_botanical_name">Plant Botanical Name</label>
-				</div>
-			</div>
-			<!-- plant description -->
-			<div class="row">
-				<div class="input-field col s12">
-					<textarea
+          <label for="plant_botanical_name">Plant Botanical Name</label>
+        </div>
+      </div>
+      <!-- plant description -->
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea
             id="plant_description"
             name="plant_description"
             maxlength="400"
@@ -63,22 +67,24 @@
             required
           >
 {{- plant_post.plant_description -}}
-</textarea>
-					<label for="plant_description">Plant Description</label>
-				</div>
-			</div>
-			<!-- image url -->
-			<div class="row">
-				<div class="input-field col s12">
-					<textarea
+</textarea
+          >
+          <label for="plant_description">Plant Description</label>
+        </div>
+      </div>
+      <!-- image url -->
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea
             id="plant_image_url"
             name="plant_image_url"
             class="materialize-textarea validate form-text"
             required
           >
 {{- plant_post.plant_image_url -}}
-</textarea>
-					<label for="plant_image_url"
+</textarea
+          >
+          <label for="plant_image_url"
             >Image URL
             <i
               class="fas fa-info-circle tooltipped"
@@ -86,12 +92,12 @@
               data-tooltip="Right click on any online image (e.g. google images), select 'Copy Image Address' and paste here"
             ></i
           ></label>
-				</div>
-			</div>
-			<!-- best environment -->
-			<div class="row">
-				<div class="input-field col s12 form-text">
-					<textarea
+        </div>
+      </div>
+      <!-- best environment -->
+      <div class="row">
+        <div class="input-field col s12 form-text">
+          <textarea
             id="best_environment"
             name="best_environment"
             class="materialize-textarea validate form-text"
@@ -99,14 +105,15 @@
             required
           >
 {{- plant_post.best_environment -}}
-</textarea>
-					<label for="best_environment">Where should the plant be kept?</label>
-				</div>
-			</div>
-			<!-- water -->
-			<div class="row">
-				<div class="input-field col s12">
-					<textarea
+</textarea
+          >
+          <label for="best_environment">Where should the plant be kept?</label>
+        </div>
+      </div>
+      <!-- water -->
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea
             id="water"
             name="water"
             class="materialize-textarea validate form-text"
@@ -114,14 +121,15 @@
             required
           >
         {{- plant_post.water -}}
-</textarea>
-					<label for="water">Home much water does the plant need?</label>
-				</div>
-			</div>
-			<!-- humidity -->
-			<div class="row">
-				<div class="input-field col s12">
-					<textarea
+</textarea
+          >
+          <label for="water">Home much water does the plant need?</label>
+        </div>
+      </div>
+      <!-- humidity -->
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea
             id="humidity"
             name="humidity"
             class="materialize-textarea validate form-text"
@@ -129,30 +137,33 @@
             required
           >
 {{- plant_post.humidity -}}
-</textarea>
-					<label for="humidity"
-            >Does the plant need moisture? Would it benefit from misting?</label>
-				</div>
-			</div>
-			<!-- feeding -->
-			<div class="row">
-				<div class="input-field col s12">
-					<textarea
+</textarea
+          >
+          <label for="humidity"
+            >Does the plant need moisture? Would it benefit from misting?</label
+          >
+        </div>
+      </div>
+      <!-- feeding -->
+      <div class="row">
+        <div class="input-field col s12">
+          <textarea
             id="feeding"
             name="feeding"
             class="materialize-textarea validate form-text"
             maxlength="200"
             required
           >
-{{- plant_post.feeding -}}</textarea>
-					<label for="feeding">How often should the plant be fed?</label>
-				</div>
-			</div>
-			<!-- Is air purfiying switch -->
-			<div class="row">
-				<div class="input-field col s12">
-					<div class="switch">
-						<label for="is_air_purifying" class="font-1rem">
+{{- plant_post.feeding -}}</textarea
+          >
+          <label for="feeding">How often should the plant be fed?</label>
+        </div>
+      </div>
+      <!-- Is air purfiying switch -->
+      <div class="row">
+        <div class="input-field col s12">
+          <div class="switch">
+            <label for="is_air_purifying" class="font-1rem">
               Is this plant air purifying? {% if plant_post.is_air_purifying ==
               "on" %}
               <input
@@ -173,13 +184,13 @@
               <span class="lever"></span>
               Yes
             </label>
-					</div>
-				</div>
-			</div>
-			<!-- maintenance select -->
-			<div class="row">
-				<div class="input-field col s12">
-					<select
+          </div>
+        </div>
+      </div>
+      <!-- maintenance select -->
+      <div class="row">
+        <div class="input-field col s12">
+          <select
             id="maintenance_level"
             name="maintenance_level"
             class="validate"
@@ -188,8 +199,8 @@
             <option value="" class="font-1rem grey-text" disabled
               >How easy is it to take care of the plant?</option
             >
-            {% for level in maintenance_level %} {% if level.level_name
-            == plant_post.level_name %}
+            {% for level in maintenance_level %} {% if level.level_name ==
+            plant_post.level_name %}
 
             <option value="{{ level.level_name }}" selected
               >{{ level.level_name }}</option
@@ -200,25 +211,27 @@
             >
             {% endif %} {% endfor %}
           </select>
-				</div>
-			</div>
-			<div class="row padding-30">
-				<div class="col s12 center-align">
-					<!-- submit button -->
-					<button
+        </div>
+      </div>
+      <div class="row padding-30">
+        <div class="col s12 center-align">
+          <!-- submit button -->
+          <button
             type="submit"
             class="btn-floating btn-large waves-effect waves-light grey"
           >
             <i class="far fa-edit white-text small"></i>
           </button>
-					<!-- cancel button -->
-					<a href="{{ url_for('plant_profile', plant_post_id=plant_post._id) }}"
-						class="btn-floating btn-large waves-effect waves-light grey">
-						<i class="fas fa-times white-text small"></i>
-					</a>
-				</div>
-			</div>
-		</form>
-	</div>
+          <!-- cancel button -->
+          <a
+            href="{{ url_for('plant_profile', plant_post_id=plant_post._id) }}"
+            class="btn-floating btn-large waves-effect waves-light grey"
+          >
+            <i class="fas fa-times white-text small"></i>
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
 </div>
 {% endblock %}

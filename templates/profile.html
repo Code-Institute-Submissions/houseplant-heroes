@@ -1,5 +1,4 @@
-{% extends "base.html" %}
-{% set active_page = "profile" %}
+{% extends "base.html" %} {% set active_page = "profile" %}
 
 <!-- hero image opening div -->
 {% block hero_image_begin %}
@@ -81,7 +80,7 @@
             href="{{ url_for('plant_profile', plant_post_id=plant_post._id) }}"
           >
             <p class="hover-col padding-top-20">
-             Full Care Guide
+              Full Care Guide
               <i class="fas fa-long-arrow-alt-right hover-col"></i></p
           ></a>
         </div>

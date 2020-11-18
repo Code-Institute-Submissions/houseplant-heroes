@@ -71,7 +71,7 @@
    </summary>
 
    - [Requirements](#requirements)
-   
+
    - [Making a Local Clone on Gitpod](#making-a-local-clone-on-gitpod)
 
    - [Heroku Deployment](#heroku-deployment)
@@ -499,6 +499,7 @@ The edit plant page is almost identical to the add plant page (above) with a few
   - The cancel button returns the user back to the plant's profile without any change.
 
 ### 404 Page
+
 - The custom 404 page contains links to refirect the user back to either the homepage or the plants page.
 
 ## Features Left to Implement
@@ -556,6 +557,9 @@ The edit plant page is almost identical to the add plant page (above) with a few
 12. Comments Notification
 
     - Notify users when a plant that they have posted recieves a comment.
+
+13. Image URL validation
+    - Currently, users are able to add an incorrect image url, resulting in a default to alt image.
 
 # Information Architecture
 
@@ -693,20 +697,23 @@ In order to access relational data, shared inner objects were used inside the da
 
 # Deployment
 
-## Requirements 
-Required tools: 
+## Requirements
+
+Required tools:
+
 - [Gitpod](https://gitpod.io/) or other IDE
 
 **Must be** installed on your machine:
+
 - [PIP](https://pip.pypa.io/en/stable/installing/)
 - [Python 3](https://www.python.org/downloads/)
-- An account with[MongoDB Atlas](https://www.mongodb.com/cloud/atlas) or MongoDB running locally on your machine. 
-    - See how to set up your Mongo Atlas account [here](https://docs.atlas.mongodb.com/).
+- An account with[MongoDB Atlas](https://www.mongodb.com/cloud/atlas) or MongoDB running locally on your machine.
+  - See how to set up your Mongo Atlas account [here](https://docs.atlas.mongodb.com/).
 - If using an IDE other than Gitpod: [Git](https://gist.github.com/derhuerst/1b15ff4652a867391f03)
 
 ## Making a Local Clone on Gitpod
 
-1. Navigate to this project's github repository [https://github.com/irahbt/houseplant-heroes](https://github.com/irahbt/houseplant-heroes) 
+1. Navigate to this project's github repository [https://github.com/irahbt/houseplant-heroes](https://github.com/irahbt/houseplant-heroes)
 
 2. Above the list of files, click "Clone"
 
@@ -718,17 +725,20 @@ Required tools:
 
 6. Change the current working directory to the location where you want the cloned directory
 
-7. Clone repository with terminal command:  
+7. Clone repository with terminal command:
+
 ```
 git clone <paste copied link>
 
 ```
 
 8.  Install all required modules with terminal command:
+
 ```
 pip -r requirements.txt
 
 ```
+
 9. Create a file called `env.py`
 
 10. Create a file called `.gitignore`
@@ -737,7 +747,8 @@ pip -r requirements.txt
 
 12. Create a SECRET_KEY variable and a MONGO_URI to link to your own database
 
-13. The `env.py` must contain the following variables ([see Heroku Deployment](#heroku-deployment) step 8. for details of how to obtain these): 
+13. The `env.py` must contain the following variables ([see Heroku Deployment](#heroku-deployment) step 8. for details of how to obtain these):
+
 ```
 os.environ.setdefault("IP", "0.0.0.0")
 os.environ.setdefault("PORT", "5000")
@@ -747,7 +758,8 @@ os.environ.setdefault("MONGO_DBNAME", "houseplant_heroes")
 
 ```
 
-14. Run application with terminal command: 
+14. Run application with terminal command:
+
 ```
 python3 app.py
 ```
@@ -755,11 +767,13 @@ python3 app.py
 ## Heroku Deployment
 
 1. Create a `requirements.txt` file with terminal command:
+
 ```
 pip freeze > requirements.txt
 ```
 
-2.  Create a `Procfile` with terminal command 
+2.  Create a `Procfile` with terminal command
+
 ```
 echo web: python app.py > Procfile
 ```
@@ -778,17 +792,17 @@ echo web: python app.py > Procfile
 
 - To get your MONGO_URI read the [MongoDB Atlas documentation ](https://docs.atlas.mongodb.com/)
 
-| Key | Value |
- --- | ---
-IP | 0.0.0.0
-MONGO_DBNAME | houseplant_heroes
-MONGO_URI | <your_mongo_uri>
-PORT | 5000
-SECRET_KEY | <your_secret_key>
+| Key          | Value             |
+| ------------ | ----------------- |
+| IP           | 0.0.0.0           |
+| MONGO_DBNAME | houseplant_heroes |
+| MONGO_URI    | <your_mongo_uri>  |
+| PORT         | 5000              |
+| SECRET_KEY   | <your_secret_key> |
 
 9. In the heroku dashboard, go to "Deploy"
 
-10.  In the heroku dashboard, click "Deploy"
+10. In the heroku dashboard, click "Deploy"
 
 11. Select deployment method > "GitHub"
 
@@ -796,13 +810,11 @@ SECRET_KEY | <your_secret_key>
 
 13. Make sure master branch is selected
 
-14. Click "Deploy Branch" 
+14. Click "Deploy Branch"
 
 15. Once app has been built, click "View" to launch your deployed app
 
-
 ## Credits
-
 
 ### Content
 
@@ -816,7 +828,7 @@ SECRET_KEY | <your_secret_key>
 
 - The majority of image URL's for plant posts, where "Posted by Admin", were sourced from [Patch Plants](https://www.patchplants.com/gb/en/).
 
-- [Real Favicon Generator](https://realfavicongenerator.net/) was used to generate the website's favicon. 
+- [Real Favicon Generator](https://realfavicongenerator.net/) was used to generate the website's favicon.
 
 - Icons were sourced from either [Font Awesome](https://fontawesome.com/) or [Icons8](https://icons8.com/)
 
@@ -826,15 +838,12 @@ SECRET_KEY | <your_secret_key>
 
 - Code for the hero image was adapted from [this](https://www.w3schools.com/howto/howto_css_hero_image.asp) W3School post.
 
-- Code to validate Materialize CSS select was takend for [this](https://stackoverflow.com/questions/34248898/how-to-validate-select-option-for-a-materialize-dropdown
-) Stack Overflow post.
+- Code to validate Materialize CSS select was takend for [this](https://stackoverflow.com/questions/34248898/how-to-validate-select-option-for-a-materialize-dropdown) Stack Overflow post.
 
-- Code for the slick carousel was taken from [Kenwheeler's website](https://kenwheeler.github.io/slick/). 
+- Code for the slick carousel was taken from [Kenwheeler's website](https://kenwheeler.github.io/slick/).
 
-- Code was adapted from the Code Institute Solutions [Task Manager](https://github.com/Code-Institute-Solutions/TaskManager/tree/flask-rebuild-2020) project. 
+- Code was adapted from the Code Institute Solutions [Task Manager](https://github.com/Code-Institute-Solutions/TaskManager/tree/flask-rebuild-2020) project.
 
-### Acknowledgements 
+### Acknowledgements
 
-Special thanks to my Code Institute mentor, Dick Vlaanderen, for his guidance throughout this project. 
-
-
+Special thanks to my Code Institute mentor, Dick Vlaanderen, for his guidance throughout this project.

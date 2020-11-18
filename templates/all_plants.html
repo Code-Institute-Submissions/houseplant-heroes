@@ -63,7 +63,7 @@
   </div>
   <!-- plant post grid -->
   <div class="grid">
-    {% for plant_post in all_plants %}
+    {% for plant_post in all_plants or matching_plants %}
     <div class="grid-item">
       <div class="card">
         <div class="card-image waves-effect waves-block waves-light">

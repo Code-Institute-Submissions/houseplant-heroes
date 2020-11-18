@@ -360,4 +360,11 @@
 
 ### Bugs
 
+- When adding a plant on IOS mobile devices, a double caret appears:
+
+
+  - After extensive research I found that the second caret could be removed with [CSS](https://stackoverflow.com/questions/34804562/materialize-select-input-shows-two-carets)`.caret {
+  border-color: transparent !important;
+}`
+
 - On the Join Page, the username min-length seems to cap characters at one above the stated. To get around this I set the min-length to 3 characters but instructed users to create a username with a min-length of 4 characters.

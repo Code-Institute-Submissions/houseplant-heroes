@@ -26,12 +26,11 @@ mongo = PyMongo(app)
 def home():
     """home:
 
-    Creates list of plant_posts in MongoDb named 'all_plants'
-    Sorts list by Id(highest to lowest) and limits results to 10.
+    * Creates list of all plant_posts in database sorted
+    by newest first and renders on to home.html template
 
     Returns:
-        renders template for home.html with all_plants
-        list insterted and displayed.
+    * home.html with all_plants list insterted and displayed.
 
     """
     all_plants = list(mongo.db.plant_posts.find().sort("_id", -1).limit(10))
@@ -43,12 +42,11 @@ def home():
 def all_plants():
     """all_plants:
 
-    Creates list of plant_posts in MongoDb named 'all_plants'
-    Sort newest first
+    * Creates list of all plant_posts in database sorted
+    by newest first and renders on to all_plants.html
 
     Returns:
-    renders template for all_plants.html with all_plants list insterted
-    and displayed.
+    * all_plants.html with all_plants list insterted and displayed.
 
     """
     all_plants = list(mongo.db.plant_posts.find().sort("_id", -1))
@@ -59,18 +57,13 @@ def all_plants():
 @app.route("/search_all_plants", methods=["GET", "POST"])
 def search_all_plants():
     """search_all_plants:
-    Allows users to search the plant_posts MongoDb using text.
+    * Allows users to search the plant_posts database using text.
 
-    Retrieves search text posted by user and
-    compares to text within plant_posts MongoDb.
-    Creates a list of matching results named 'all_plants'.
-
-    If matching results are found,
-    return renders the template for all_plants.html
-    with all_plants list insterted and displayed to the user.
+    If matching results are found:
+    Returns:
+    * all_plant.html with all plants_posts in database displayed.
 
     Else if no results are found,
-
     Returns:
     redirects users
     to the url for all_plants and a flash message is displayed
@@ -81,11 +74,12 @@ def search_all_plants():
 
     if request.method == "POST":
         search = request.form.get("search")
-        all_plants = list(mongo.db.plant_posts.find(
+        matching_plants = list(mongo.db.plant_posts.find(
             {"$text": {"$search": search}}))
         # check for search result matches
-        if all_plants:
-            return render_template("all_plants.html", all_plants=all_plants)
+        if matching_plants:
+            return render_template(
+                "all_plants.html", matching_plants=matching_plants)
         else:
             flash("No results. Please try again or browse all plants below.")
             return redirect(url_for("all_plants"))

@@ -4,7 +4,7 @@ $(document).ready(function () {
   $(".tooltipped").tooltip();
 
   $("select").formSelect();
-    // validate select box
+  // validate select box
   $("select[required]").css({
     display: "block",
     height: 0,
@@ -15,7 +15,7 @@ $(document).ready(function () {
 
   $(".modal").modal();
 
-// responsive slick carousel
+  // responsive slick carousel
   $(".responsive").slick({
     dots: true,
     lazyLoad: "ondemand",

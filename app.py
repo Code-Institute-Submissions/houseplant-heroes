@@ -26,11 +26,11 @@ mongo = PyMongo(app)
 def home():
     """home:
 
-    * Creates list of all plant_posts in database sorted
+    Creates list of all plant_posts in database sorted
     by newest first and renders on to home.html template
 
     Returns:
-    * home.html with all_plants list insterted and displayed.
+    home.html with all plants list insterted displayed.
 
     """
     all_plants = list(mongo.db.plant_posts.find().sort("_id", -1).limit(10))
@@ -42,11 +42,11 @@ def home():
 def all_plants():
     """all_plants:
 
-    * Creates list of all plant_posts in database sorted
+    Creates list of all plant_posts in database sorted
     by newest first and renders on to all_plants.html
 
     Returns:
-    * all_plants.html with all_plants list insterted and displayed.
+    all_plants.html with all plants list and displayed.
 
     """
     all_plants = list(mongo.db.plant_posts.find().sort("_id", -1))
@@ -57,18 +57,14 @@ def all_plants():
 @app.route("/search_all_plants", methods=["GET", "POST"])
 def search_all_plants():
     """search_all_plants:
-    * Allows users to search the plant_posts database using text.
 
-    If matching results are found:
-    Returns:
-    * all_plant.html with all plants_posts in database displayed.
+    Allows user to search the plant_posts database using text.
 
-    Else if no results are found,
-    Returns:
-    redirects users
-    to the url for all_plants and a flash message is displayed
-    to the user that explains that there are no matching
-    results but they can browse all plants displayed below.
+    If matching results are found, returns:
+    all_plants.html with matching plants displayed.
+
+    Else, returns:
+    all_plants to display all plant_posts in database.
 
     """
 
@@ -88,29 +84,28 @@ def search_all_plants():
 # Register username and password in join.html
 @app.route("/join", methods=["GET", "POST"])
 def join():
-    """
-    Function to allow user to create a username, password and profile.
+    """join:
 
-    Return renders template for join.html.
+    Allows user to create a username and password.
 
-    User posts a desired username which is retrieve from the form.
-    An if/else ladder is first, used to check
-    whether that username already exists in the user MongoDb.
-    If a match is found, a message is flashed to the user username
-    already exist and return redirects user back
-    to the url for join so they are able to try again.
+    Returns:
+    join.html template
 
-    Both the password and confirmed password are
-    retrieved from the form, the an if statement checks that they match.
-    When all if conditions are satisfied, the username and
-    password are retrieved and a password is generated using
-    werkzeug security generate_password_hash.
-    These are then inserted in to the user MongoDb and a session cookie
-    is created for the user from the inputted username.
-    Return redirects user to their profile page based on session cookie.
+    On post to back-end:
+        An if statement is used to check whether the inputted
+        username already exists in the users database.
 
-    If the passwords don't match, a flash message is displayed
-    and return redirects back to join.html.
+        If username does exist returns:
+      join to refresh the page with flash message
+
+        An if/else ladder is used to check that password and
+        confirmed password match, then insert the user in the users database
+
+        If statisfied, returns:
+      user's profile and adds username to session
+
+        Else returns:
+      join to refresh the page with flash message
 
     """
     if request.method == "POST":
@@ -127,12 +122,12 @@ def join():
         password = request.form.get("password")
 
         if confirm_password == password:
-            join = {
+            join_insert = {
                 "username": request.form.get("username").lower(),
                 "password": generate_password_hash(
                     request.form.get("password")),
             }
-            mongo.db.users.insert_one(join)
+            mongo.db.users.insert_one(join_insert)
             # put the new user into session cookie
             session["user"] = request.form.get("username").lower()
             return redirect(url_for("profile", username=session["user"]))
@@ -145,23 +140,26 @@ def join():
 # Login page
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    """
-    Function to allow users to access their profile
+    """ login:
+
+    Allows user to access their profile
     providing their username and password is correct.
 
-    Return renders template for login.html.
+    Returns:
+    login.html template
 
-    User posts username which is retrieve from the form.
-    An if/else ladder is first, used to check username is in the user MongoDb.
+    On post to back-end:
+        An if statement is used to check whether the inputted
+        username already exists in the users database.
+        If it does, the check_password_hash from werkzeug security is used
+        to check that the inputted password is correct.
 
-    If it does, the check_password_hash from werkzeug security is used to
-    check that the inputted password is correct.
-    If it is, a session cookie is created from a session cookie
-    is created for the user from the inputted username
-    and return redirects to their profile page.
+        If correct, a session cookie is created create from username
+        and returns:
+      Profile with username inserted
 
-    If they do not match, a flash message is displayed
-    and return redirects back to login.
+        If they do not match returns:
+      login to refresh the page with flash message
 
     """
 
@@ -192,22 +190,22 @@ def login():
 # User profile page
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    """
-    Function to displays users profile page.
+    """profile:
 
-    Parameters:
-        username: Generated by finding a username in users
-        Mongodb that matches the session cookie to be passed in to url.
+    Displays user's profile page.
 
-    Plant_posts in MongoDb is searched for posted_by the session user
-    and a list, my_plants, is created.
+    Args:
+    1.  username: username from session cookie
 
-    An if statement checks that there is a session user,
-    if there is, return renders a template for profile.html with
-    username = username and my_plants = my_plants
-    to be displayed.
+    If no <username> inserted. Returns:
+    redirect user to login
 
-    If there is no session user, return redirects to login.
+    Creates list of plants posted by session user.
+
+    Checks that a session user is present.
+
+    Returns:
+    profile.html template with username and list displayed.
 
     """
 
@@ -227,11 +225,14 @@ def profile(username):
 # Logout function
 @app.route("/logout")
 def logout():
-    """
-    Function to allow users to logout of their profile.
+    """logout:
 
-    Removes user from session cookie,
-    return redirects to login page and flashes message.
+    Allows user to logout of their profile.
+
+    Removes user from session cookie.
+
+    Returns:
+    Login page and flashes message.
 
     """
     # remove user from session cookie
@@ -243,18 +244,18 @@ def logout():
 # Create a new plant post
 @app.route("/add_plant", methods=["GET", "POST"])
 def add_plant():
-    """
-    Function to allow users to add a new plant_post to the MongoDb.
+    """add_plants:
 
-    Finds maintenece_level in MongoDb.
-    Return renders template for add_plant.html with
-    maitenance_level = maintenance level
+    Allows user to add a new plant_post to the plant_posts database.
 
-    Retrieve air_purfiying from form.
-    When user posts form, retrieve all information and save as 'plant_post'.
-    Insert plant_post in to plant_posts MongoDb.
-    Flash message of thanks and return redirects to
-    users profile page.
+    Returns:
+    add_plant.html template
+
+    On post to back-end:
+        Inserts plant_post based on user input.
+
+        Returns:
+        User's profile page.
 
     """
     is_air_purifying = True if request.form.get("is_air_purifying") else False
@@ -290,22 +291,21 @@ def add_plant():
 # Edit/Update existing plant post
 @app.route("/edit_plant/<plant_post_id>", methods=["GET", "POST"])
 def edit_plant(plant_post_id):
-    """
-    Function to allow users to update a plant_post in the MongoDb.
-    Uses bson ObjectId to render Mongodb documents by their unique id.
+    """edit_plant:
 
-    Parameters:
-        plant_post_id: Unique post id to be to be passed in to url.
+    Allows user to update a plant_post in the MongoDb.
 
-    Finds maintenece_level in MongoDb.
-    Return renders template for edit_plant.html with plant_post=plant_post
-    and maitenance_level = maintenance level.
+    Arguments:
+    1.  plant_post_id: Unique post id
 
-    Retrieve specific plant post from plant_posts using _id to convert,
-    'plant_post_id' in to bson data type, that will be passed in to url.
-    When user posts form, retrieve all information and save as 'submit'.
-    Update specified plant_post with new information and flash message.
-    Return redirects back to the plants profile.
+    Returns:
+    edit_plant.html template
+
+    On post to back-end:
+        Updates specified plant_post in plant_posts database
+
+        Returns:
+        plant_profile template
 
     """
     plant_post = mongo.db.plant_posts.find_one(
@@ -342,21 +342,18 @@ def edit_plant(plant_post_id):
 # Plant profile
 @ app.route("/plant_profile/<plant_post_id>")
 def plant_profile(plant_post_id):
-    """
-    Function to render the profile page for a
-    specific plant and display comments related to that plant.
-    Uses bson ObjectId to render Mongodb documents by their unique id.
+    """plant_profile:
 
-    Parameters:
-        plant_post_id: Unique post id to be to be passed in to url.
+    Profile page for a specific plant with related comments.
 
-    Retrieve specific plant post from plant_posts using _id to convert
-    "plant_post_id" in to bson data type, that will be passed in to url.
-    Creates list, 'comments' from comments in
-    Mongdb with a matching plant_post_id.
-    Finds maintenece_level in MongoDb. Return renders template
-    for plant_profile.html with plant_post=plant_post,
-    maintenance_level=maintenance_level, comments=comments.
+    Arguments:
+    1.  plant_post_id: Unique post id
+
+    Finds specific plant.
+    Creates list of related comments from comments database.
+
+    Returns:
+    plant_profile.html template
 
     """
     plant_post = mongo.db.plant_posts.find_one(
@@ -373,16 +370,17 @@ def plant_profile(plant_post_id):
 # Delete plant post
 @ app.route("/delete_plant/<plant_post_id>")
 def delete_plant(plant_post_id):
-    """
-    Function to allow user to delete a plant_post in the mongoDb.
-    Uses bson ObjectId to render Mongodb documents by their unique id.
+    """delete_plant:
 
-    Parameters:
-        plant_post_id: Unique post id to be to be passed in to url.
+    Allows user to delete a plant_post in the mongoDb.
 
-    Remove specific plant post from plant_posts
-    in to bson data type, that will be passed in to url.
-    Return redirects to url for all_plants and flash message.
+    Arguments:
+    1.  plant_post_id: Unique post id
+
+    Remove specific plant_post from plant_posts database.
+
+    Returns:
+    all_plants page
 
     """
     mongo.db.comments.remove({"plant_post_id": plant_post_id})
@@ -395,18 +393,18 @@ def delete_plant(plant_post_id):
 @ app.route(
     "/<plant_post_id>/comments", methods=["GET", "POST"])
 def insert_comment(plant_post_id):
-    """
-    Function to allow users to add a comment
-    regarding a specific plant to the MongDb.
-    Uses bson ObjectId to render Mongodb documents by their unique id.
+    """insert_comment:
+
+    Allows user to add a comment to a plant_profile page.
 
     Parameters:
         plant_post_id: Unique post id to be to be passed in to url.
 
-    When user posts form, retrieve all information and save as 'comment'.
-    Insert comment in to comments MongoDb.
-    Flash message of thanks and return redirects to
-    url for the plant_profile with newly created comment displayed.
+    On post to back-end:
+        Insert comment in to comments database.
+
+        Returns:
+        plant_profile page
 
     """
     if request.method == "POST":
@@ -428,19 +426,18 @@ def insert_comment(plant_post_id):
 @ app.route(
     "/<plant_post_id>/delete_comment/<comment_id>")
 def delete_comment(plant_post_id, comment_id):
-    """
-    Function to allow users to delete a comment
-    regarding a specific plant from the MongDb.
-    Uses bson ObjectId to render Mongodb documents by their unique id.
+    """delete_comment
 
-    Parameters:
-        plant_post_id: Unique post id to be to be passed in to url.
-        comment_id: Unique comment id to be to be passed in to url.
+    Allows user to delete a specific comment regarding a specific plant.
 
-    Remove specific comment from comments using _id to convert
-    "comment_id" in to bson data type, that will be passed in to url.
-    Return redirects to url for plant_post and flash message.
+    Arguments:
+    1.  plant_post_id: Unique post id
+    2   comment_id: Unique comment id
 
+    Removes specific comment from comments database.
+
+    Returns:
+    plant_profile page
 
     """
     mongo.db.comments.remove({"_id": ObjectId(comment_id)})
@@ -452,6 +449,17 @@ def delete_comment(plant_post_id, comment_id):
 # 404 error handler
 @app.errorhandler(404)
 def page_not_found(e):
+    """page_not_found:
+
+    Custom 404 error page
+
+    Arguments:
+    1.  e: Positional argument
+
+    Returns:
+    404.html template
+
+    """
     return render_template('404.html'), 404
 
 
